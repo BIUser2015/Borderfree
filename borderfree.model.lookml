@@ -4,5 +4,3 @@
 - include: "*.dashboard.lookml"  # include all the dashboards
 
 
-
-- explore: order_fact
