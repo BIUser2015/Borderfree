@@ -76,6 +76,10 @@
 
   - dimension: merchant_ccy
     sql: ${TABLE}.MERCHANT_CCY
+    html: |
+      {{ linked_value }}
+      <a href="/dashboards/5?CCY={{ value }}" >
+      <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
 
   - dimension: mv
     type: number
@@ -109,7 +113,7 @@
 
   - dimension_group: order
     type: time
-    timeframes: [time, date, week, month]
+    timeframes: [time, date, week, month, hour]
     sql: ${TABLE}.ORDER_DATE
 
   - dimension: shipping_country
@@ -122,7 +126,11 @@
     type: int
     sql: ${TABLE}.SHIPPING_COUNTRY_KEY
 
-  - measure: count
+  - dimension: is_order_current_quarter
+    type: yesno
+    sql: quarter(${order_date}) = quarter(sysdate)
+
+  - measure: order_count
     type: count
     drill_fields: [merch_name]
     
@@ -132,4 +140,27 @@
     filter: 
       merchant_ccy: GBP
     value_format: '"£"#,###'
+  
+  - measure: total_mv_both
+    type: sum
+    sql: ${mv}
+ 
+    
+  - measure: total_mv_gpb_cq
+    type: sum
+    sql: ${mv}
+    filter: 
+      merchant_ccy: GBP
+      is_order_current_quarter: yes 
+    value_format: '"£"#,###'
+    
+  - measure: total_mv_usd
+    type: sum
+    sql: ${mv}
+    filter: 
+      merchant_ccy: USD
+    value_format: '"$"#,###'
 
+  - measure: rolling_total_orders
+    type: running_total
+    sql:  ${order_count}
