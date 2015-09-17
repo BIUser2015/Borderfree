@@ -4,3 +4,4 @@
 - include: "*.dashboard.lookml"  # include all the dashboards
 
 
+- explore: executive_dashboard
