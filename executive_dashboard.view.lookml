@@ -125,4 +125,11 @@
   - measure: count
     type: count
     drill_fields: [merch_name]
+    
+  - measure: total_mv_gpb
+    type: sum
+    sql: ${mv}
+    filter: 
+      merchant_ccy: GBP
+    value_format: '"£"#,###'
 
