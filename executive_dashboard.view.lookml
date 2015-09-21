@@ -146,6 +146,26 @@
     type: count
     drill_fields: [merch_name]
     
+  - measure: cancelled_orders
+    type: count
+    filter: 
+     checkout_status: CANCELLED
+    
+  - measure: accepted_orders
+    type: count
+    filter: 
+     checkout_status: GREEN
+     
+  - measure: rejected_orders
+    type: count
+    filter: 
+     checkout_status: RED     
+     
+  - measure: pending_orders
+    type: count
+    filter: 
+     checkout_status: YELLOW  
+  
   - measure: rolling_total_orders
     type: running_total
     sql:  ${total_order_count}  
@@ -179,6 +199,7 @@
     filter: 
       merchant_ccy: GBP
     value_format: '"£"#,###'
+    drill_fields: gmvdrillgbp*
     
   - measure: total_gmv_usd
     type: sum
@@ -186,7 +207,7 @@
     filter: 
       merchant_ccy: USD
     value_format: '"$"#,###'
-    drill_fields: gmvdrill*
+    drill_fields: gmvdrillusd*
   
   - measure: total_mv_gpb_cq
     type: sum
@@ -201,38 +222,85 @@
     filter: 
       merchant_ccy: GBP
     sql: ${gmv_total_product}  
+    value_format: '"£"#,###'
     
   - measure: gmv_total_handling_gbp
     type: sum
     filter: 
       merchant_ccy: GBP
     sql: ${gmv_total_handling}
+    value_format: '"£"#,###'
     
   - measure: gmv_total_shipping_gbp
     type: sum
     filter: 
       merchant_ccy: GBP
     sql: ${gmv_total_shipping}
+    value_format: '"£"#,###'
     
   - measure: gmv_total_tariff_gbp
     type: sum
     filter: 
       merchant_ccy: GBP
     sql: ${gmv_total_tariff}
+    value_format: '"£"#,###'
     
   - measure: gmv_total_vat_gbp
     type: sum
     filter: 
       merchant_ccy: GBP
-    sql: ${gmv_total_vat}    
+    sql: ${gmv_total_vat}
+    value_format: '"£"#,###'
+    
+  - measure: gmv_total_product_usd
+    type: sum
+    filter: 
+      merchant_ccy: USD
+    sql: ${gmv_total_product}  
+    value_format: '"$"#,###'
+    
+  - measure: gmv_total_handling_usd
+    type: sum
+    filter: 
+      merchant_ccy: USD
+    sql: ${gmv_total_handling}
+    value_format: '"$"#,###'
+    
+  - measure: gmv_total_shipping_usd
+    type: sum
+    filter: 
+      merchant_ccy: USD
+    sql: ${gmv_total_shipping}
+    value_format: '"$"#,###'
+    
+  - measure: gmv_total_tariff_usd
+    type: sum
+    filter: 
+      merchant_ccy: USD
+    sql: ${gmv_total_tariff}
+    value_format: '"$"#,###'
+    
+  - measure: gmv_total_vat_usd
+    type: sum
+    filter: 
+      merchant_ccy: USD
+    sql: ${gmv_total_vat} 
+    value_format: '"$"#,###'
 
   sets: 
-    gmvdrill: 
+    gmvdrillgbp: 
       - gmv_total_product_gbp
       - gmv_total_shipping_gbp
       - gmv_total_handling_gbp
       - gmv_total_tariff_gbp
       - gmv_total_vat_gbp
+    
+    gmvdrillusd: 
+      - gmv_total_product_usd
+      - gmv_total_shipping_usd
+      - gmv_total_handling_usd
+      - gmv_total_tariff_usd
+      - gmv_total_vat_usd
       
       
     
