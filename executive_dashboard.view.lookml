@@ -142,10 +142,29 @@
     type: yesno
     sql: year(${order_date}) = year(sysdate)
   
-  - measure: order_count
+  - measure: total_order_count
     type: count
     drill_fields: [merch_name]
     
+  - measure: order_count_irl
+    type: count
+    filter: 
+      merchant_ccy: GBP
+    drill_fields: [merch_name]
+    
+  - measure: order_count_usa
+    type: count
+    filter: 
+      merchant_ccy: USD
+    drill_fields: [merch_name]    
+    
+  - measure: total_mv_usd
+    type: sum
+    sql: ${mv}
+    filter: 
+      merchant_ccy: USD
+    value_format: '"$"#,###'  
+
   - measure: total_mv_gpb
     type: sum
     sql: ${mv}
@@ -157,7 +176,6 @@
     type: sum
     sql: ${mv}
  
-    
   - measure: total_mv_gpb_cq
     type: sum
     sql: ${mv}
@@ -166,13 +184,6 @@
       is_order_current_quarter: yes 
     value_format: '"£"#,###'
     
-  - measure: total_mv_usd
-    type: sum
-    sql: ${mv}
-    filter: 
-      merchant_ccy: USD
-    value_format: '"$"#,###'
-
   - measure: rolling_total_orders
     type: running_total
-    sql:  ${order_count}
+    sql:  ${total_order_count}
