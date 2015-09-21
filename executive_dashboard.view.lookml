@@ -125,11 +125,23 @@
   - dimension: shipping_country_key
     type: int
     sql: ${TABLE}.SHIPPING_COUNTRY_KEY
+    
+  - dimension: is_order_current_year
+    type: yesno
+    sql: year(${order_date}) = year(sysdate)    
 
   - dimension: is_order_current_quarter
     type: yesno
     sql: quarter(${order_date}) = quarter(sysdate)
+    
+  - dimension: is_order_current_month
+    type: yesno
+    sql: month(${order_date}) = month(sysdate)
 
+  - dimension: is_order_last_year
+    type: yesno
+    sql: year(${order_date}) = year(sysdate)
+  
   - measure: order_count
     type: count
     drill_fields: [merch_name]
