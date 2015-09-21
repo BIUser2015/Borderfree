@@ -146,6 +146,10 @@
     type: count
     drill_fields: [merch_name]
     
+  - measure: rolling_total_orders
+    type: running_total
+    sql:  ${total_order_count}  
+    
   - measure: order_count_irl
     type: count
     filter: 
@@ -165,17 +169,25 @@
       merchant_ccy: USD
     value_format: '"$"#,###'  
 
-  - measure: total_mv_gpb
-    type: sum
-    sql: ${mv}
-    filter: 
-      merchant_ccy: GBP
-    value_format: '"£"#,###'
-  
   - measure: total_mv_both
     type: sum
     sql: ${mv}
- 
+
+  - measure: total_gmv_gpb
+    type: sum
+    sql: ${gmv}
+    filter: 
+      merchant_ccy: GBP
+    value_format: '"£"#,###'
+    
+  - measure: total_gmv_usd
+    type: sum
+    sql: ${gmv}
+    filter: 
+      merchant_ccy: USD
+    value_format: '"$"#,###'
+    drill_fields: gmvdrill*
+  
   - measure: total_mv_gpb_cq
     type: sum
     sql: ${mv}
@@ -184,6 +196,44 @@
       is_order_current_quarter: yes 
     value_format: '"£"#,###'
     
-  - measure: rolling_total_orders
-    type: running_total
-    sql:  ${total_order_count}
+  - measure: gmv_total_product_gbp
+    type: sum
+    filter: 
+      merchant_ccy: GBP
+    sql: ${gmv_total_product}  
+    
+  - measure: gmv_total_handling_gbp
+    type: sum
+    filter: 
+      merchant_ccy: GBP
+    sql: ${gmv_total_handling}
+    
+  - measure: gmv_total_shipping_gbp
+    type: sum
+    filter: 
+      merchant_ccy: GBP
+    sql: ${gmv_total_shipping}
+    
+  - measure: gmv_total_tariff_gbp
+    type: sum
+    filter: 
+      merchant_ccy: GBP
+    sql: ${gmv_total_tariff}
+    
+  - measure: gmv_total_vat_gbp
+    type: sum
+    filter: 
+      merchant_ccy: GBP
+    sql: ${gmv_total_vat}    
+
+  sets: 
+    gmvdrill: 
+      - gmv_total_product_gbp
+      - gmv_total_shipping_gbp
+      - gmv_total_handling_gbp
+      - gmv_total_tariff_gbp
+      - gmv_total_vat_gbp
+      
+      
+    
+    
