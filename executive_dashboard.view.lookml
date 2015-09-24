@@ -180,14 +180,25 @@
     type: count
     filter: 
       merchant_ccy: USD
-    drill_fields: [merch_name]    
-    
+    drill_fields: [merch_name,total_mv_usd]    
+  
+  
+  - filter: current_date_filter
+    type: date
+  
   - measure: total_mv_usd
     type: sum
     sql: ${mv}
     filter: 
       merchant_ccy: USD
     value_format: '"$"#,###'  
+
+  - measure: total_mv_gbp
+    type: sum
+    sql: ${mv}
+    filter: 
+      merchant_ccy: GBP
+    value_format: '"£"#,###' 
 
   - measure: total_mv_both
     type: sum
