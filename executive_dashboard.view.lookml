@@ -218,6 +218,8 @@
     filter: 
       merchant_ccy: USD
     value_format: '"$"#,###'
+    html: |
+      <font color="green">{{ rendered_value }}</font>
     drill_fields: gmvdrillusd*
   
   - measure: total_mv_gpb_cq
