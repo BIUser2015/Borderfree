@@ -191,13 +191,15 @@
     sql: ${mv}
     filter: 
       merchant_ccy: USD
-    value_format: '"$"#,###'  
+    value_format: '"$"#,###' 
+    html: <a href=/dashboards/6><font color="#7CC5DE">{{ rendered_value }} </a>
 
   - measure: total_mv_gbp
     type: sum
     sql: ${mv}
     filter: 
       merchant_ccy: GBP
+    html: <a href=/dashboards/6><font color="#7CC5DE">{{ rendered_value }} </a>  
     value_format: '"£"#,###' 
 
   - measure: total_mv_both
@@ -209,7 +211,7 @@
     sql: ${gmv}
     filter: 
       merchant_ccy: GBP
-    html: <a href=/dashboards/6>{{ rendered_value }} </a>
+    html: <a href=/dashboards/6><font color="#7CC5DE">{{ rendered_value }} </a>
     value_format: '"£"#,###'
     
   - measure: total_gmv_usd
@@ -219,7 +221,7 @@
       merchant_ccy: USD
     value_format: '"$"#,###'
     html: |
-      <font color="green">{{ rendered_value }}</font>
+      <font color="#443266">{{ rendered_value }}</font>
     drill_fields: gmvdrillusd*
   
   - measure: total_mv_gpb_cq
@@ -229,6 +231,7 @@
       merchant_ccy: GBP
       is_order_current_quarter: yes 
     value_format: '"£"#,###'
+    html: <a href=/dashboards/6><font color="#2FB2DE">{{ rendered_value }} </a>
     
   - measure: gmv_total_product_gbp
     type: sum
