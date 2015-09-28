@@ -209,8 +209,8 @@
     sql: ${gmv}
     filter: 
       merchant_ccy: GBP
+    html: <a href=/dashboards/6>{{ rendered_value }} </a>
     value_format: '"£"#,###'
-    drill_fields: gmvdrillgbp*
     
   - measure: total_gmv_usd
     type: sum
