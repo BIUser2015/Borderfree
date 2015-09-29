@@ -373,6 +373,7 @@
     orderdrillset:
       - merch_id 
       - merch_name
+      - total_order_count
       - merchant_ccy
       - checkout_status
       - total_mv_both
