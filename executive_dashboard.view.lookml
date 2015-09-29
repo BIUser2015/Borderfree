@@ -185,21 +185,26 @@
   
   - filter: current_date_filter
     type: date
-  
+    
+  - measure: items_in_order 
+    type: sum
+    sql: ${number_of_items}
+    
+
   - measure: total_mv_usd
     type: sum
     sql: ${mv}
     filter: 
       merchant_ccy: USD
     value_format: '"$"#,###' 
-    html: <a href=/dashboards/6><font color="#7CC5DE">{{ rendered_value }} </a>
+    html: <a href=/dashboards/7><font color="#7CC5DE">{{ rendered_value }} </a>
 
   - measure: total_mv_gbp
     type: sum
     sql: ${mv}
     filter: 
       merchant_ccy: GBP
-    html: <a href=/dashboards/6><font color="#7CC5DE">{{ rendered_value }} </a>  
+    html: <a href=/dashboards/7><font color="#7CC5DE">{{ rendered_value }} </a>  
     value_format: '"£"#,###' 
 
   - measure: total_mv_both
@@ -222,7 +227,6 @@
     value_format: '"$"#,###'
     html: |
       <font color="#443266">{{ rendered_value }}</font>
-    drill_fields: gmvdrillusd*
   
   - measure: total_mv_gpb_cq
     type: sum
