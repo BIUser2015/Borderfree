@@ -176,7 +176,7 @@
     filter: 
       merchant_ccy: GBP
     html: <font color="#7CC5DE">{{ rendered_value }} </a>     
-    drill_fields: [merch_name]
+    drill_fields: orderdrillset*
     
   - measure: order_count_usa
     type: count
@@ -351,6 +351,15 @@
     
 
   sets: 
+    orderdrillset:
+      - merchant_id 
+      - merch_name
+      - merchant_ccy
+      - gmv_total_handling_gbp
+      - gmv_total_tariff_gbp
+      - gmv_total_vat_gbp
+  
+  
     gmvdrillgbp: 
       - gmv_total_product_gbp
       - gmv_total_shipping_gbp
