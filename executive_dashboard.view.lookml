@@ -204,14 +204,14 @@
     filter: 
       merchant_ccy: USD
     value_format: '"$"#,###' 
-    html: <a href=/dashboards/7><font color="#7CC5DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
+    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
 
   - measure: total_mv_gbp
     type: sum
     sql: ${mv}
     filter: 
       merchant_ccy: GBP
-    html: <a href=/dashboards/7><font color="#7CC5DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
+    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
     value_format: '"£"#,###' 
 
   - measure: total_mv_both
@@ -239,7 +239,15 @@
       merchant_ccy: USD
     value_format: '"$"#,###'
     html: <a href=/dashboards/6><font color="#7CC5DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
-  
+    
+  - measure: accepted_gmv_usd
+    type: sum
+    sql: ${gmv}
+    filter: 
+      merchant_ccy: USD
+      checkout_status: GREEN
+    value_format: '"$"#,###'
+    
   - measure: total_mv_gpb_cq
     type: sum
     sql: ${mv}
@@ -332,12 +340,12 @@
   - measure: aov_mv_gbp
     type: number
     sql: ${total_mv_gbp} / ${total_order_count}
-    value_format: '#,##0.00'
+    value_format: '"£"#,##0.00' 
 
   - measure: aov_gmv_gbp
     type: number
     sql: ${total_gmv_gbp} / ${total_order_count}
-    value_format: '#,##0.00'
+    value_format: '"£"#,##0.00' 
    
   - measure: aur_mv_usd
     type: number
@@ -352,7 +360,7 @@
   - measure: aur_mv_gbp
     type: number
     sql: ${total_mv_gbp} / ${items_in_order}
-    value_format: '"£"#,###'
+    value_format: '"£"#,##0.00' 
 
   - measure: aur_gmv_gbp
     type: number
