@@ -309,23 +309,44 @@
     
   - measure: aov_mv_usd
     type: number
-    sql: ${total_mv_usd} / ${items_in_order}
+    sql: ${total_mv_usd} / ${total_order_count}
     value_format: '$#,##0.00'
 
   - measure: aov_gmv_usd
     type: number
-    sql: ${total_gmv_usd} / ${items_in_order}
+    sql: ${total_gmv_usd} / ${total_order_count}
     value_format: '$#,##0.00'    
     
   - measure: aov_mv_gbp
     type: number
-    sql: ${total_mv_gbp} / ${items_in_order}
+    sql: ${total_mv_gbp} / ${total_order_count}
     value_format: '#,##0.00'
 
   - measure: aov_gmv_gbp
     type: number
+    sql: ${total_gmv_gbp} / ${total_order_count}
+    value_format: '#,##0.00'
+   
+  - measure: aur_mv_usd
+    type: number
+    sql: ${total_mv_usd} / ${items_in_order}
+    value_format: '$#,##0.00'
+
+  - measure: aur_gmv_usd
+    type: number
+    sql: ${total_gmv_usd} / ${items_in_order}
+    value_format: '$#,##0.00'    
+    
+  - measure: aur_mv_gbp
+    type: number
+    sql: ${total_mv_gbp} / ${items_in_order}
+    value_format: '#,##0.00'
+
+  - measure: aur_gmv_gbp
+    type: number
     sql: ${total_gmv_gbp} / ${items_in_order}
     value_format: '#,##0.00'        
+    
 
   sets: 
     gmvdrillgbp: 
