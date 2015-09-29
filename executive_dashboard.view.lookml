@@ -224,6 +224,10 @@
     html: <a href=/dashboards/6><font color="#7CC5DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
     value_format: '"£"#,###'
     
+  - measure: total_gmv_both
+    type: sum
+    sql: ${gmv}  
+    
   - measure: total_gmv_usd
     type: sum
     sql: ${gmv}
@@ -358,10 +362,21 @@
       - merch_id 
       - merch_name
       - merchant_ccy
-      - gmv_total_handling_gbp
-      - gmv_total_tariff_gbp
-      - gmv_total_vat_gbp
-  
+      - checkout_status
+      - total_mv_both
+      - total_gmv_both
+   
+    merchantdrillset:
+      - merch_id 
+      - merch_name
+      - merchant_ccy
+      - oh_order_id
+      - checkout_status
+      - checkout_client
+      - credit_card_type
+      - shipping_country
+      - total_mv_both
+      - total_gmv_both
   
     gmvdrillgbp: 
       - gmv_total_product_gbp
