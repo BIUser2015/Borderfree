@@ -225,8 +225,7 @@
     filter: 
       merchant_ccy: USD
     value_format: '"$"#,###'
-    html: |
-      <font color="#443266">{{ rendered_value }}</font>
+    html: <a href=/dashboards/7><font color="#7CC5DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
   
   - measure: total_mv_gpb_cq
     type: sum
