@@ -388,6 +388,7 @@
       - checkout_client
       - credit_card_type
       - shipping_country
+      - items_in_order 
       - total_mv_both
       - total_gmv_both
   
