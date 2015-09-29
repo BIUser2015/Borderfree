@@ -175,7 +175,6 @@
     type: count
     filter: 
       merchant_ccy: GBP
-    html: <font color="#7CC5DE">{{ rendered_value }} </a>     
     drill_fields: orderdrillset*
     
   - measure: order_count_usa
@@ -351,6 +350,7 @@
     
 
   sets: 
+  
     orderdrillset:
       - merchant_id 
       - merch_name
