@@ -197,14 +197,14 @@
     filter: 
       merchant_ccy: USD
     value_format: '"$"#,###' 
-    html: <a href=/dashboards/7><font color="#7CC5DE">{{ rendered_value }} </a>
+    html: <a href=/dashboards/7><font color="#7CC5DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
 
   - measure: total_mv_gbp
     type: sum
     sql: ${mv}
     filter: 
       merchant_ccy: GBP
-    html: <a href=/dashboards/7><font color="#7CC5DE">{{ rendered_value }} </a>  
+    html: <a href=/dashboards/7><font color="#7CC5DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
     value_format: '"£"#,###' 
 
   - measure: total_mv_both
@@ -216,7 +216,7 @@
     sql: ${gmv}
     filter: 
       merchant_ccy: GBP
-    html: <a href=/dashboards/6><font color="#7CC5DE">{{ rendered_value }} </a>
+    html: <a href=/dashboards/6><font color="#7CC5DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
     value_format: '"£"#,###'
     
   - measure: total_gmv_usd
@@ -235,7 +235,7 @@
       merchant_ccy: GBP
       is_order_current_quarter: yes 
     value_format: '"£"#,###'
-    html: <a href=/dashboards/6><font color="#2FB2DE">{{ rendered_value }} </a>
+    html: <a href=/dashboards/6><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
     
   - measure: gmv_total_product_gbp
     type: sum
@@ -340,12 +340,12 @@
   - measure: aur_mv_gbp
     type: number
     sql: ${total_mv_gbp} / ${items_in_order}
-    value_format: '#,##0.00'
+    value_format: '"£"#,###'
 
   - measure: aur_gmv_gbp
     type: number
     sql: ${total_gmv_gbp} / ${items_in_order}
-    value_format: '#,##0.00'        
+    value_format: '"£"#,##0.00'        
     
 
   sets: 
