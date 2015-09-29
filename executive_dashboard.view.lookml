@@ -319,7 +319,7 @@
       merchant_ccy: USD
     sql: ${gmv_total_tariff}
     value_format: '"$"#,###'
-    
+ 
   - measure: gmv_total_vat_usd
     type: sum
     filter: 
@@ -335,37 +335,44 @@
   - measure: aov_gmv_usd
     type: number
     sql: ${total_gmv_usd} / ${total_order_count}
-    value_format: '$#,##0.00'    
+    value_format: '$#,##0.00'  
+    drill_fields: orderdrillset*
     
   - measure: aov_mv_gbp
     type: number
     sql: ${total_mv_gbp} / ${total_order_count}
     value_format: '"£"#,##0.00' 
+    drill_fields: orderdrillset*
 
   - measure: aov_gmv_gbp
     type: number
     sql: ${total_gmv_gbp} / ${total_order_count}
-    value_format: '"£"#,##0.00' 
+    value_format: '"£"#,##0.00'
+    drill_fields: orderdrillset*
    
   - measure: aur_mv_usd
     type: number
     sql: ${total_mv_usd} / ${items_in_order}
     value_format: '$#,##0.00'
+    drill_fields: merchantdrillset*
 
   - measure: aur_gmv_usd
     type: number
     sql: ${total_gmv_usd} / ${items_in_order}
-    value_format: '$#,##0.00'    
+    value_format: '$#,##0.00' 
+    drill_fields: merchantdrillset*
     
   - measure: aur_mv_gbp
     type: number
     sql: ${total_mv_gbp} / ${items_in_order}
     value_format: '"£"#,##0.00' 
+    drill_fields: merchantdrillset*
 
   - measure: aur_gmv_gbp
     type: number
     sql: ${total_gmv_gbp} / ${items_in_order}
-    value_format: '"£"#,##0.00'        
+    value_format: '"£"#,##0.00'
+    drill_fields: merchantdrillset*
     
 
   sets: 
