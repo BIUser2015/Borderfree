@@ -217,6 +217,7 @@
   - measure: total_mv_both
     type: sum
     sql: ${mv}
+    drill_fields: merchantdrillset*
 
   - measure: total_gmv_gbp
     type: sum
@@ -229,6 +230,7 @@
   - measure: total_gmv_both
     type: sum
     sql: ${gmv}  
+    drill_fields: merchantdrillset*
     
   - measure: total_gmv_usd
     type: sum
