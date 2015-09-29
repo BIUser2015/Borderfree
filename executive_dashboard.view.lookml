@@ -168,18 +168,21 @@
   
   - measure: rolling_total_orders
     type: running_total
-    sql:  ${total_order_count}  
+    sql:  ${total_order_count}
+    html: <font color="#7CC5DE">{{ rendered_value }} </a>   
     
   - measure: order_count_irl
     type: count
     filter: 
       merchant_ccy: GBP
+    html: <font color="#7CC5DE">{{ rendered_value }} </a>     
     drill_fields: [merch_name]
     
   - measure: order_count_usa
     type: count
     filter: 
       merchant_ccy: USD
+    html: <font color="#7CC5DE">{{ rendered_value }} </a>    
     drill_fields: [merch_name,total_mv_usd]    
   
   
