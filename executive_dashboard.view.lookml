@@ -211,7 +211,7 @@
     type: sum
     sql: ${mv}
 
-  - measure: total_gmv_gpb
+  - measure: total_gmv_gbp
     type: sum
     sql: ${gmv}
     filter: 
@@ -306,6 +306,26 @@
       merchant_ccy: USD
     sql: ${gmv_total_vat} 
     value_format: '"$"#,###'
+    
+  - measure: aov_mv_usd
+    type: number
+    sql: ${total_mv_usd} / ${items_in_order}
+    value_format: '$#,##0.00'
+
+  - measure: aov_gmv_usd
+    type: number
+    sql: ${total_gmv_usd} / ${items_in_order}
+    value_format: '$#,##0.00'    
+    
+  - measure: aov_mv_gbp
+    type: number
+    sql: ${total_mv_gbp} / ${items_in_order}
+    value_format: '#,##0.00'
+
+  - measure: aov_gmv_gbp
+    type: number
+    sql: ${total_gmv_gbp} / ${items_in_order}
+    value_format: '#,##0.00'        
 
   sets: 
     gmvdrillgbp: 
