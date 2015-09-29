@@ -224,7 +224,7 @@
     sql: ${gmv}
     filter: 
       merchant_ccy: GBP
-    html: <a href=/dashboards/6><font color="#7CC5DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
+    html: <a href=/dashboards/6><font color="#6CC5DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
     value_format: '"£"#,###'
     
   - measure: total_gmv_both
@@ -238,7 +238,7 @@
     filter: 
       merchant_ccy: USD
     value_format: '"$"#,###'
-    html: <a href=/dashboards/7><font color="#7CC5DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
+    html: <a href=/dashboards/6><font color="#7CC5DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
   
   - measure: total_mv_gpb_cq
     type: sum
