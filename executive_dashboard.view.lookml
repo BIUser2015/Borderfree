@@ -144,27 +144,31 @@
   
   - measure: total_order_count
     type: count
-    drill_fields: [merch_name]
+    drill_fields: orderdrillset*
     
   - measure: cancelled_orders
     type: count
     filter: 
      checkout_status: CANCELLED
+    drill_fields: orderdrillset* 
     
   - measure: accepted_orders
     type: count
     filter: 
      checkout_status: GREEN
-     
+    drill_fields: orderdrillset* 
+    
   - measure: rejected_orders
     type: count
     filter: 
      checkout_status: RED     
+    drill_fields: orderdrillset*
      
   - measure: pending_orders
     type: count
     filter: 
      checkout_status: YELLOW  
+    drill_fields: orderdrillset*  
   
   - measure: rolling_total_orders
     type: running_total
@@ -181,8 +185,7 @@
     type: count
     filter: 
       merchant_ccy: USD
-    html: <font color="#7CC5DE">{{ rendered_value }} </a>    
-    drill_fields: [merch_name,total_mv_usd]    
+    drill_fields: orderdrillset*   
   
   
   - filter: current_date_filter
@@ -352,7 +355,7 @@
   sets: 
   
     orderdrillset:
-      - merchant_id 
+      - merch_id 
       - merch_name
       - merchant_ccy
       - gmv_total_handling_gbp
