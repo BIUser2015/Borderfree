@@ -4,9 +4,9 @@
 - include: "*.dashboard.lookml"  # include all the dashboards
 
 
-- explore: executive_dashboard
+- explore: calendar_dim
   joins: 
-    - join: calendar_dim
+    - join: executive_dashboard
       type: left_outer
-      relationship: many_to_one
+      relationship: one_to_many 
       sql_on: ${calendar_dim.date_key} = ${executive_dashboard.created_date_key}
