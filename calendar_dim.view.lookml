@@ -4,6 +4,7 @@
 
   - dimension: date_key
     type: int
+    primary_key: true
     sql: ${TABLE}.DATE_KEY
 
   - dimension_group: date_time_end
