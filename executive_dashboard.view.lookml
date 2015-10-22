@@ -142,7 +142,7 @@
 
   - dimension: is_order_last_year
     type: yesno
-    sql: year(${order_date}) = year(sysdate)
+    sql: year(${order_date}) = year(sysdate)-1
   
   - measure: total_order_count
     type: count
@@ -206,6 +206,24 @@
     value_format: '"$"#,###' 
     html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
 
+  - measure: total_mv_usd_current_year
+    type: sum
+    sql: ${mv}
+    filter: 
+      merchant_ccy: USD
+      is_order_current_year: YES 
+    value_format: '"$"#,###' 
+    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a> 
+    
+  - measure: total_mv_usd_last_year
+    type: sum
+    sql: ${mv}
+    filter: 
+      merchant_ccy: USD
+      is_order_last_year: YES 
+    value_format: '"$"#,###' 
+    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>    
+
   - measure: total_mv_gbp
     type: sum
     sql: ${mv}
@@ -213,6 +231,26 @@
       merchant_ccy: GBP
     html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
     value_format: '"£"#,###' 
+    
+  - measure: total_mv_gbp_current_year
+    type: sum
+    sql: COALESCE(${mv},0)
+    filter: 
+      merchant_ccy: GBP
+      is_order_current_year: YES 
+    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
+    value_format: '"£"#,###'     
+
+  - measure: total_mv_gbp_last_year
+    type: sum
+    sql: ${mv}
+    filter: 
+      merchant_ccy: GBP
+      is_order_last_year: YES 
+    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
+    value_format: '"£"#,###' 
+    
+    
 
   - measure: total_mv_both
     type: sum
