@@ -224,6 +224,20 @@
      checkout_status: CANCELLED
      is_order_past_seven_days: YES      
 
+  - measure: cancelled_order_percentage_yesterday
+    type: number
+    sql: (${cancelled_orders_yesterday} / ${accepted_orders_yesterday} ) * 100
+    value_format: '0.00\%'
+    
+  - measure: cancelled_order_percentage_past_three_days
+    type: number
+    sql: (${cancelled_orders_past_three_days} / ${accepted_orders_past_three_days} ) * 100
+    value_format: '0.00\%'    
+    
+  - measure: cancelled_order_percentage_past_seven_days
+    type: number
+    sql: (${cancelled_orders_past_seven_days} / ${accepted_orders_past_seven_days} ) * 100
+    value_format: '0.00\%'    
   
   - measure: rolling_total_orders
     type: running_total
