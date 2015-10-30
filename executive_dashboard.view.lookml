@@ -128,6 +128,22 @@
     type: int
     sql: ${TABLE}.SHIPPING_COUNTRY_KEY
     
+  - dimension: is_order_current_day
+    type: yesno
+    sql: trunc(${order_date}) = trunc(sysdate)    
+    
+  - dimension: is_order_yesterday
+    type: yesno
+    sql: trunc(${order_date}) = trunc(sysdate) -1   
+    
+  - dimension: is_order_past_three_days
+    type: yesno
+    sql: trunc(${order_date}) >= trunc(sysdate)-3 and trunc(${order_date}) < trunc(sysdate)     
+    
+  - dimension: is_order_past_seven_days
+    type: yesno
+    sql: trunc(${order_date}) >= trunc(sysdate)-7 and trunc(${order_date}) < trunc(sysdate)  
+
   - dimension: is_order_current_year
     type: yesno
     sql: year(${order_date}) = year(sysdate)    
@@ -157,8 +173,8 @@
   - measure: accepted_orders
     type: count
     filter: 
-     checkout_status: GREEN
-    drill_fields: orderdrillset* 
+     checkout_status: 'GREEN,CANCELLED'
+  
     
   - measure: rejected_orders
     type: count
@@ -171,6 +187,43 @@
     filter: 
      checkout_status: YELLOW  
     drill_fields: orderdrillset*  
+    
+  - measure: accepted_orders_yesterday
+    type: count
+    filter: 
+      checkout_status: 'GREEN,CANCELLED'
+      is_order_yesterday: YES 
+
+  - measure: accepted_orders_past_three_days
+    type: count
+    filter: 
+     checkout_status: 'GREEN,CANCELLED'
+     is_order_past_three_days: YES 
+     
+  - measure: accepted_orders_past_seven_days
+    type: count
+    filter: 
+     checkout_status: 'GREEN,CANCELLED' 
+     is_order_past_seven_days: YES 
+     
+  - measure: cancelled_orders_yesterday
+    type: count
+    filter: 
+      checkout_status: CANCELLED
+      is_order_yesterday: YES 
+
+  - measure: cancelled_orders_past_three_days
+    type: count
+    filter: 
+     checkout_status: CANCELLED
+     is_order_past_three_days: YES 
+     
+  - measure: cancelled_orders_past_seven_days
+    type: count
+    filter: 
+     checkout_status: CANCELLED
+     is_order_past_seven_days: YES      
+
   
   - measure: rolling_total_orders
     type: running_total
