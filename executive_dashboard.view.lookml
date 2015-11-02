@@ -398,7 +398,6 @@
     html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
     value_format: '"£"#,###'     
 
-
   - measure: total_mv_both
     type: sum
     sql: ${mv}
@@ -411,6 +410,65 @@
       merchant_ccy: GBP
     html: <a href=/dashboards/6><font color="#6CC5DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
     value_format: '"£"#,###'
+    
+  - measure: total_gmv_gbp_current_year
+    type: sum
+    sql: COALESCE(${gmv},0)
+    filter: 
+      merchant_ccy: GBP
+      is_order_current_year: YES 
+    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
+    value_format: '"£"#,###'     
+
+  - measure: total_gmv_gbp_last_year
+    type: sum
+    sql: COALESCE(${gmv},0)
+    filter: 
+      merchant_ccy: GBP
+      is_order_last_year: YES 
+    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
+    value_format: '"£"#,###' 
+    
+  - measure: total_gmv_gbp_current_year_quarter
+    type: sum
+    sql: COALESCE(${gmv},0)
+    filter: 
+      merchant_ccy: GBP
+      is_order_current_year: YES 
+      is_order_current_quarter: YES 
+    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
+    value_format: '"£"#,###'     
+
+  - measure: total_gmv_gbp_last_year_quarter
+    type: sum
+    sql: COALESCE(${gmv},0)
+    filter: 
+      merchant_ccy: GBP
+      is_order_last_year: YES
+      is_order_current_quarter: YES 
+    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
+    value_format: '"£"#,###'     
+    
+  - measure: total_gmv_gbp_current_year_current_month
+    type: sum
+    sql: COALESCE(${gmv},0)
+    filter: 
+      merchant_ccy: GBP
+      is_order_current_year: YES 
+      is_order_current_month: YES  
+    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
+    value_format: '"£"#,###'     
+
+  - measure: total_gmv_gbp_last_year_current_month
+    type: sum
+    sql: COALESCE(${gmv},0)
+    filter: 
+      merchant_ccy: GBP
+      is_order_last_year: YES
+      is_order_current_month: YES  
+    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
+    value_format: '"£"#,###'     
+    
     
   - measure: total_gmv_both
     type: sum
