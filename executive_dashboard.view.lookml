@@ -402,6 +402,65 @@
     type: sum
     sql: ${mv}
     drill_fields: merchantdrillset*
+    
+    
+  - measure: total_gmv_usd_current_year
+    type: sum
+    sql: ${gmv}
+    filter: 
+      merchant_ccy: USD
+      is_order_current_year: YES 
+    value_format: '"$"#,###' 
+    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a> 
+    
+  - measure: total_gmv_usd_last_year
+    type: sum
+    sql: ${gmv}
+    filter: 
+      merchant_ccy: USD
+      is_order_last_year: YES 
+    value_format: '"$"#,###' 
+    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a> 
+    
+  - measure: total_gmv_usd_current_year_quarter
+    type: sum
+    sql: ${gmv}
+    filter: 
+      merchant_ccy: USD
+      is_order_current_year: YES
+      is_order_current_quarter: YES 
+    value_format: '"$"#,###' 
+    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a> 
+    
+  - measure: total_gmv_usd_last_year_quarter
+    type: sum
+    sql: ${gmv}
+    filter: 
+      merchant_ccy: USD
+      is_order_last_year: YES 
+      is_order_current_quarter: YES 
+    value_format: '"$"#,###' 
+    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a> 
+    
+  - measure: total_gmv_usd_current_month
+    type: sum
+    sql: ${gmv}
+    filter: 
+      merchant_ccy: USD
+      is_order_current_year: YES 
+      is_order_current_month: YES 
+    value_format: '"$"#,###' 
+    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
+    
+  - measure: total_gmv_usd_last_year_current_month
+    type: sum
+    sql: ${gmv}
+    filter: 
+      merchant_ccy: USD
+      is_order_last_year: YES 
+      is_order_current_month: YES 
+    value_format: '"$"#,###' 
+    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>      
 
   - measure: total_gmv_gbp
     type: sum
