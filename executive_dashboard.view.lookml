@@ -163,7 +163,41 @@
   - measure: total_order_count
     type: count
     drill_fields: orderdrillset*
-    
+ 
+  - measure: total_orders_current_year
+    type: count
+    filter: 
+      is_order_current_year: YES 
+
+  - measure: total_orders_last_year
+    type: count
+    filter: 
+      is_order_last_year: YES 
+
+  - measure: total_orders_current_year_quarter
+    type: count
+    filter: 
+      is_order_current_year: YES 
+      is_order_current_quarter: YES 
+
+  - measure: total_orders_last_year_quarter
+    type: count
+    filter: 
+      is_order_last_year: YES
+      is_order_current_quarter: YES 
+
+  - measure: total_orders_year_current_month
+    type: count
+    filter: 
+      is_order_current_year: YES 
+      is_order_current_month: YES  
+
+  - measure: total_orders_last_year_current_month
+    type: count
+    filter: 
+      is_order_last_year: YES
+      is_order_current_month: YES  
+       
   - measure: cancelled_orders
     type: count
     filter: 
