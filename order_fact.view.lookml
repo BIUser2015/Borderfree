@@ -584,6 +584,14 @@
     type: number
     sql: ${TABLE}.OIP_LP_VAT_USD
 
+  - dimension: oip_mer_vat_as_margin
+    type: number
+    sql: ${TABLE}.OIP_MER_VAT_AS_MARGIN
+
+  - dimension: oip_mer_vat_reduction
+    type: number
+    sql: ${TABLE}.OIP_MER_VAT_REDUCTION
+
   - dimension: oip_mp_cod_handling_usd
     type: number
     sql: ${TABLE}.OIP_MP_COD_HANDLING_USD
@@ -870,6 +878,14 @@
     type: number
     sql: ${TABLE}.OIP_VAT
 
+  - dimension: oip_vat_as_margin
+    type: number
+    sql: ${TABLE}.OIP_VAT_AS_MARGIN
+
+  - dimension: oip_vat_reduction
+    type: number
+    sql: ${TABLE}.OIP_VAT_REDUCTION
+
   - dimension: oip_vat_usd
     type: number
     sql: ${TABLE}.OIP_VAT_USD
@@ -1112,6 +1128,22 @@
 
   - dimension: oq_buy_type
     sql: ${TABLE}.OQ_BUY_TYPE
+
+  - dimension: oq_buy_vat_as_margin
+    type: number
+    sql: ${TABLE}.OQ_BUY_VAT_AS_MARGIN
+
+  - dimension: oq_buy_vat_as_margin_mccy
+    type: number
+    sql: ${TABLE}.OQ_BUY_VAT_AS_MARGIN_MCCY
+
+  - dimension: oq_buy_vat_reduction
+    type: number
+    sql: ${TABLE}.OQ_BUY_VAT_REDUCTION
+
+  - dimension: oq_buy_vat_reduction_mccy
+    type: number
+    sql: ${TABLE}.OQ_BUY_VAT_REDUCTION_MCCY
 
   - dimension: oq_e4_x_activity_id
     type: int
@@ -1366,6 +1398,14 @@
 
   - dimension: oq_mer_type
     sql: ${TABLE}.OQ_MER_TYPE
+
+  - dimension: oq_mer_vat_as_margin
+    type: number
+    sql: ${TABLE}.OQ_MER_VAT_AS_MARGIN
+
+  - dimension: oq_mer_vat_reduction
+    type: number
+    sql: ${TABLE}.OQ_MER_VAT_REDUCTION
 
   - dimension: oq_merchant_grand_tot_usd
     type: number
