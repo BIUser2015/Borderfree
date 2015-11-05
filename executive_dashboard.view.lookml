@@ -75,6 +75,10 @@
   - dimension: merchant_name
     sql: ${TABLE}.MERCH_NAME
     drill_fields: merchantdrillset*
+    
+  - dimension: merch_name
+    sql: ${TABLE}.MERCH_NAME
+    drill_fields: merchantdrillset*    
 
   - dimension: merchant_ccy
     sql: ${TABLE}.MERCHANT_CCY
