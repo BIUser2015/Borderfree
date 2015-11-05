@@ -72,7 +72,7 @@
     sql: ${TABLE}.MERCH_ID
     drill_fields: merchantdrillset*
     
-  - dimension: merch_name
+  - dimension: merchant_name
     sql: ${TABLE}.MERCH_NAME
     drill_fields: merchantdrillset*
 
