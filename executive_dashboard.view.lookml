@@ -656,7 +656,24 @@
     type: number
     sql: ${total_mv_usd} / ${total_order_count}
     value_format: '$#,##0.00'
+    
+  - measure: aov_mv_current_month
+    label: test
+    type: number
+    sql: ${total_mv_usd} / ${total_order_count}
+    value_format: '$#,##0.00'
+    
+  - measure: aov_mv_usd_current_quarter
+    type: number
+    sql: ${total_mv_usd} / ${total_order_count}
+    value_format: '$#,##0.00'    
+    
+  - measure: aov_mv_usd_current_year
+    type: number
+    sql: ${total_mv_usd} / ${total_order_count}
+    value_format: '$#,##0.00'    
 
+    
   - measure: aov_gmv_usd
     type: number
     sql: ${total_gmv_usd} / ${total_order_count}
