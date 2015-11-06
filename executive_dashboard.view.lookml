@@ -146,7 +146,19 @@
     
   - dimension: is_order_past_seven_days
     type: yesno
-    sql: trunc(${order_date}) >= trunc(sysdate)-7 and trunc(${order_date}) < trunc(sysdate)  
+    sql: trunc(${order_date}) >= trunc(sysdate)-7 and trunc(${order_date}) < trunc(sysdate) 
+    
+  - dimension: is_same_day_in_month 
+    type: yesno
+    sql: EXTRACT(DAY FROM ${order_date}) <= EXTRACT(DAY FROM CURRENT_DATE)  
+    
+  - dimension: is_same_day_in_quarter 
+    type: yesno
+    sql: EXTRACT(DOQ FROM ${order_date}) <= EXTRACT(DOQ FROM CURRENT_DATE)  
+    
+  - dimension: is_same_day_in_year 
+    type: yesno
+    sql: EXTRACT(DOY FROM ${order_date}) <= EXTRACT(DOY FROM CURRENT_DATE)      
 
   - dimension: is_order_current_year
     type: yesno
