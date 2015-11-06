@@ -311,6 +311,7 @@
     value_format: '"$"#,###' 
 
   - measure: total_mv_usd_current_year
+    label: Current Year MV(USD) 
     type: sum
     sql: ${mv}
     filter: 
@@ -319,6 +320,7 @@
     value_format: '"$"#,###' 
     
   - measure: total_mv_usd_last_year
+    label: Previous Year MV(USD) 
     type: sum
     sql: ${mv}
     filter: 
@@ -327,6 +329,7 @@
     value_format: '"$"#,###' 
     
   - measure: total_mv_usd_current_year_quarter
+    label: Current Quarter MV(USD) 
     type: sum
     sql: ${mv}
     filter: 
@@ -336,6 +339,7 @@
     value_format: '"$"#,###' 
     
   - measure: total_mv_usd_last_year_quarter
+    label: Current Quarter Previous Year MV(USD) 
     type: sum
     sql: ${mv}
     filter: 
@@ -345,6 +349,7 @@
     value_format: '"$"#,###' 
     
   - measure: total_mv_usd_current_month
+    label: Current Month MV(USD) 
     type: sum
     sql: ${mv}
     filter: 
@@ -354,6 +359,7 @@
     value_format: '"$"#,###' 
     
   - measure: total_mv_usd_last_year_current_month
+    label: Current Month Previous Year MV(USD) 
     type: sum
     sql: ${mv}
     filter: 
@@ -370,6 +376,7 @@
     value_format: '"£"#,###' 
     
   - measure: total_mv_gbp_current_year
+    label: Current Year MV(GBP) 
     type: sum
     sql: COALESCE(${mv},0)
     filter: 
@@ -378,6 +385,7 @@
     value_format: '"£"#,###'     
 
   - measure: total_mv_gbp_last_year
+    label: Previous Year MV(GBP) 
     type: sum
     sql: COALESCE(${mv},0)
     filter: 
@@ -386,6 +394,7 @@
     value_format: '"£"#,###' 
     
   - measure: total_mv_gbp_current_year_quarter
+    label: Current Quarter MV(GBP) 
     type: sum
     sql: COALESCE(${mv},0)
     filter: 
@@ -395,6 +404,7 @@
     value_format: '"£"#,###'     
 
   - measure: total_mv_gbp_last_year_quarter
+    label: Current Quarter Previous Year MV(GBP) 
     type: sum
     sql: COALESCE(${mv},0)
     filter: 
@@ -404,6 +414,7 @@
     value_format: '"£"#,###'     
     
   - measure: total_mv_gbp_current_year_current_month
+    label: Current Month MV(GBP) 
     type: sum
     sql: COALESCE(${mv},0)
     filter: 
@@ -413,6 +424,7 @@
     value_format: '"£"#,###'     
 
   - measure: total_mv_gbp_last_year_current_month
+    label: Current Month Previous Year MV(GBP) 
     type: sum
     sql: COALESCE(${mv},0)
     filter: 
@@ -428,6 +440,7 @@
     
     
   - measure: total_gmv_usd_current_year
+    label: Current Year GMV(USD) 
     type: sum
     sql: ${gmv}
     filter: 
@@ -437,6 +450,7 @@
     html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a> 
     
   - measure: total_gmv_usd_last_year
+    label: Previous Year GMV(USD) 
     type: sum
     sql: ${gmv}
     filter: 
@@ -446,6 +460,7 @@
     html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a> 
     
   - measure: total_gmv_usd_current_year_quarter
+    label: Current Quarter GMV(USD) 
     type: sum
     sql: ${gmv}
     filter: 
@@ -456,6 +471,7 @@
     html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a> 
     
   - measure: total_gmv_usd_last_year_quarter
+    label: Current Quarter Previous Year GMV(USD) 
     type: sum
     sql: ${gmv}
     filter: 
@@ -466,6 +482,7 @@
     html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a> 
     
   - measure: total_gmv_usd_current_month
+    label: Current Month GMV(USD) 
     type: sum
     sql: ${gmv}
     filter: 
@@ -476,6 +493,7 @@
     html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
     
   - measure: total_gmv_usd_last_year_current_month
+    label: Current Month Previous Year GMV(USD) 
     type: sum
     sql: ${gmv}
     filter: 
@@ -494,6 +512,7 @@
     value_format: '"£"#,###'
     
   - measure: total_gmv_gbp_current_year
+    label: Current Year GMV(GBP) 
     type: sum
     sql: COALESCE(${gmv},0)
     filter: 
@@ -503,6 +522,7 @@
     value_format: '"£"#,###'     
 
   - measure: total_gmv_gbp_last_year
+    label: Previous Year GMV(GBP) 
     type: sum
     sql: COALESCE(${gmv},0)
     filter: 
@@ -512,6 +532,7 @@
     value_format: '"£"#,###' 
     
   - measure: total_gmv_gbp_current_year_quarter
+    label: Current Quarter GMV(GBP) 
     type: sum
     sql: COALESCE(${gmv},0)
     filter: 
@@ -522,6 +543,7 @@
     value_format: '"£"#,###'     
 
   - measure: total_gmv_gbp_last_year_quarter
+    label: Current Quarter Previous Year GMV(GBP) 
     type: sum
     sql: COALESCE(${gmv},0)
     filter: 
@@ -532,6 +554,7 @@
     value_format: '"£"#,###'     
     
   - measure: total_gmv_gbp_current_year_current_month
+    label: Current Month GMV(GBP) 
     type: sum
     sql: COALESCE(${gmv},0)
     filter: 
@@ -542,6 +565,7 @@
     value_format: '"£"#,###'     
 
   - measure: total_gmv_gbp_last_year_current_month
+    label: Current Month Previous Year GMV(GBP) 
     type: sum
     sql: COALESCE(${gmv},0)
     filter: 
