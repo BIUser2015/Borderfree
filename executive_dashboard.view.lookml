@@ -181,34 +181,40 @@
     drill_fields: orderdrillset*
  
   - measure: total_orders_current_year
+    label: Number of Orders. Current Year
     type: count
     filter: 
       is_order_current_year: YES 
 
   - measure: total_orders_last_year
+    label: Number of Orders. Previous Year
     type: count
     filter: 
       is_order_last_year: YES 
 
   - measure: total_orders_current_year_quarter
+    label: Number of Orders. Current Quarter
     type: count
     filter: 
       is_order_current_year: YES 
       is_order_current_quarter: YES 
 
   - measure: total_orders_last_year_quarter
+    label: Number of Orders. Current Quarter Previous Year
     type: count
     filter: 
       is_order_last_year: YES
       is_order_current_quarter: YES 
 
   - measure: total_orders_year_current_month
+    label: Number of Orders. Current Month
     type: count
     filter: 
       is_order_current_year: YES 
       is_order_current_month: YES  
 
   - measure: total_orders_last_year_current_month
+    label: Number of Orders. Current Month Previous Year
     type: count
     filter: 
       is_order_last_year: YES
