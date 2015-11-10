@@ -35,6 +35,6 @@
     
   - measure: difference
     type: number
-    sql: ${mv_accepted} - ${actuals_historical.total_mv_accepted_actual} 
+    sql: ${total_mv_accepted} - ${actuals_historical.total_mv_accepted_actual} 
 
 
