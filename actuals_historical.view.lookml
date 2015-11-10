@@ -3,6 +3,7 @@
   fields:
 
   - dimension: actual_id
+    primary_key: true
     type: int
     sql: ${TABLE}.ACTUAL_ID
 
