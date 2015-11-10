@@ -19,3 +19,10 @@
       type: left_outer  
       relationship: one_to_many 
       sql_on: ${calendar_dim.date_key} = ${forecast_merchant.reporting_date}
+      
+    - join: actuals_historical
+      type: left_outer  
+      relationship: one_to_many 
+      sql_on: ${calendar_dim.date_key} = ${actuals_historical.reporting_date}  
+    
+      
