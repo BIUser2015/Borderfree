@@ -42,4 +42,21 @@
   - measure: count
     type: count
     drill_fields: [merch_name, financial_entity_name]
+    
+  - measure: mv_accepted_actual
+    type: sum
+    sql: ${mv_accepted_actual}   
+    
+  - measure: net_mv_shipped_actual
+    type: sum
+    sql: ${net_mv_shipped_actual}
+
+  - measure: orders_cancelled
+    type: sum
+    sql: ${orders_cancelled}
+
+  - measure: parcels_shipped_actual
+    type: sum
+    sql: ${parcels_shipped_actual}
+  
 
