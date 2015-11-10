@@ -29,9 +29,8 @@
     type: count
     drill_fields: [forecast_merchant_id, merch_name]
     
-    
-  - measure: mv_accepted
-    label: Forecasted MV
+  - measure: sum_mv_accepted
+    label: forecasted_mv
     type: sum
     sql: ${mv_accepted}
     

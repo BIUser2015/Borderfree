@@ -29,3 +29,8 @@
     type: count
     drill_fields: [forecast_segment_id]
 
+  - measure: total_mv_accepted
+    type: sum
+    sql: ${mv_accepted}
+
+
