@@ -7,4 +7,15 @@
 # # Select the views that should be a part of this model,
 # # and define the joins that connect them together.
 #
-- explore: forecast_segment
+
+- explore: calendar_dim
+  joins: 
+    - join: forecast_segment
+      type: left_outer
+      relationship: one_to_many 
+      sql_on: ${calendar_dim.date_key} = ${forecast_segment.reporting_date}
+
+    - join: forecast_merchant
+      type: left_outer  
+      relationship: one_to_many 
+      sql_on: ${calendar_dim.date_key} = ${forecast_merchant.reporting_date}
