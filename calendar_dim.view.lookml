@@ -241,11 +241,11 @@
     
   - dimension: current_quarter 
     type: yesno
-    sql: quarter(${TABLE}date_time_start) = quarter(sysdate)
+    sql: quarter(${TABLE}.date_time_start) = quarter(sysdate)
 
   - dimension: current_year 
     type: yesno
-    sql: year(${TABLE}date_time_start) = year(sysdate)    
+    sql: year(${TABLE}.date_time_start) = year(sysdate)    
 
   - measure: count
     type: count
