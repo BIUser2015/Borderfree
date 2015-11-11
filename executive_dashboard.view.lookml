@@ -131,6 +131,14 @@
   - dimension: shipping_country_key
     type: int
     sql: ${TABLE}.SHIPPING_COUNTRY_KEY
+
+  - dimension: order_hour_number
+    type: int
+    sql: EXTRACT(hour FROM EXECUTIVE_DASHBOARD.ORDER_DATE) 
+
+  - dimension: order_day_number
+    type: int 
+    sql: EXTRACT(DAY FROM ${order_date}) 
     
   - dimension: is_order_current_day
     type: yesno
@@ -150,7 +158,11 @@
     
   - dimension: is_same_day_in_month 
     type: yesno
-    sql: EXTRACT(DAY FROM ${order_date}) <= EXTRACT(DAY FROM CURRENT_DATE)  
+    sql: EXTRACT(DAY FROM ${order_date}) <= EXTRACT(DAY FROM CURRENT_DATE)
+    
+  - dimension: is_current_two_days_in_month
+    type: yesno
+    sql: (EXTRACT(DAY FROM ${order_date}) >= EXTRACT(DAY FROM CURRENT_DATE)-1  and EXTRACT(DAY FROM ${order_date}) <= EXTRACT(DAY FROM CURRENT_DATE))    
     
   - dimension: is_same_day_in_quarter 
     type: yesno
@@ -218,7 +230,23 @@
     type: count
     filter: 
       is_order_last_year: YES
-      is_order_current_month: YES  
+      is_order_current_month: YES
+      
+  - measure: total_orders_48_hours
+    label: Number of Orders. Current 2 days 
+    type: count
+    filter: 
+      is_order_current_year: YES 
+      is_order_current_month: YES 
+      is_current_two_days_in_month: YES 
+
+  - measure: total_orders_48_hours_last_year
+    label: Number of Orders. Current 2 days last year 
+    type: count
+    filter: 
+      is_order_last_year: YES
+      is_order_current_month: YES
+      is_current_two_days_in_month: YES 
        
   - measure: cancelled_orders
     type: count
@@ -375,6 +403,24 @@
       is_order_current_year: YES 
       is_order_current_month: YES 
     value_format: '"$"#,###' 
+    
+  - measure: total_mv_usd_48_hours
+    label:  Trending MV
+    type: sum
+    sql: ${mv}
+    filter: 
+      is_order_current_year: YES 
+      is_order_current_month: YES
+      is_current_two_days_in_month: YES 
+      
+  - measure: total_mv_usd_48_hours_last_year
+    label:  Trending MV Last Year 
+    type: sum
+    sql: ${mv}
+    filter: 
+      is_order_last_year: YES 
+      is_order_current_month: YES
+      is_current_two_days_in_month: YES     
     
   - measure: total_mv_usd_last_year_current_month
     label: Current Month Previous Year MV(USD) 
