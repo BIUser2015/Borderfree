@@ -39,10 +39,20 @@
     
   - measure: difference_of_mv_accepted_vs_forecast 
     type: number
-    sql: ${forecasted_mv_accepted} - ${actuals_historical.total_mv_accepted_actual}
+    sql: (${actuals_historical.total_mv_accepted_actual} - ${forecasted_mv_accepted} )
+
+  - measure: difference_of_mv_accepted_vs_forecast_percentage 
+    type: number
+    sql: ((${actuals_historical.total_mv_accepted_actual} - ${forecasted_mv_accepted} ) / (NULLIFZERO(${forecasted_mv_accepted}))) * 100
+    value_format: '0.00\%'
     
   - measure: difference_of_mv_shipped_vs_forecast 
     type: number
-    sql: ${forecasted_mv_shipped} - ${actuals_historical.total_net_mv_shipped_actual}     
+    sql: (${actuals_historical.total_net_mv_shipped_actual} - ${forecasted_mv_shipped})        
+    
+  - measure: difference_of_mv_shipped_vs_forecast_percentage 
+    type: number
+    sql: ((${actuals_historical.total_net_mv_shipped_actual} - ${forecasted_mv_shipped}) / (NULLIFZERO(${forecasted_mv_shipped}))) * 100
+    value_format: '0.00\%'
 
 
