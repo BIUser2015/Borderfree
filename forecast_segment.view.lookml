@@ -29,12 +29,20 @@
     type: count
     drill_fields: [forecast_segment_id]
 
-  - measure: total_mv_accepted
+  - measure: forecasted_mv_accepted 
     type: sum
     sql: ${mv_accepted}
     
-  - measure: difference
+  - measure: forecasted_mv_shipped
+    type: sum
+    sql: ${net_mv_shipped}
+    
+  - measure: difference_of_mv_accepted_vs_forecast 
     type: number
-    sql: ${total_mv_accepted} - ${actuals_historical.total_mv_accepted_actual} 
+    sql: ${forecasted_mv_accepted} - ${actuals_historical.total_mv_accepted_actual}
+    
+  - measure: difference_of_mv_shipped_vs_forecast 
+    type: number
+    sql: ${forecasted_mv_shipped} - ${actuals_historical.total_net_mv_shipped_actual}     
 
 
