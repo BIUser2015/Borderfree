@@ -74,7 +74,11 @@
     
   - dimension: merchant_name
     sql: ${TABLE}.MERCH_NAME
-    drill_fields: merchantdrillset*
+    html: |
+      {{ linked_value }}
+      <a href="/dashboards/18?merchant_name={{ value }}" target="_new">
+      <img src="/images/qr-graph-line@2x.png" height=20 width=20></a>
+
     
   - dimension: merch_name
     sql: ${TABLE}.MERCH_NAME
