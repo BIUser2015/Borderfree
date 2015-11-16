@@ -92,10 +92,12 @@
 
   - dimension: month_name
     sql: ${TABLE}.MONTH_NAME
+    html: <a href=/dashboards/22><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
 
   - dimension: month_number
     type: int
     sql: ${TABLE}.MONTH_NUMBER
+    html: <a href=/dashboards/22><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
 
   - dimension: month_short_name
     sql: ${TABLE}.MONTH_SHORT_NAME
@@ -166,10 +168,12 @@
   - dimension: week_in_year_number
     type: int
     sql: ${TABLE}.WEEK_IN_YEAR_NUMBER
+    html: <a href=/dashboards/22><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
 
   - dimension: week_in_year_number_start_sun
     type: int
     sql: ${TABLE}.WEEK_IN_YEAR_NUMBER_START_SUN
+    html: <a href=/dashboards/22><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
 
   - dimension: week_in_year_value
     sql: ${TABLE}.WEEK_IN_YEAR_VALUE
