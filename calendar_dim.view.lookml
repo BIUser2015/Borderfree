@@ -137,6 +137,7 @@
 
   - dimension: quarter_name
     sql: ${TABLE}.QUARTER_NAME
+    html: <a href=/dashboards/22><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
 
   - dimension_group: quarter_start
     type: time
