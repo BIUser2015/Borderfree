@@ -511,7 +511,7 @@
       merchant_ccy: USD
       is_order_current_year: YES 
     value_format: '"$"#,###' 
-    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a> 
+    html: <a href=/dashboards/22><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a> 
     
   - measure: total_gmv_usd_last_year
     label: Previous Year GMV(USD) 
@@ -521,7 +521,7 @@
       merchant_ccy: USD
       is_order_last_year: YES 
     value_format: '"$"#,###' 
-    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a> 
+    html: <a href=/dashboards/22><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a> 
     
   - measure: total_gmv_usd_current_year_quarter
     label: Current Quarter GMV(USD) 
@@ -532,7 +532,7 @@
       is_order_current_year: YES
       is_order_current_quarter: YES 
     value_format: '"$"#,###' 
-    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a> 
+    html: <a href=/dashboards/22><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a> 
     
   - measure: total_gmv_usd_last_year_quarter
     label: Current Quarter Previous Year GMV(USD) 
@@ -543,7 +543,7 @@
       is_order_last_year: YES 
       is_order_current_quarter: YES 
     value_format: '"$"#,###' 
-    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a> 
+    html: <a href=/dashboards/22><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a> 
     
   - measure: total_gmv_usd_current_month
     label: Current Month GMV(USD) 
@@ -554,7 +554,7 @@
       is_order_current_year: YES 
       is_order_current_month: YES 
     value_format: '"$"#,###' 
-    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
+    html: <a href=/dashboards/22><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
     
   - measure: total_gmv_usd_last_year_current_month
     label: Current Month Previous Year GMV(USD) 
@@ -565,7 +565,7 @@
       is_order_last_year: YES 
       is_order_current_month: YES 
     value_format: '"$"#,###' 
-    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>      
+    html: <a href=/dashboards/22><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>      
 
   - measure: total_gmv_gbp
     type: sum
@@ -582,7 +582,7 @@
     filter: 
       merchant_ccy: GBP
       is_order_current_year: YES 
-    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
+    html: <a href=/dashboards/22><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
     value_format: '"£"#,###'     
 
   - measure: total_gmv_gbp_last_year
@@ -592,7 +592,7 @@
     filter: 
       merchant_ccy: GBP
       is_order_last_year: YES 
-    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
+    html: <a href=/dashboards/22><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
     value_format: '"£"#,###' 
     
   - measure: total_gmv_gbp_current_year_quarter
@@ -603,7 +603,7 @@
       merchant_ccy: GBP
       is_order_current_year: YES 
       is_order_current_quarter: YES 
-    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
+    html: <a href=/dashboards/22><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
     value_format: '"£"#,###'     
 
   - measure: total_gmv_gbp_last_year_quarter
@@ -614,7 +614,7 @@
       merchant_ccy: GBP
       is_order_last_year: YES
       is_order_current_quarter: YES 
-    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
+    html: <a href=/dashboards/22><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
     value_format: '"£"#,###'     
     
   - measure: total_gmv_gbp_current_year_current_month
@@ -625,7 +625,7 @@
       merchant_ccy: GBP
       is_order_current_year: YES 
       is_order_current_month: YES  
-    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
+    html: <a href=/dashboards/22><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
     value_format: '"£"#,###'     
 
   - measure: total_gmv_gbp_last_year_current_month
@@ -636,7 +636,7 @@
       merchant_ccy: GBP
       is_order_last_year: YES
       is_order_current_month: YES  
-    html: <a href=/dashboards/7><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
+    html: <a href=/dashboards/22><font color="#168EF7">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>  
     value_format: '"£"#,###'     
     
     
@@ -651,7 +651,7 @@
     filter: 
       merchant_ccy: USD
     value_format: '"$"#,###'
-    html: <a href=/dashboards/6><font color="#7CC5DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
+    html: <a href=/dashboards/22<font color="#7CC5DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
     
   - measure: accepted_gmv_usd
     type: sum
@@ -668,7 +668,7 @@
       merchant_ccy: GBP
       is_order_current_quarter: yes 
     value_format: '"£"#,###'
-    html: <a href=/dashboards/6><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
+    html: <a href=/dashboards/22><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
     
   - measure: gmv_total_product_gbp
     type: sum
