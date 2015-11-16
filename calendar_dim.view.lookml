@@ -177,6 +177,7 @@
 
   - dimension: week_in_year_value
     sql: ${TABLE}.WEEK_IN_YEAR_VALUE
+    html: <a href=/dashboards/22><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
 
   - dimension_group: week_start
     type: time
