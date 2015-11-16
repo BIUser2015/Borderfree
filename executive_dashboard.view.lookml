@@ -76,7 +76,7 @@
     sql: ${TABLE}.MERCH_NAME
     html: |
       {{ linked_value }}
-      <a href="/dashboards/18?Merchant={{ value }}" target="_new"> {{ linked_value }} ></a>
+      <a href="/dashboards/18?Merchant={{ value }}" target="_new"> {{ linked_value }} </a>
     
 
     
