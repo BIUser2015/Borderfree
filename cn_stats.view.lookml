@@ -50,4 +50,15 @@
   - measure: count
     type: count
     drill_fields: [product_name, merch_name]
+    
+  - measure: mv
+    type: sum
+    sql: ${item_mv}
+    
+  - measure: order_count
+    type: count_distinct
+    sql: ${order_id}    
+    
+    
+    
 
