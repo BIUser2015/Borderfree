@@ -29,30 +29,95 @@
     type: count
     drill_fields: [forecast_segment_id]
 
-  - measure: forecasted_mv_accepted 
+  - measure: forecasted_mv_accepted_alipay 
     type: sum
+    filter: 
+      reporting_segment: Alipay 
     sql: ${mv_accepted}
     
-  - measure: forecasted_mv_shipped
+  - measure: forecasted_mv_accepted_fate 
     type: sum
+    filter: 
+      reporting_segment: Fate     
+    sql: ${mv_accepted}
+    
+  - measure: forecasted_mv_accepted_us 
+    type: sum
+    filter: 
+      reporting_segment: Excluding FATE and Alipay 
+    sql: ${mv_accepted}    
+    
+  - measure: forecasted_mv_shipped_alipay
+    type: sum
+    filter: 
+      reporting_segment: Alipay     
     sql: ${net_mv_shipped}
     
-  - measure: difference_of_mv_accepted_vs_forecast 
+  - measure: forecasted_mv_shipped_fate
+    type: sum
+    filter: 
+      reporting_segment: Fate      
+    sql: ${net_mv_shipped}
+    
+  - measure: forecasted_mv_shipped_us
+    type: sum
+    filter: 
+      reporting_segment: Excluding FATE and Alipay     
+    sql: ${net_mv_shipped}    
+    
+  - measure: difference_of_mv_accepted_vs_forecast_alipay 
     type: number
-    sql: (${actuals_historical.total_mv_accepted_actual} - ${forecasted_mv_accepted} )
+    sql: (${actuals_historical.total_mv_accepted_actual} - ${forecasted_mv_accepted_alipay} )
+    
+  - measure: difference_of_mv_accepted_vs_forecast_fate 
+    type: number
+    sql: (${actuals_historical.total_mv_accepted_actual} - ${forecasted_mv_accepted_fate} )
+    
+  - measure: difference_of_mv_accepted_vs_forecast_us 
+    type: number
+    sql: (${actuals_historical.total_mv_accepted_actual} - ${forecasted_mv_shipped_us} )    
 
-  - measure: difference_of_mv_accepted_vs_forecast_percentage 
+  - measure: difference_of_mv_accepted_vs_forecast_percentage_alipay 
     type: number
-    sql: ((${actuals_historical.total_mv_accepted_actual} - ${forecasted_mv_accepted} ) / (NULLIFZERO(${forecasted_mv_accepted}))) * 100
+    sql: ((${actuals_historical.total_mv_accepted_actual} - ${forecasted_mv_accepted_alipay} ) / (NULLIFZERO(${forecasted_mv_accepted_alipay}))) * 100
     value_format: '0.00\%'
     
-  - measure: difference_of_mv_shipped_vs_forecast 
+  - measure: difference_of_mv_accepted_vs_forecast_percentage_fate 
     type: number
-    sql: (${actuals_historical.total_net_mv_shipped_actual} - ${forecasted_mv_shipped})        
-    
-  - measure: difference_of_mv_shipped_vs_forecast_percentage 
-    type: number
-    sql: ((${actuals_historical.total_net_mv_shipped_actual} - ${forecasted_mv_shipped}) / (NULLIFZERO(${forecasted_mv_shipped}))) * 100
+    sql: ((${actuals_historical.total_mv_accepted_actual} - ${forecasted_mv_accepted_fate} ) / (NULLIFZERO(${forecasted_mv_accepted_fate}))) * 100
     value_format: '0.00\%'
+    
+  - measure: difference_of_mv_accepted_vs_forecast_percentage_us 
+    type: number
+    sql: ((${actuals_historical.total_mv_accepted_actual} - ${forecasted_mv_accepted_us} ) / (NULLIFZERO(${forecasted_mv_accepted_us}))) * 100
+    value_format: '0.00\%'    
+    
+  - measure: difference_of_mv_shipped_vs_forecast_alipay 
+    type: number
+    sql: (${actuals_historical.total_net_mv_shipped_actual} - ${forecasted_mv_shipped_alipay})
+
+  - measure: difference_of_mv_shipped_vs_forecast_fate 
+    type: number
+    sql: (${actuals_historical.total_net_mv_shipped_actual} - ${forecasted_mv_shipped_fate})  
+    
+  - measure: difference_of_mv_shipped_vs_forecast_us 
+    type: number
+    sql: (${actuals_historical.total_net_mv_shipped_actual} - ${forecasted_mv_shipped_us})      
+    
+  - measure: difference_of_mv_shipped_vs_forecast_percentage_alipay 
+    type: number
+    sql: ((${actuals_historical.total_net_mv_shipped_actual} - ${forecasted_mv_shipped_alipay}) / (NULLIFZERO(${forecasted_mv_shipped_alipay}))) * 100
+    value_format: '0.00\%'
+
+  - measure: difference_of_mv_shipped_vs_forecast_percentage_fate 
+    type: number
+    sql: ((${actuals_historical.total_net_mv_shipped_actual} - ${forecasted_mv_shipped_fate }) / (NULLIFZERO(${forecasted_mv_shipped_fate }))) * 100
+    value_format: '0.00\%'
+
+  - measure: difference_of_mv_shipped_vs_forecast_percentage_us 
+    type: number
+    sql: ((${actuals_historical.total_net_mv_shipped_actual} - ${forecasted_mv_shipped_us}) / (NULLIFZERO(${forecasted_mv_shipped_us}))) * 100
+    value_format: '0.00\%'
+    
 
 

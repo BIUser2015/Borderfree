@@ -46,11 +46,15 @@
     drill_fields: [merch_name, financial_entity_name]
     
   - measure: total_mv_accepted_actual
+    filter: 
+      calendar_dim.current_year: YES     
     type: sum
     sql: ${mv_accepted_actual}   
     
   - measure: total_net_mv_shipped_actual
     type: sum
+    filter: 
+      calendar_dim.current_year: YES     
     sql: ${net_mv_shipped_actual}
     
   - measure: total_mv_accepted_actual_previous_year
@@ -61,6 +65,8 @@
     
   - measure: total_net_mv_shipped_actual_previous_year
     type: sum
+    filter: 
+      calendar_dim.previous_year: YES 
     sql: ${net_mv_shipped_actual}    
   
   - measure: total_orders_cancelled
