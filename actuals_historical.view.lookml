@@ -57,6 +57,16 @@
       calendar_dim.current_year: YES     
     sql: ${net_mv_shipped_actual}
     
+  - measure: difference_of_mv_accepted_vs_previous_year
+    type: number
+    sql: (( (NULLIFZERO${total_mv_accepted_actual}) - (NULLIFZERO${total_mv_accepted_actual_previous_year})) / (NULLIFZERO(${total_mv_accepted_actual_previous_year}))) * 100
+    value_format: '0.00\%' 
+    
+  - measure: difference_of_mv_shipped_vs_previous_year
+    type: number
+    sql: (((NULLIFZERO${total_net_mv_shipped_actual}) - (NULLIFZERO${total_net_mv_shipped_actual_previous_year}) ) / (NULLIFZERO(${total_net_mv_shipped_actual_previous_year}))) * 100
+    value_format: '0.00\%'  
+    
   - measure: total_mv_accepted_actual_previous_year
     type: sum
     filter: 
