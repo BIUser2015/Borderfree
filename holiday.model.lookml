@@ -24,5 +24,10 @@
       type: left_outer  
       relationship: one_to_many 
       sql_on: ${calendar_dim.date_key} = ${actuals_historical.reporting_date}  
+      
+    - join: dashboard_currency_conversion
+      type: inner
+      relationship: one_to_one
+      sql_on: ${calendar_dim.date_key} = ${dashboard_currency_conversion.reporting_date}        
     
       

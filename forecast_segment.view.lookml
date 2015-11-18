@@ -28,6 +28,12 @@
   - measure: count
     type: count
     drill_fields: [forecast_segment_id]
+    
+  - measure: forecasted_mv_accepted_all_usd
+    type: sum
+    filter: 
+       mccy: USD
+    sql: ${mv_accepted}
 
   - measure: forecasted_mv_accepted_alipay 
     type: sum

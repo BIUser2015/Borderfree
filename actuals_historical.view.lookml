@@ -49,7 +49,29 @@
     filter: 
       calendar_dim.current_year: YES     
     type: sum
-    sql: ${mv_accepted_actual}   
+    sql: ${mv_accepted_actual}
+    
+  - measure: total_mv_accepted_actual_us
+    filter: 
+      calendar_dim.current_year: YES
+      financial_entity_name: BF-USA
+    type: sum
+    sql: ${mv_accepted_actual}
+    
+  - measure: total_mv_accepted_actual_fate
+    filter: 
+      calendar_dim.current_year: YES
+      financial_entity_name: BF-IRL
+    type: sum
+    sql: ${mv_accepted_actual}    
+    
+  - measure: total_mv_accepted_actual_fate_converted
+    type: number
+    sql: (${total_mv_accepted_actual_fate} * ${dashboard_currency_conversion.convert_rate} )
+    
+  - measure: total_mv_accepted_both_entities_usd
+    type: number
+    sql: (${total_mv_accepted_actual_us} + ${total_mv_accepted_actual_fate_converted} )      
     
   - measure: total_net_mv_shipped_actual
     type: sum
