@@ -75,7 +75,7 @@
     
   - measure: difference_of_mv_accepted_vs_forecast_us 
     type: number
-    sql: (${actuals_historical.total_mv_accepted_actual} - ${forecasted_mv_shipped_us} )    
+    sql: (${actuals_historical.total_mv_accepted_actual} - ${forecasted_mv_accepted_us} )    
 
   - measure: difference_of_mv_accepted_vs_forecast_percentage_alipay 
     type: number
@@ -111,7 +111,7 @@
 
   - measure: difference_of_mv_shipped_vs_forecast_percentage_fate 
     type: number
-    sql: ((${actuals_historical.total_net_mv_shipped_actual} - ${forecasted_mv_shipped_fate }) / (NULLIFZERO(${forecasted_mv_shipped_fate }))) * 100
+    sql: ((${actuals_historical.total_net_mv_shipped_actual} - ${forecasted_mv_shipped_fate }) / (NULLIFZERO(${forecasted_mv_shipped_fate}))) * 100
     value_format: '0.00\%'
 
   - measure: difference_of_mv_shipped_vs_forecast_percentage_us 
