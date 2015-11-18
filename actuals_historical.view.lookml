@@ -37,9 +37,6 @@
     type: int
     sql: ${TABLE}.REPORTING_DATE
 
-  - dimension: reporting_date_previous_year
-    type: yesno
-    sql: ${TABLE}.REPORTING_DATE  = (${TABLE}.REPORTING_DATE - 10000) 
 
   - dimension: reporting_group
     sql: ${TABLE}.REPORTING_GROUP
@@ -55,7 +52,17 @@
   - measure: total_net_mv_shipped_actual
     type: sum
     sql: ${net_mv_shipped_actual}
-
+    
+  - measure: total_mv_accepted_actual_previous_year
+    type: sum
+    filter: 
+      calendar_dim.previous_year: YES 
+    sql: ${mv_accepted_actual}   
+    
+  - measure: total_net_mv_shipped_actual_previous_year
+    type: sum
+    sql: ${net_mv_shipped_actual}    
+  
   - measure: total_orders_cancelled
     type: sum
     sql: ${orders_cancelled}

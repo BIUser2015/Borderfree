@@ -245,6 +245,9 @@
   - dimension: yyyymmdd
     sql: ${TABLE}.YYYYMMDD
     
+  - dimension: mmdd
+    sql: right(${TABLE}.YYYYMMDD,5) 
+    
   - dimension: current_quarter 
     type: yesno
     sql: quarter(${TABLE}.date_time_start) = quarter(sysdate)
@@ -252,6 +255,10 @@
   - dimension: current_year 
     type: yesno
     sql: year(${TABLE}.date_time_start) = year(sysdate)    
+
+  - dimension: previous_year 
+    type: yesno
+    sql: year(${TABLE}.date_time_start) = year(sysdate)-1 
 
   - measure: count
     type: count
