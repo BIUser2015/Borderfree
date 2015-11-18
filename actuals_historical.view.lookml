@@ -37,6 +37,10 @@
     type: int
     sql: ${TABLE}.REPORTING_DATE
 
+  - dimension: reporting_date_previous_year
+    type: yesno
+    sql: ${TABLE}.REPORTING_DATE  = (${TABLE}.REPORTING_DATE - 10000) 
+
   - dimension: reporting_group
     sql: ${TABLE}.REPORTING_GROUP
 
