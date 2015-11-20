@@ -96,7 +96,12 @@
   - measure: difference_of_mv_accepted_vs_forecast_percentage_us 
     type: number
     sql: ((${actuals_historical.total_mv_accepted_actual} - ${forecasted_mv_accepted_us} ) / (NULLIFZERO(${forecasted_mv_accepted_us}))) * 100
-    value_format: '0.00\%'    
+    value_format: '0.00\%' 
+    
+  - measure: difference_of_mv_accepted_vs_forecast_percentage_all_usd 
+    type: number
+    sql: ((${actuals_historical.total_mv_accepted_both_entities_usd} - ${forecasted_mv_accepted_all_usd} ) / (NULLIFZERO(${forecasted_mv_accepted_all_usd}))) * 100
+    value_format: '0.00\%'       
     
   - measure: difference_of_mv_shipped_vs_forecast_alipay 
     type: number

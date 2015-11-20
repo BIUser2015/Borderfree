@@ -102,10 +102,16 @@
     sql: ${net_mv_shipped_actual}    
   
   - measure: total_orders_cancelled
+    label: Orders Cancelled Current Year 
     type: sum
+    filter: 
+      calendar_dim.current_year: YES
     sql: ${orders_cancelled}
 
   - measure: total_parcels_shipped_actual
+    label: Parcels Shipped Current Year
+    filter: 
+      calendar_dim.current_year: YES
     type: sum
     sql: ${parcels_shipped_actual}
   
