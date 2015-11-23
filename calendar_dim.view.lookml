@@ -93,11 +93,21 @@
   - dimension: month_name
     sql: ${TABLE}.MONTH_NAME
     html: <a href=/dashboards/22><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
+    
+  - dimension: month
+    sql: ${TABLE}.MONTH_NAME
+    html: <a href=/dashboards/20><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>    
 
   - dimension: month_number
     type: int
     sql: ${TABLE}.MONTH_NUMBER
     html: <a href=/dashboards/22><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
+    
+  - dimension: month_num
+    label: Month Number 
+    type: int
+    sql: ${TABLE}.MONTH_NUMBER
+    html: <a href=/dashboards/20><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>    
 
   - dimension: month_short_name
     sql: ${TABLE}.MONTH_SHORT_NAME
@@ -140,6 +150,10 @@
   - dimension: quarter_name
     sql: ${TABLE}.QUARTER_NAME
     html: <a href=/dashboards/22><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
+    
+  - dimension: quarter
+    sql: ${TABLE}.QUARTER_NAME
+    html: <a href=/dashboards/20><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>    
 
   - dimension_group: quarter_start
     type: time
@@ -259,6 +273,14 @@
   - dimension: previous_year 
     type: yesno
     sql: year(${TABLE}.date_time_start) = year(sysdate)-1 
+    
+  - dimension: up_to_same_date_in_quarter 
+    type: yesno
+    sql: (EXTRACT(DOQ FROM sysdate)) > ${TABLE}.day_of_quarter_number
+    
+  - dimension: up_to_same_date_in_year
+    type: yesno
+    sql: EXTRACT(DOY FROM sysdate) > ${TABLE}.day_of_year_number      
 
   - measure: count
     type: count

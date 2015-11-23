@@ -77,11 +77,10 @@
     html: |
       <a href="/dashboards/18?Merchant={{ value }}" target="_new" {{ linked_value }}</a>
     
-    
   - dimension: merch_name
     sql: ${TABLE}.MERCH_NAME
     html: |
-      <a href="/dashboards/18?Merchant={{ value }}" target="_new" {{ linked_value }}</a> 
+      <a href="/dashboards/32?Merchant={{ value }}" target="_new" {{ linked_value }}</a> 
 
   - dimension: merchant_ccy
     sql: ${TABLE}.MERCHANT_CCY
