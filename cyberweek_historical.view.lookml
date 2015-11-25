@@ -66,6 +66,14 @@
 
   - dimension: shipping_country
     sql: ${TABLE}.SHIPPING_COUNTRY
+    
+  - dimension: current_year
+    type: yesno
+    sql: year(${TABLE}.order_date_full) = year(sysdate)    
+
+  - dimension: previous_year
+    type: yesno
+    sql: year(${TABLE}.order_date_full) = year(sysdate)-1    
 
   - measure: count_of_items
     type: count
@@ -74,6 +82,18 @@
   - measure: total_mv
     type: sum
     sql: ${mv_usd} 
+    
+  - measure: total_mv_current_year
+    type: sum
+    filter: 
+     current_year: YES
+    sql: ${mv_usd} 
+    
+  - measure: total_mv_previous_year
+    type: sum
+    filter: 
+     previous_year: YES    
+    sql: ${mv_usd}     
     
   - measure: count_orders
     type: count_distinct
