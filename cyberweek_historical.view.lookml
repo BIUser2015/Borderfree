@@ -1,4 +1,4 @@
-- view: cyberweek_historical
+- view: cyberweek
   sql_table_name: LOOKER.CYBERWEEK_HISTORICAL
   fields:
 
