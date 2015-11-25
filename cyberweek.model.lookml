@@ -12,3 +12,5 @@
 #       sql_on: ${orders.id} = ${order_items.order_id}
 #     - join: users
 #       sql_on: ${users.id} = ${orders.user_id}
+
+- explore: cyberweek_legend
