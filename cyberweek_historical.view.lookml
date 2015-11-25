@@ -3,10 +3,10 @@
   fields:
 
   - dimension: brand
-    sql: ${TABLE}.BRAND
+    sql: INITCAP(${TABLE}.BRAND)
 
   - dimension: category
-    sql: ${TABLE}.CATEGORY
+    sql: INITCAP(${TABLE}.CATEGORY)
 
   - dimension: checkout_status
     sql: ${TABLE}.CHECKOUT_STATUS
@@ -20,7 +20,7 @@
     sql: ${TABLE}.CONVERT_RATE_GBP
 
   - dimension: credit_card_type
-    sql: ${TABLE}.CREDIT_CARD_TYPE
+    sql: INITCAP(${TABLE}.CREDIT_CARD_TYPE)
 
   - dimension: currency
     sql: ${TABLE}.CURRENCY
@@ -52,7 +52,7 @@
 
   - dimension_group: order_date_full
     type: time
-    timeframes: [time, date, week, month]
+    timeframes: [time, date, week, month, hour, year]
     sql: ${TABLE}.ORDER_DATE_FULL
 
   - dimension: order_hour
@@ -62,7 +62,7 @@
     sql: ${TABLE}.ORDER_ID
 
   - dimension: product_name
-    sql: ${TABLE}.PRODUCT_NAME
+    sql: INITCAP (${TABLE}.PRODUCT_NAME)
 
   - dimension: shipping_country
     sql: ${TABLE}.SHIPPING_COUNTRY
@@ -78,27 +78,57 @@
   - measure: count_of_items
     type: count
     drill_fields: [product_name, financial_entity_name, merch_name]
+    
+  - measure: count_of_items_current_year
+    type: count
+    filter: 
+     current_year: YES    
+    drill_fields: [product_name, financial_entity_name, merch_name]
+    
+  - measure: count_of_items_previous_year
+    type: count
+    filter: 
+     current_year: YES    
+    drill_fields: [product_name, financial_entity_name, merch_name]    
 
   - measure: total_mv
     type: sum
     sql: ${mv_usd} 
+    value_format: '"$"#,###'     
     
   - measure: total_mv_current_year
     type: sum
     filter: 
      current_year: YES
     sql: ${mv_usd} 
+    value_format: '"$"#,###'     
     
   - measure: total_mv_previous_year
     type: sum
     filter: 
      previous_year: YES    
-    sql: ${mv_usd}     
+    sql: ${mv_usd} 
+    value_format: '"$"#,###'     
     
   - measure: count_orders
     type: count_distinct
+    sql: ${order_id} 
+    
+  - measure: count_orders_current_year
+    type: count_distinct
+    filter: 
+     current_year: YES    
     sql: ${order_id}      
     
+  - measure: count_orders_previous_year 
+    type: count_distinct
+    filter: 
+     previous_year: YES  
+    sql: ${order_id}       
     
     
-
+    
+    
+    
+    
+    
