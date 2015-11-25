@@ -12,7 +12,7 @@
     sql: ${TABLE}.CHECKOUT_STATUS
 
   - dimension: comparison_day
-    type: number
+    type: int
     sql: ${TABLE}.COMPARISON_DAY
 
   - dimension: convert_rate_gbp
