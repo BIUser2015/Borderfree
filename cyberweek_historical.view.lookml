@@ -124,7 +124,20 @@
     type: count_distinct
     filter: 
      previous_year: YES  
-    sql: ${order_id}       
+    sql: ${order_id}   
+    
+  - measure: count_orders_current_year_accepted
+    type: count_distinct
+    filter: 
+     current_year: YES
+     checkout_status: "GREEN, CANCELLED"
+    sql: ${order_id}   
+    
+  - measure: acceptance_rate
+    type: number
+    sql: (${count_orders_current_year_accepted}/${count_orders_current_year}) * 100
+    value_format: '0.00\%' 
+    
     
     
     
