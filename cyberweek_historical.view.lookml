@@ -161,7 +161,9 @@
       - merch_name
       - checkout_status
       - credit_card_type
-      - mv_usd
+      - order_id
+      - total_mv_current_year
+  
        
     
     
