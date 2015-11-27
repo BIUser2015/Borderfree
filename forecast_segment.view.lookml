@@ -69,6 +69,12 @@
     type: sum
     filter: 
       reporting_segment: Excluding FATE and Alipay     
+    sql: ${net_mv_shipped}   
+    
+  - measure: forecasted_mv_shipped_all_usd
+    type: sum
+    filter: 
+       mccy: USD
     sql: ${net_mv_shipped}    
     
   - measure: difference_of_mv_accepted_vs_forecast_alipay 
