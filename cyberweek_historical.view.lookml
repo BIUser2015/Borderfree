@@ -127,12 +127,13 @@
   - measure: count_orders
     type: count_distinct
     sql: ${order_id} 
+    drill_fields: cancelled_drillset*
     
   - measure: count_orders_current_year
     type: count_distinct
     filter: 
      current_year: YES    
-    sql: ${order_id}      
+    sql: ${order_id}
     
   - measure: count_orders_previous_year 
     type: count_distinct
@@ -151,6 +152,18 @@
     type: number
     sql: (${count_orders_current_year_accepted}/${count_orders_current_year}) * 100
     value_format: '0.00\%' 
+    
+
+  sets: 
+  
+    cancelled_drillset:
+      - merch_id 
+      - merch_name
+      - checkout_status
+      - credit_card_type
+      - mv_usd
+       
+    
     
     
     
