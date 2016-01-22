@@ -18,10 +18,6 @@
     type: number
     sql: ${TABLE}.AOV_GBP_ACCEPTED_LIFETIME
 
-  - dimension: aov_usd_accepted_l365
-    type: number
-    sql: ${TABLE}.AOV_USD_ACCEPTED_L365
-
   - dimension: aov_usd_accepted_lifetime
     type: number
     sql: ${TABLE}.AOV_USD_ACCEPTED_LIFETIME
@@ -286,4 +282,8 @@
   - measure: count
     type: count
     drill_fields: [customer_last_name, customer_first_name]
+    
+  - measure: aov_usd_accepted_l365
+    type: sum 
+    sql: ${TABLE}.AOV_USD_ACCEPTED_L365    
 
