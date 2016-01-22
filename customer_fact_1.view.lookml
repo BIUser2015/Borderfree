@@ -3,7 +3,7 @@
   fields:
 
   - measure: accepted_order_count_l365
-    type: int
+    type: sum
     sql: ${TABLE}.ACCEPTED_ORDER_COUNT_L365
 
   - measure: accepted_order_count_lifetime
@@ -200,8 +200,9 @@
     sql: ${TABLE}.MV_GBP_ACCEPTED_LIFETIME
 
   - measure: mv_usd_accepted_l365
-    type: number
+    type: sum
     sql: ${TABLE}.MV_USD_ACCEPTED_L365
+    value_format: '#,##0.00'
 
   - measure: mv_usd_accepted_lifetime
     type: number
