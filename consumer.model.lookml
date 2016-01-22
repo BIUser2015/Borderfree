@@ -7,8 +7,8 @@
 # # and define the joins that connect them together.
 #
 - explore: customer_fact_1
-#   joins:
-#     - join: orders
-#       sql_on: ${orders.id} = ${order_items.order_id}
-#     - join: users
-#       sql_on: ${users.id} = ${orders.user_id}
+  joins:
+    - join: country_dim
+      type: left_outer
+      relationship: many_to_one
+      sql_on: ${country_dim.country_key} = ${customer_fact_1.first_shipping_country_key}
