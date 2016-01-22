@@ -6,7 +6,7 @@
 # # Select the views that should be a part of this model,
 # # and define the joins that connect them together.
 #
-- explore: customer_fact_20160122
+# - explore: customer_fact_1
 #   joins:
 #     - join: orders
 #       sql_on: ${orders.id} = ${order_items.order_id}
