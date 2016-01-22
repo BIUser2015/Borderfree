@@ -2,51 +2,51 @@
   sql_table_name: DEV.CUSTOMER_FACT_1
   fields:
 
-  - dimension: accepted_order_count_l365
+  - measure: accepted_order_count_l365
     type: int
     sql: ${TABLE}.ACCEPTED_ORDER_COUNT_L365
 
-  - dimension: accepted_order_count_lifetime
+  - measure: accepted_order_count_lifetime
     type: int
     sql: ${TABLE}.ACCEPTED_ORDER_COUNT_LIFETIME
 
-  - dimension: aov_gbp_accepted_l365
+  - measure: aov_gbp_accepted_l365
     type: number
     sql: ${TABLE}.AOV_GBP_ACCEPTED_L365
 
-  - dimension: aov_gbp_accepted_lifetime
+  - measure: aov_gbp_accepted_lifetime
     type: number
     sql: ${TABLE}.AOV_GBP_ACCEPTED_LIFETIME
 
-  - dimension: aov_usd_accepted_l365
+  - measure: aov_usd_accepted_l365
     type: number
     sql: ${TABLE}.AOV_USD_ACCEPTED_L365
 
-  - dimension: aov_usd_accepted_lifetime
+  - measure: aov_usd_accepted_lifetime
     type: number
     sql: ${TABLE}.AOV_USD_ACCEPTED_LIFETIME
 
-  - dimension: aur_gbp_accepted_l365
+  - measure: aur_gbp_accepted_l365
     type: number
     sql: ${TABLE}.AUR_GBP_ACCEPTED_L365
 
-  - dimension: aur_gbp_accepted_lifetime
+  - measure: aur_gbp_accepted_lifetime
     type: number
     sql: ${TABLE}.AUR_GBP_ACCEPTED_LIFETIME
 
-  - dimension: aur_usd_accepted_l365
+  - measure: aur_usd_accepted_l365
     type: number
     sql: ${TABLE}.AUR_USD_ACCEPTED_L365
 
-  - dimension: aur_usd_accepted_lifetime
+  - measure: aur_usd_accepted_lifetime
     type: number
     sql: ${TABLE}.AUR_USD_ACCEPTED_LIFETIME
 
-  - dimension: cancelled_order_count_l365
+  - measure: cancelled_order_count_l365
     type: int
     sql: ${TABLE}.CANCELLED_ORDER_COUNT_L365
 
-  - dimension: cancelled_order_count_lifetime
+  - measure: cancelled_order_count_lifetime
     type: int
     sql: ${TABLE}.CANCELLED_ORDER_COUNT_LIFETIME
 
@@ -80,6 +80,7 @@
 
   - dimension: customer_key
     type: number
+    primary_key: true
     sql: ${TABLE}.CUSTOMER_KEY
 
   - dimension: customer_last_name
@@ -98,7 +99,7 @@
     type: string
     sql: ${TABLE}.CUSTOMER_STATUS_LIFETIME
 
-  - dimension: days_since_last_purchase
+  - measure: days_since_last_purchase
     type: string
     sql: ${TABLE}.DAYS_SINCE_LAST_PURCHASE
 
@@ -122,11 +123,11 @@
     type: number
     sql: ${TABLE}.FIRST_BILLING_COUNTRY_KEY
 
-  - dimension: first_day_accepted_order_count
+  - measure: first_day_accepted_order_count
     type: int
     sql: ${TABLE}.FIRST_DAY_ACCEPTED_ORDER_COUNT
 
-  - dimension: first_day_number_merchant_shopped
+  - measure: first_day_number_merchant_shopped
     type: int
     sql: ${TABLE}.FIRST_DAY_NUMBER_MERCHANT_SHOPPED
 
@@ -138,19 +139,19 @@
     type: number
     sql: ${TABLE}.FIRST_SHIPPING_COUNTRY_KEY
 
-  - dimension: gmv_gbp_accepted_l365
+  - measure: gmv_gbp_accepted_l365
     type: number
     sql: ${TABLE}.GMV_GBP_ACCEPTED_L365
 
-  - dimension: gmv_gbp_accepted_lifetime
+  - measure: gmv_gbp_accepted_lifetime
     type: number
     sql: ${TABLE}.GMV_GBP_ACCEPTED_LIFETIME
 
-  - dimension: gmv_usd_accepted_l365
+  - measure: gmv_usd_accepted_l365
     type: number
     sql: ${TABLE}.GMV_USD_ACCEPTED_L365
 
-  - dimension: gmv_usd_accepted_lifetime
+  - measure: gmv_usd_accepted_lifetime
     type: number
     sql: ${TABLE}.GMV_USD_ACCEPTED_LIFETIME
 
@@ -174,11 +175,11 @@
     type: number
     sql: ${TABLE}.LAST_BILLING_COUNTRY_KEY
 
-  - dimension: last_day_accepted_order_count
+  - measure: last_day_accepted_order_count
     type: int
     sql: ${TABLE}.LAST_DAY_ACCEPTED_ORDER_COUNT
 
-  - dimension: last_day_number_merchant_shopped
+  - measure: last_day_number_merchant_shopped
     type: int
     sql: ${TABLE}.LAST_DAY_NUMBER_MERCHANT_SHOPPED
 
@@ -190,59 +191,59 @@
     type: number
     sql: ${TABLE}.LAST_SHIPPING_COUNTRY_KEY
 
-  - dimension: mv_gbp_accepted_l365
+  - measure: mv_gbp_accepted_l365
     type: number
     sql: ${TABLE}.MV_GBP_ACCEPTED_L365
 
-  - dimension: mv_gbp_accepted_lifetime
+  - measure: mv_gbp_accepted_lifetime
     type: number
     sql: ${TABLE}.MV_GBP_ACCEPTED_LIFETIME
 
-  - dimension: mv_usd_accepted_l365
+  - measure: mv_usd_accepted_l365
     type: number
     sql: ${TABLE}.MV_USD_ACCEPTED_L365
 
-  - dimension: mv_usd_accepted_lifetime
+  - measure: mv_usd_accepted_lifetime
     type: number
     sql: ${TABLE}.MV_USD_ACCEPTED_LIFETIME
 
-  - dimension: num_item_accepted_uk_merch_l365
+  - measure: num_item_accepted_uk_merch_l365
     type: int
     sql: ${TABLE}.NUM_ITEM_ACCEPTED_UK_MERCH_L365
 
-  - dimension: num_item_accepted_uk_merch_lifetime
+  - measure: num_item_accepted_uk_merch_lifetime
     type: int
     sql: ${TABLE}.NUM_ITEM_ACCEPTED_UK_MERCH_LIFETIME
 
-  - dimension: num_item_accepted_us_merch_l365
+  - measure: num_item_accepted_us_merch_l365
     type: int
     sql: ${TABLE}.NUM_ITEM_ACCEPTED_US_MERCH_L365
 
-  - dimension: num_item_accepted_us_merch_lifetime
+  - measure: num_item_accepted_us_merch_lifetime
     type: int
     sql: ${TABLE}.NUM_ITEM_ACCEPTED_US_MERCH_LIFETIME
 
-  - dimension: num_order_accepted_uk_merch_l365
+  - measure: num_order_accepted_uk_merch_l365
     type: int
     sql: ${TABLE}.NUM_ORDER_ACCEPTED_UK_MERCH_L365
 
-  - dimension: num_order_accepted_uk_merch_lifetime
+  - measure: num_order_accepted_uk_merch_lifetime
     type: int
     sql: ${TABLE}.NUM_ORDER_ACCEPTED_UK_MERCH_LIFETIME
 
-  - dimension: num_order_accepted_us_merch_l365
+  - measure: num_order_accepted_us_merch_l365
     type: int
     sql: ${TABLE}.NUM_ORDER_ACCEPTED_US_MERCH_L365
 
-  - dimension: num_order_accepted_us_merch_lifetime
+  - measure: num_order_accepted_us_merch_lifetime
     type: int
     sql: ${TABLE}.NUM_ORDER_ACCEPTED_US_MERCH_LIFETIME
 
-  - dimension: number_merchant_shopped_l365
+  - measure: number_merchant_shopped_l365
     type: int
     sql: ${TABLE}.NUMBER_MERCHANT_SHOPPED_L365
 
-  - dimension: number_merchant_shopped_lifetime
+  - measure: number_merchant_shopped_lifetime
     type: int
     sql: ${TABLE}.NUMBER_MERCHANT_SHOPPED_LIFETIME
 
@@ -254,11 +255,11 @@
     type: number
     sql: ${TABLE}.OPT_IN_BF_DATE_KEY_LAST
 
-  - dimension: rejected_order_count_l365
+  - measure: rejected_order_count_l365
     type: int
     sql: ${TABLE}.REJECTED_ORDER_COUNT_L365
 
-  - dimension: rejected_order_count_lifetime
+  - measure: rejected_order_count_lifetime
     type: int
     sql: ${TABLE}.REJECTED_ORDER_COUNT_LIFETIME
 
@@ -275,11 +276,11 @@
     type: string
     sql: ${TABLE}.SHOPPED_FROM_US_UK_MERCH_LIFETIME
 
-  - dimension: submitted_order_count_l365
+  - measure: submitted_order_count_l365
     type: int
     sql: ${TABLE}.SUBMITTED_ORDER_COUNT_L365
 
-  - dimension: submitted_order_count_lifetime
+  - measure: submitted_order_count_lifetime
     type: int
     sql: ${TABLE}.SUBMITTED_ORDER_COUNT_LIFETIME
 
