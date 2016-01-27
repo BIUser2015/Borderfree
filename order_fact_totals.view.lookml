@@ -633,7 +633,14 @@
 
   - measure: order
     type: count
-    drill_fields: []
+    drill_fields: 
+      - ${customer_fact_1.customer_key}
+      - ${customer_fact_1.customer_last_name}
+      - ${customer_fact_1.customer_first_name}
+      - oh_order_id
+      - ${calendar_dim.date_time_start}
+      - ${product_dim.product_name}
+      - ${product_dim.item_count}  []
     
   - dimension: new_vs_existing_customer
     type: string
