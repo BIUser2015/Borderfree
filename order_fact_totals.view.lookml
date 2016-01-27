@@ -38,10 +38,6 @@
     type: number
     sql: ${TABLE}.FX_CONVERSION_RATE
 
-  - measure: gmv
-    type: sum
-    sql: ${TABLE}.GMV
-
   - dimension: ignore
     type: int
     sql: ${TABLE}."IGNORE"
@@ -69,10 +65,6 @@
   - dimension: merchant_lcp_margin_total
     type: number
     sql: ${TABLE}.MERCHANT_LCP_MARGIN_TOTAL
-
-  - measure: mv
-    type: sum
-    sql: ${TABLE}.MV
 
   - dimension: mv1000_bucket_end
     type: number
@@ -646,4 +638,13 @@
     type: string
     sql: |
       CASE WHEN ${TABLE}.oh_created_date_key != ${customer_fact_1.first_bf_accepted_date_key} THEN 'Existing' ELSE 'New' END 
+  
+  - measure: gmv
+    type: sum
+    sql: ${TABLE}.GMV
+    
+  - measure: mv
+    type: sum
+    sql: ${TABLE}.MV
 
+  
