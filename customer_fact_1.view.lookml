@@ -95,8 +95,8 @@
     type: string
     sql: ${TABLE}.CUSTOMER_STATUS_LIFETIME
 
-  - measure: days_since_last_purchase
-    type: sum
+  - dimension: days_since_last_purchase
+    type: number
     sql: ${TABLE}.DAYS_SINCE_LAST_PURCHASE
 
   - dimension: email_domain
@@ -299,7 +299,6 @@
       - customer_key    
       - customer_last_name
       - customer_first_name
-      - ${country_dim.country_name}
       - customer_email
       - has_ever_opted_in_bf_yn
       - cohort_year_month
