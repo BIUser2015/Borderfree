@@ -635,6 +635,7 @@
     type: count
     drill_fields: 
       - oh_order_id
+      - oh_checkout_status
       - mv
       - units
       
