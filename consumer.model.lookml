@@ -21,7 +21,7 @@
     - join: country_dim
       type: inner
       relationship: many_to_one
-      sql_on: ${customer_fact_1.first_shipping_country_key} = ${country_dim.country_key} 
+      sql_on: ${order_fact_totals.shipping_country_key} = ${country_dim.country_key} 
       
     - join: merchant_dim
       type: inner
