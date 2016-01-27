@@ -309,13 +309,6 @@
       - accepted_order_count_lifetime
       - aov_usd_accepted_lifetime
 
-  - measure: customer_email
-    type: count
-    drill_fields: 
-      - customer_key
-      - customer_last_name
-      - customer_first_name
-      - ${order_fact_totals.oh_order_id}
-      - ${calendar_dim.date_time_start}
-      - ${product_dim.product_name}
-      - ${product_dim.item_count}
+  - dimension: customer_email
+    type: string
+    sql: ${TABLE}.CUSTOMER_EMAIL
