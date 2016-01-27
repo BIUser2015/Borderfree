@@ -200,3 +200,4 @@
     drill_fields: 
     - product_name
     - product_description
+    - ${merchant_dim.merch_name}
