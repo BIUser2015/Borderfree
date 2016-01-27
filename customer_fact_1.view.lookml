@@ -306,8 +306,8 @@
       - customer_email
       - has_ever_opted_in_bf_yn
       - cohort_year_month
-      - number_merchant_shopped_lifetime
       - mv_rank_period
+      - number_merchant_shopped_lifetime
       - mv_usd_accepted_lifetime
       - accepted_order_count_lifetime
       - aov_usd_accepted_lifetime
