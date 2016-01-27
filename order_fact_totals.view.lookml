@@ -641,7 +641,6 @@
   
   - measure: gmv
     type: sum
-    sql: ${TABLE}.GMV
     
   - measure: mv
     type: sum
