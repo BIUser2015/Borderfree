@@ -26,8 +26,9 @@
     type: string
     sql: ${TABLE}.CHECKOUT_CLIENT
 
-  - measure: customer_key
-    type: count
+  - dimension: customer_key
+    type: string
+    sql: ${TABLE}.CUSTOMER_KEY
     
   - dimension: duty_tax_drawback
     type: number
