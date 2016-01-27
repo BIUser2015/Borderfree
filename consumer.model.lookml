@@ -27,3 +27,13 @@
       type: inner
       relationship: many_to_one
       sql_on: ${order_fact_totals.oh_merch_id} = ${merchant_dim.merch_id}   
+      
+    - join: order_fact 
+      type: inner
+      relationship: one_to_many
+      sql_on: ${order_fact_totals.oh_order_id} = ${order_fact.oh_order_id}
+      
+    - join: product_dim 
+      type: inner
+      relationship: many_to_one
+      sql_on: ${order_fact.catalog_product_key} = ${product_dim.product_key}
