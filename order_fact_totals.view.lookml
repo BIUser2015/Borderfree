@@ -641,4 +641,13 @@
   - measure: count
     type: count
     drill_fields: []
+    
+  - dimension: new_vs_existing_customer
+    type: string
+    sql: |
+      select case when ${TABLE}.OH_CREATED_DATE_KEY <> {CUSTOMER_FACT_1.FIRST_ACCEPTED_DATE_KEY} THEN 'Existing' ELSE 'New' END AS new_vs_existing_customer
+      from order_fact_totals o
+      where o.accepted_order_yn = 'Y'
+      and o.ignore = 0
+      and o.oh_merch_id not in (0, 1000, 1002, 1003, 2200, 2380, 1010, 1011, 1012, 1013, 1014, 1015, 1016, 1111) 
 
