@@ -295,7 +295,7 @@
   - measure: mv_rank_lifetime
     type: number
     sql: |
-      rank() over(order by(sum(${mv_usd_accepted_lifetime})) desc) 
+      rank() over(order by ${mv_usd_accepted_lifetime} desc) 
 
   - measure: customer
     type: count
