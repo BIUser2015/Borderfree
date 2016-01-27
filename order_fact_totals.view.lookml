@@ -188,6 +188,7 @@
 
   - dimension: oh_order_id
     type: string
+    primary_key: true
     sql: ${TABLE}.OH_ORDER_ID
 
   - dimension: oq_buy_currency_key
