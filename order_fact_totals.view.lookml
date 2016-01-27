@@ -650,10 +650,10 @@
     
   - measure: percent_gmv
     type: number
-    sql: (${gmv} / (nullifzero(${customer_fact_1.count})) *100
+    sql: (${gmv} / (nullifzero(${customer_fact_1.count}))) *100
     value_format: '0.00\%'
     
   - measure: percent_mv
     type: number
-    sql: (${mv} / (nullifzero(${customer_fact_1.count})) *100
+    sql: (${mv} / (nullifzero(${customer_fact_1.count}))) *100
     value_format: '0.00\%'  
