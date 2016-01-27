@@ -292,7 +292,7 @@
     type: sum
     sql: ${TABLE}.SUBMITTED_ORDER_COUNT_LIFETIME
 
-  - measure: mv_rank_lifetime
+  - measure: mv_rank_period
     type: number
     sql: |
       rank() over(order by ${mv_usd_accepted_lifetime} desc) 
@@ -300,13 +300,14 @@
   - measure: customer
     type: count
     drill_fields: 
-      - mv_rank_lifetime    
+      - customer_key    
       - customer_last_name
       - customer_first_name
       - customer_email
       - has_ever_opted_in_bf_yn
       - cohort_year_month
       - number_merchant_shopped_lifetime
+      - mv_rank_period
       - mv_usd_accepted_lifetime
       - accepted_order_count_lifetime
       - aov_usd_accepted_lifetime
