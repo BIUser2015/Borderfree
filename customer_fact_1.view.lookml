@@ -292,9 +292,15 @@
     type: sum
     sql: ${TABLE}.SUBMITTED_ORDER_COUNT_LIFETIME
 
+  - measure: mv_rank_lifetime
+    type: number
+    sql: |
+      rank() over(order by(sum(${mv_usd_accepted_lifetime})) desc) 
+
   - measure: customer
     type: count
     drill_fields: 
+      - mv_rank_lifetime    
       - customer_last_name
       - customer_first_name
       - customer_email
