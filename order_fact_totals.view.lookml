@@ -631,7 +631,7 @@
     type: int
     sql: ${TABLE}.UNITS
 
-  - measure: count
+  - measure: order
     type: count
     drill_fields: []
     

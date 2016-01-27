@@ -292,7 +292,16 @@
     type: sum
     sql: ${TABLE}.SUBMITTED_ORDER_COUNT_LIFETIME
 
-  - measure: count
+  - measure: customer
     type: count
-    drill_fields: [customer_last_name, customer_first_name]
+    drill_fields: 
+      - customer_last_name
+      - customer_first_name
+      - customer_email
+      - has_ever_opted_in_bf_yn
+      - cohort_year_month
+      - number_merchant_shopped_lifetime
+      - mv_usd_accepted_lifetime
+      - accepted_order_count_lifetime
+      - aov_usd_accepted_lifetime
 
