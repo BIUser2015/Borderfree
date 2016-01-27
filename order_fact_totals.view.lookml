@@ -651,3 +651,7 @@
   - measure: mv
     type: sum
     sql: ${TABLE}.MV
+    
+  - measure: aov
+    type: number
+    sql: ${mv} / NULLIFZERO(${order})
