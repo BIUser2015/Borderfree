@@ -646,5 +646,3 @@
   - measure: mv
     type: sum
     sql: ${TABLE}.MV
-
-  
