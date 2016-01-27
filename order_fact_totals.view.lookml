@@ -645,4 +645,4 @@
   - dimension: new_vs_existing_customer
     type: string
     sql: |
-      CASE WHEN ${TABLE}.OH_CREATED_DATE_KEY != {CUSTOMER_FACT_1}.FIRST_ACCEPTED_DATE_KEY THEN 'Existing' ELSE 'New' END AS new_vs_existing_customer
+      CASE WHEN ${TABLE}.oh_created_date_key != ${customer_fact_1.first_bf_accepted_date_key} THEN 'Existing' ELSE 'New' END AS new_vs_existing_customer
