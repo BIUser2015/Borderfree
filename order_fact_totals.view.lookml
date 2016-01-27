@@ -655,8 +655,3 @@
   - measure: aov
     type: number
     sql: ${mv} / NULLIFZERO(${order})
-    
-  - measure: new_bf_customer  
-    type: sum
-    sql: |
-      SUM(CASE WHEN ${new_vs_existing_customer} = 'New' THEN 1 ELSE 0 END)
