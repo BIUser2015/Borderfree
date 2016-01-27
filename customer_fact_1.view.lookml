@@ -96,7 +96,7 @@
     sql: ${TABLE}.CUSTOMER_STATUS_LIFETIME
 
   - measure: days_since_last_purchase
-    type: avg
+    type: sum
     sql: ${TABLE}.DAYS_SINCE_LAST_PURCHASE
 
   - dimension: email_domain
