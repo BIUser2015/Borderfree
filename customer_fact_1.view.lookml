@@ -303,6 +303,7 @@
       - customer_email
       - has_ever_opted_in_bf_yn
       - cohort_year_month
+      - days_since_last_purchase
       - mv_rank_period
       - number_merchant_shopped_lifetime
       - mv_usd_accepted_lifetime
