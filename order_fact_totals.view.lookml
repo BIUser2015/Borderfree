@@ -639,8 +639,8 @@
     sql: |
       CASE WHEN ${TABLE}.oh_created_date_key != ${customer_fact_1.first_bf_accepted_date_key} THEN 'Existing' ELSE 'New' END 
   
-  - dimension: gmv
-    type: string
+  - measure: gmv
+    type: sum
     sql: ${TABLE}.GMV
     
   - measure: mv
