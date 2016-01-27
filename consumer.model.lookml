@@ -22,3 +22,8 @@
       type: left_outer
       relationship: many_to_one
       sql_on: ${customer_fact_1.first_shipping_country_key} = ${country_dim.country_key} 
+      
+    - join: merchant_dim
+      type: left_outer
+      relationship: many_to_one
+      sql_on: ${order_fact_totals.oh_merch_id} = ${merchant_dim.merch_id}   
