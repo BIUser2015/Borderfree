@@ -170,6 +170,7 @@
 
   - dimension: product_key
     type: number
+    primary_key: true
     sql: ${TABLE}.PRODUCT_KEY
 
   - dimension: product_manufacturer
@@ -194,7 +195,9 @@
     type: number
     sql: ${TABLE}.WEIGHT
 
-  - measure: count
+  - measure: item_count
     type: count
-    drill_fields: [fws_scientific_name, fws_common_name, product_name]
-
+    drill_fields: 
+    - product_name
+    - product_description
+    - ${merchant_dim.merch_name}
