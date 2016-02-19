@@ -3,12 +3,12 @@
   fields:
   
   - dimension: tran_id
-    type: int
+    type: number
     primary_key: true 
     sql: ${TABLE}.TRAN_ID  
 
   - dimension: activity_id
-    type: int
+    type: number
     sql: ${TABLE}.ACTIVITY_ID
 
   - dimension: activity_reason
@@ -40,23 +40,6 @@
     type: number
     sql: ${TABLE}.ENTITY_CCY_AMT
 
-  - dimension: error_details
-    sql: ${TABLE}.ERROR_DETAILS
-
-  - dimension: error_id
-    type: int
-    sql: ${TABLE}.ERROR_ID
-
-  - dimension: etl_inserted
-    sql: ${TABLE}.ETL_INSERTED
-
-  - dimension: etl_job_num
-    type: int
-    sql: ${TABLE}.ETL_JOB_NUM
-
-  - dimension: etl_updated
-    sql: ${TABLE}.ETL_UPDATED
-
   - dimension: expected_amt
     type: number
     sql: ${TABLE}.EXPECTED_AMT
@@ -73,11 +56,11 @@
     sql: ${TABLE}.FX_NON_MARKED_UP
 
   - dimension: gss_quote_id
-    type: int
+    type: number
     sql: ${TABLE}.GSS_QUOTE_ID
 
   - dimension: invoice_id
-    type: int
+    type: number
     sql: ${TABLE}.INVOICE_ID
 
   - dimension: linked_tr_expected_amt
@@ -85,7 +68,7 @@
     sql: ${TABLE}.LINKED_TR_EXPECTED_AMT
 
   - dimension: linked_tran_id
-    type: int
+    type: number
     sql: ${TABLE}.LINKED_TRAN_ID
 
   - dimension: logistic_state_reason
@@ -95,7 +78,7 @@
     sql: ${TABLE}.LP_PARCEL_ID
 
   - dimension: merch_id
-    type: int
+    type: number
     sql: ${TABLE}.MERCH_ID
 
   - dimension: merch_name
@@ -121,15 +104,15 @@
     sql: ${TABLE}.ORDER_ID
 
   - dimension: ot_date_key
-    type: int
+    type: number
     sql: ${TABLE}.OT_DATE_KEY
 
   - dimension: payment_action_id
-    type: int
+    type: number
     sql: ${TABLE}.PAYMENT_ACTION_ID
 
   - dimension: quote_id
-    type: int
+    type: number
     sql: ${TABLE}.QUOTE_ID
 
   - dimension: rate

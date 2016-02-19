@@ -127,19 +127,16 @@
   - dimension: shipping_country
     sql: ${TABLE}.SHIPPING_COUNTRY
 
-  - dimension: shipping_country_iso3
-    sql: ${TABLE}.SHIPPING_COUNTRY_ISO3
-
   - dimension: shipping_country_key
-    type: int
+    type: number
     sql: ${TABLE}.SHIPPING_COUNTRY_KEY
 
   - dimension: order_hour_number
-    type: int
+    type: number
     sql: EXTRACT(hour FROM EXECUTIVE_DASHBOARD.ORDER_DATE) 
 
   - dimension: order_day_number
-    type: int 
+    type: number 
     sql: EXTRACT(DAY FROM ${order_date}) 
     
   - dimension: is_order_current_day
