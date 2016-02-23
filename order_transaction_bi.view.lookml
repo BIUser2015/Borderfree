@@ -162,4 +162,10 @@
   - measure: count
     type: count
     drill_fields: [financial_entity_name, country_name, merch_name]
+    
+  - measure: total_value_merchant_ccy
+    type: sum 
+    sql: ${TABLE}.TOTAL_VALUE_USD
+       
+    
 
