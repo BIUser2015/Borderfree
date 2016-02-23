@@ -2,6 +2,11 @@
   sql_table_name: DW.MERCHANT_DIM
   fields:
 
+  - dimension: merch_key
+    primary_key: true 
+    type: number
+    sql: ${TABLE}.MERCH_KEY
+
   - dimension: accepted_tac
     sql: ${TABLE}.ACCEPTED_TAC
 
@@ -73,10 +78,6 @@
   - dimension: merch_id
     type: number
     sql: ${TABLE}.MERCH_ID
-
-  - dimension: merch_key
-    type: number
-    sql: ${TABLE}.MERCH_KEY
 
   - dimension: merch_name
     sql: ${TABLE}.MERCH_NAME
