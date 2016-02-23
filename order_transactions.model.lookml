@@ -7,6 +7,8 @@
 # # and define the joins that connect them together.
 #
 
+- explore: transactions
+
 - explore: calendar_dim
   joins: 
     - join: transactions
