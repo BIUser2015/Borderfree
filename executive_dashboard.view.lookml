@@ -3,7 +3,7 @@
   fields:
   
   - dimension: dashboard_id
-    type: int
+    type: number
     primary_key: true
     sql: ${TABLE}.DASHBOARD_ID
 
@@ -11,7 +11,7 @@
     sql: ${TABLE}.BILLING_COUNTRY
 
   - dimension: billing_country_key
-    type: int
+    type: number
     sql: ${TABLE}.BILLING_COUNTRY_KEY
 
   - dimension: checkout_client
@@ -21,7 +21,7 @@
     sql: ${TABLE}.CHECKOUT_STATUS
 
   - dimension: created_date_key
-    type: int
+    type: number
     sql: ${TABLE}.CREATED_DATE_KEY
 
   - dimension: credit_card_type
@@ -68,7 +68,7 @@
     sql: ${TABLE}.LAST_UPDATE_FULL_TIME_STAMP
 
   - dimension: merch_id
-    type: int
+    type: 
     sql: ${TABLE}.MERCH_ID
     drill_fields: merchantdrillset*
     
@@ -110,7 +110,7 @@
     sql: ${TABLE}.MV_TOTAL_SHIPPING
 
   - dimension: number_of_items
-    type: int
+    type: number
     sql: ${TABLE}.NUMBER_OF_ITEMS
 
   - dimension: oh_created_date_time_stamp

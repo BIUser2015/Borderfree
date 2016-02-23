@@ -1,4 +1,4 @@
-- view: order_transaction_bi
+- view: transactions
   sql_table_name: FIN.ORDER_TRANSACTION_BI
   fields:
   
@@ -47,22 +47,6 @@
   - dimension: financial_entity_name
     sql: ${TABLE}.FINANCIAL_ENTITY_NAME
 
-  - dimension: fx_marked_up
-    type: number
-    sql: ${TABLE}.FX_MARKED_UP
-
-  - dimension: fx_non_marked_up
-    type: number
-    sql: ${TABLE}.FX_NON_MARKED_UP
-
-  - dimension: gss_quote_id
-    type: number
-    sql: ${TABLE}.GSS_QUOTE_ID
-
-  - dimension: invoice_id
-    type: number
-    sql: ${TABLE}.INVOICE_ID
-
   - dimension: linked_tr_expected_amt
     type: number
     sql: ${TABLE}.LINKED_TR_EXPECTED_AMT
@@ -83,9 +67,6 @@
 
   - dimension: merch_name
     sql: ${TABLE}.MERCH_NAME
-
-  - dimension: note
-    sql: ${TABLE}.NOTE
 
   - dimension: oh_created_date
     sql: ${TABLE}.OH_CREATED_DATE
@@ -152,20 +133,16 @@
   - dimension: tran_type
     sql: ${TABLE}.TRAN_TYPE
 
-  - dimension: updated
-    sql: ${TABLE}.UPDATED
-
   - dimension: usd_amt
     type: number
     sql: ${TABLE}.USD_AMT
 
-  - measure: count
-    type: count
-    drill_fields: [financial_entity_name, country_name, merch_name]
-    
   - measure: total_value_merchant_ccy
     type: sum 
-    sql: ${TABLE}.TOTAL_VALUE_USD
-       
+    sql: ${total_value_usd}
     
-
+    
+    
+    
+    
+    
