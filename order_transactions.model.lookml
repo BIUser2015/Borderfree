@@ -13,3 +13,9 @@
       type: left_outer
       relationship: one_to_many 
       sql_on: ${calendar_dim.date_key} = ${order_transaction_bi.ot_date_key}
+    
+    - join: merchant_dim
+      type: inner  
+      relationship: one_to_many 
+      sql_on: ${merchant_dim.merch_id} = ${order_transaction_bi.merch_id} and ${merchant_dim.date_to} = '2199-12-31'
+      

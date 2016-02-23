@@ -12,24 +12,8 @@
     sql: ${TABLE}.ACTIVE_FLAG
 
   - dimension: channel_id
-    type: int
+    type: number
     sql: ${TABLE}.CHANNEL_ID
-
-  - dimension: cm
-    sql: ${TABLE}.CM
-
-  - dimension: comp_status
-    sql: ${TABLE}.COMP_STATUS
-
-  - dimension_group: config_owner
-    type: time
-    timeframes: [date, week, month]
-    convert_tz: false
-    sql: ${TABLE}.CONFIG_OWNER_DATE
-
-  - dimension: config_owner_id
-    type: int
-    sql: ${TABLE}.CONFIG_OWNER_ID
 
   - dimension_group: created
     type: time
@@ -44,9 +28,6 @@
     sql: ${TABLE}.DATE_FROM
 
   - dimension_group: date_to
-    type: time
-    timeframes: [date, week, month]
-    convert_tz: false
     sql: ${TABLE}.DATE_TO
 
   - dimension_group: etl_inserted
@@ -90,7 +71,7 @@
     sql: ${TABLE}.MERCH_HEADOFFICE_COUNTRY
 
   - dimension: merch_id
-    type: int
+    type: number
     sql: ${TABLE}.MERCH_ID
 
   - dimension: merch_key
@@ -130,16 +111,6 @@
   - dimension: segment
     sql: ${TABLE}.SEGMENT
 
-  - dimension: super_merchant_key
-    type: int
-    sql: ${TABLE}.SUPER_MERCHANT_KEY
-
-  - dimension: super_merchant_name
-    sql: ${TABLE}.SUPER_MERCHANT_NAME
-
-  - dimension: tier_level
-    sql: ${TABLE}.TIER_LEVEL
-
   - dimension: vat_id
     sql: ${TABLE}.VAT_ID
 
@@ -153,11 +124,4 @@
   - dimension: vat_type
     sql: ${TABLE}.VAT_TYPE
 
-  - dimension: version
-    type: number
-    sql: ${TABLE}.VERSION
-
-  - measure: count
-    type: count
-    drill_fields: [financial_entity_name, super_merchant_name, merch_official_name, merch_name]
 
