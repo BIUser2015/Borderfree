@@ -3,7 +3,7 @@
   fields:
 
   - dimension: date_key
-    type: int
+    type: number
     primary_key: true
     sql: ${TABLE}.DATE_KEY
 
@@ -23,41 +23,41 @@
     sql: ${TABLE}.DATE_VALUE
 
   - dimension: day_of_month_number
-    type: int
+    type: number
     sql: ${TABLE}.DAY_OF_MONTH_NUMBER
 
   - dimension: day_of_quarter_number
-    type: int
+    type: number
     sql: ${TABLE}.DAY_OF_QUARTER_NUMBER
 
   - dimension: day_of_week_name
     sql: ${TABLE}.DAY_OF_WEEK_NAME
 
   - dimension: day_of_week_number
-    type: int
+    type: number
     sql: ${TABLE}.DAY_OF_WEEK_NUMBER
 
   - dimension: day_of_week_short_name
     sql: ${TABLE}.DAY_OF_WEEK_SHORT_NAME
 
   - dimension: day_of_year_number
-    type: int
+    type: number
     sql: ${TABLE}.DAY_OF_YEAR_NUMBER
 
   - dimension: days_in_month
-    type: int
+    type: number
     sql: ${TABLE}.DAYS_IN_MONTH
 
   - dimension: days_in_quarter
-    type: int
+    type: number
     sql: ${TABLE}.DAYS_IN_QUARTER
 
   - dimension: days_in_year
-    type: int
+    type: number
     sql: ${TABLE}.DAYS_IN_YEAR
 
   - dimension: is_weekend_flag
-    type: int
+    type: number
     sql: ${TABLE}.IS_WEEKEND_FLAG
 
   - dimension_group: iso_week_end
@@ -67,7 +67,7 @@
     sql: ${TABLE}.ISO_WEEK_END_DATE
 
   - dimension: iso_week_number
-    type: int
+    type: number
     sql: ${TABLE}.ISO_WEEK_NUMBER
 
   - dimension_group: iso_week_start
@@ -77,11 +77,11 @@
     sql: ${TABLE}.ISO_WEEK_START_DATE
 
   - dimension: last_day_of_month_flag
-    type: int
+    type: number
     sql: ${TABLE}.LAST_DAY_OF_MONTH_FLAG
 
   - dimension: last_day_of_quarter_flag
-    type: int
+    type: number
     sql: ${TABLE}.LAST_DAY_OF_QUARTER_FLAG
 
   - dimension_group: month_end
@@ -99,13 +99,13 @@
     html: <a href=/dashboards/20><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>    
 
   - dimension: month_number
-    type: int
+    type: number
     sql: ${TABLE}.MONTH_NUMBER
     html: <a href=/dashboards/22><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
     
   - dimension: month_num
     label: Month Number 
-    type: int
+    type: number
     sql: ${TABLE}.MONTH_NUMBER
     html: <a href=/dashboards/20><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>    
 
@@ -119,11 +119,11 @@
     sql: ${TABLE}.MONTH_START_DATE
 
   - dimension: month_value
-    type: int
+    type: number
     sql: ${TABLE}.MONTH_VALUE
 
   - dimension: month_value_abs
-    type: int
+    type: number
     sql: ${TABLE}.MONTH_VALUE_ABS
 
   - dimension: month_year
@@ -162,11 +162,11 @@
     sql: ${TABLE}.QUARTER_START_DATE
 
   - dimension: quarter_value
-    type: int
+    type: number
     sql: ${TABLE}.QUARTER_VALUE
 
   - dimension: quarter_value_abs
-    type: int
+    type: number
     sql: ${TABLE}.QUARTER_VALUE_ABS
 
   - dimension_group: week_end
@@ -176,16 +176,16 @@
     sql: ${TABLE}.WEEK_END_DATE
 
   - dimension: week_in_month_number
-    type: int
+    type: number
     sql: ${TABLE}.WEEK_IN_MONTH_NUMBER
 
   - dimension: week_in_year_number
-    type: int
+    type: number
     sql: ${TABLE}.WEEK_IN_YEAR_NUMBER
     html: <a href=/dashboards/22><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
 
   - dimension: week_in_year_number_start_sun
-    type: int
+    type: number
     sql: ${TABLE}.WEEK_IN_YEAR_NUMBER_START_SUN
     html: <a href=/dashboards/22><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
 
@@ -200,7 +200,7 @@
     sql: ${TABLE}.WEEK_START_DATE
 
   - dimension: week_value_abs
-    type: int
+    type: number
     sql: ${TABLE}.WEEK_VALUE_ABS
 
   - dimension: wtd_flag
@@ -225,7 +225,7 @@
     sql: ${TABLE}.YEAR_MONTH_NAME
 
   - dimension: year_month_number
-    type: int
+    type: number
     sql: ${TABLE}.YEAR_MONTH_NUMBER
 
   - dimension: year_name
@@ -244,7 +244,7 @@
     sql: ${TABLE}.YEAR_START_DATE
 
   - dimension: year_value
-    type: int
+    type: number
     sql: ${TABLE}.YEAR_VALUE
 
   - dimension: year_week_name
