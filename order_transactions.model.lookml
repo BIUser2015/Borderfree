@@ -7,8 +7,11 @@
 # # and define the joins that connect them together.
 #
 - explore: order_transaction_bi
-#   joins:
-#     - join: orders
-#       sql_on: ${orders.id} = ${order_items.order_id}
-#     - join: users
-#       sql_on: ${users.id} = ${orders.user_id}
+
+
+- explore: calendar_dim
+  joins: 
+    - join: order_transaction_bi
+      type: left_outer
+      relationship: one_to_many 
+      sql_on: ${calendar_dim.date_key} = ${order_transaction_bi.ot_date_key}
