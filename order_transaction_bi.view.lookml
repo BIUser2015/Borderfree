@@ -130,6 +130,7 @@
 
   - measure: mv_current_year
     filter: 
+      calendar_dim.current_year: YES 
     type: sum 
     sql: ${transactions.total_value_usd}    
     
