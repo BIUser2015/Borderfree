@@ -127,6 +127,11 @@
   - measure: total_value_merchant_ccy
     type: sum 
     sql: ${total_value_usd}
+
+  - measure: mv_current_year
+    filter: 
+    type: sum 
+    sql: ${transactions.total_value_usd}    
     
     
     
