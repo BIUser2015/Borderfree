@@ -4,7 +4,7 @@
 
   - dimension: forecast_segment_id
     primary_key: true
-    type: int
+    type: number
     sql: ${TABLE}.FORECAST_SEGMENT_ID
 
   - dimension: mccy

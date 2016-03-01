@@ -4,14 +4,14 @@
 
   - dimension: forecast_merchant_id
     primary_key: true
-    type: int
+    type: number
     sql: ${TABLE}.FORECAST_MERCHANT_ID
 
   - dimension: mccy
     sql: ${TABLE}.MCCY
 
   - dimension: merch_id
-    type: int
+    type: number
     sql: ${TABLE}.MERCH_ID
 
   - dimension: merch_name
@@ -22,7 +22,7 @@
     sql: ${TABLE}.MV_ACCEPTED
 
   - dimension: reporting_date
-    type: int
+    type: number
     sql: ${TABLE}.REPORTING_DATE
 
   - measure: count

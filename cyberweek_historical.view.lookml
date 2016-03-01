@@ -12,7 +12,7 @@
     sql: ${TABLE}.CHECKOUT_STATUS
 
   - dimension: comparison_day
-    type: int
+    type: number
     sql: ${TABLE}.COMPARISON_DAY
     
   - dimension: same_comparison_day
@@ -43,7 +43,7 @@
     sql: ${TABLE}.FINANCIAL_ENTITY_NAME
 
   - dimension: item_id
-    type: int
+    type: number
     sql: ${TABLE}.ITEM_ID
 
   - dimension: item_mv
@@ -51,7 +51,7 @@
     sql: ${TABLE}.ITEM_MV
 
   - dimension: merch_id
-    type: int
+    type: number
     sql: ${TABLE}.MERCH_ID
 
   - dimension: merch_name

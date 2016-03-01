@@ -100,21 +100,8 @@
     type: number
     sql: ${TABLE}.RATE
 
-  - dimension: raw_dest_rate_asknotused
-    type: number
-    sql: ${TABLE}.RAW_DEST_RATE_ASKnotused
-
   - dimension: reason
     sql: ${TABLE}.REASON
-
-  - dimension: reconcile_attempt_date
-    sql: ${TABLE}.RECONCILE_ATTEMPT_DATE
-
-  - dimension: reconcile_date
-    sql: ${TABLE}.RECONCILE_DATE
-
-  - dimension: settled_date
-    sql: ${TABLE}.SETTLED_DATE
 
   - dimension: shipping_carrier
     sql: ${TABLE}.SHIPPING_CARRIER

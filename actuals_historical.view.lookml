@@ -4,14 +4,14 @@
 
   - dimension: actual_id
     primary_key: true
-    type: int
+    type: number
     sql: ${TABLE}.ACTUAL_ID
 
   - dimension: financial_entity_name
     sql: ${TABLE}.FINANCIAL_ENTITY_NAME
 
   - dimension: merch_id
-    type: int
+    type: number
     sql: ${TABLE}.MERCH_ID
 
   - dimension: merch_name
@@ -34,7 +34,7 @@
     sql: ${TABLE}.PARCELS_SHIPPED_ACTUAL
 
   - dimension: reporting_date
-    type: int
+    type: number
     sql: ${TABLE}.REPORTING_DATE
 
 
