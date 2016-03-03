@@ -29,6 +29,12 @@
 
   - dimension: country_name
     sql: ${TABLE}.COUNTRY_NAME
+    
+  - dimension: country_buckets
+    sql: |
+      CASE
+      WHEN ${TABLE}.COUNTRY_NAME = 'CANADA' THEN CANADA
+      ELSE 'OTHER' END    
 
   - dimension: created_date
     sql: ${TABLE}.CREATED_DATE
@@ -143,24 +149,26 @@
   - measure: mv_current_quarter
     filter: 
       calendar_dim.current_year: YES 
+      calendar_dim.current_quarter: YES 
     type: sum 
     sql: ${transactions.total_value_usd}    
     
   - measure: mv_previous_quarter
     filter: 
-      calendar_dim.current_year: YES 
+      calendar_dim.previous_year: YES 
     type: sum 
     sql: ${transactions.total_value_usd}
     
   - measure: mv_current_month
-    filter: 
-      calendar_dim.current_year: YES 
+    filter:
+      calendar_dim.current_year: YES
+      calendar_dim.current_month: YES 
     type: sum 
     sql: ${transactions.total_value_usd}    
     
   - measure: mv_previous_month
-    filter: 
-      calendar_dim.current_year: YES 
+    filter:
+      calendar_dim.previous_year: YES
     type: sum 
     sql: ${transactions.total_value_usd}        
     
