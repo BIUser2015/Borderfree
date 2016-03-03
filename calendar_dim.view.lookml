@@ -278,6 +278,10 @@
     type: yesno
     sql: year(${TABLE}.date_time_start) = year(sysdate)-1 
     
+  - dimension: two_years 
+    type: yesno
+    sql: year(${TABLE}.date_time_start) >= year(sysdate)-1     
+    
   - dimension: up_to_same_date_in_quarter 
     type: yesno
     sql: (EXTRACT(DOQ FROM sysdate)) > ${TABLE}.day_of_quarter_number
