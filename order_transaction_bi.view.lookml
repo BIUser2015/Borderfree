@@ -134,6 +134,14 @@
     type: sum 
     sql: ${transactions.total_value_usd}    
     
+  - measure: mv_previous_year
+    filter: 
+      calendar_dim.previous_year: YES 
+    type: sum 
+    sql: ${transactions.total_value_usd}    
+    
+    
+    
     
     
     
