@@ -30,16 +30,13 @@
   - dimension: country_name
     sql: ${TABLE}.COUNTRY_NAME
     
-  - dimension: country_buckets
-    sql: |
-      CASE
-      WHEN ${TABLE}.COUNTRY_NAME = 'Canada' THEN ${TABLE}.COUNTRY_NAME
-      ELSE 'OTHER' END 
-      
-  - dimension: status
+  - dimension: country_groups
     sql_case:
-      canada: ${TABLE}.COUNTRY_NAME = 'CANADA'
-      other: true        
+      Canada: ${TABLE}.COUNTRY_NAME = 'Canada'
+      UK: ${TABLE}.COUNTRY_NAME = 'United Kingdom'
+      Australia: ${TABLE}.COUNTRY_NAME = 'Australia'
+      Hong Kong: ${TABLE}.COUNTRY_NAME = 'Hong Kong'
+      Other: true        
 
   - dimension: created_date
     sql: ${TABLE}.CREATED_DATE
