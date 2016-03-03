@@ -141,26 +141,31 @@
     
   - measure: mv_previous_year
     filter: 
-      calendar_dim.previous_year: YES 
+      calendar_dim.previous_year: YES
+      calendar_dim.up_to_same_date_in_year: YES
     type: sum 
     sql: ${transactions.total_value_usd}  
     
   - measure: mv_current_quarter
     filter: 
       calendar_dim.current_year: YES 
-      calendar_dim.current_quarter: YES 
+      calendar_dim.current_quarter: YES
+      calendar_dim.up_to_same_date_in_quarter: YES
     type: sum 
     sql: ${transactions.total_value_usd}    
     
   - measure: mv_previous_quarter
     filter: 
-      calendar_dim.previous_year: YES 
+      calendar_dim.previous_year: YES
+      calendar_dim.up_to_same_date_in_quarter: YES
+      calendar_dim.up_to_same_date_in_quarter: YES
     type: sum 
     sql: ${transactions.total_value_usd}
     
   - measure: mv_current_month
     filter:
       calendar_dim.current_year: YES
+      calendar_dim.current_quarter: YES
       calendar_dim.current_month: YES 
     type: sum 
     sql: ${transactions.total_value_usd}    

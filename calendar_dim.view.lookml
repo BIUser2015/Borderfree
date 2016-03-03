@@ -280,7 +280,11 @@
     
   - dimension: two_years 
     type: yesno
-    sql: year(${TABLE}.date_time_start) >= year(sysdate)-1     
+    sql: year(${TABLE}.date_time_start) >= year(sysdate)-1 
+    
+  - dimension: up_to_same_date_in_month
+    type: yesno
+    sql: EXTRACT(DAY FROM CURRENT_DATE) > ${TABLE}.day_of_month_number
     
   - dimension: up_to_same_date_in_quarter 
     type: yesno
