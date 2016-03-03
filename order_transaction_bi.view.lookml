@@ -154,10 +154,10 @@
     type: sum 
     sql: ${transactions.total_value_usd}    
     
-  - measure: mv_previous_quarter
+  - measure: mv_py_quarter
     filter: 
       calendar_dim.previous_year: YES
-      calendar_dim.up_to_same_date_in_quarter: YES
+      calendar_dim.current_quarter: YES
       calendar_dim.up_to_same_date_in_quarter: YES
     type: sum 
     sql: ${transactions.total_value_usd}
@@ -170,9 +170,11 @@
     type: sum 
     sql: ${transactions.total_value_usd}    
     
-  - measure: mv_previous_month
+  - measure: mv_py_month
     filter:
       calendar_dim.previous_year: YES
+      calendar_dim.current_quarter: YES
+      calendar_dim.current_month: YES 
     type: sum 
     sql: ${transactions.total_value_usd}        
     
