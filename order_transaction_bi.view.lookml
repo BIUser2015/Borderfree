@@ -175,6 +175,7 @@
       calendar_dim.previous_year: YES
       calendar_dim.current_quarter: YES
       calendar_dim.current_month: YES 
+      calendar_dim.up_to_same_date_in_month: YES 
     type: sum 
     sql: ${transactions.total_value_usd}        
 
@@ -189,7 +190,7 @@
   - measure: vs_year
     type: number
     sql: (${mv_current_year} - ${mv_previous_year} ) 
-    value_format: '0.00\%' 
+
     
   - measure: vs_month_percentage
     type: number
@@ -198,12 +199,12 @@
 
   - measure: vs_quarter_percentage
     type: number
-    sql: (${mv_current_quarter} - ${mv_py_quarter} )  * 100
+    sql: (${mv_current_quarter} - ${mv_py_quarter} / ${mv_py_quarter} )  * 100
     value_format: '0.00\%'
     
   - measure: vs_year_percentage
     type: number
-    sql: (${mv_current_year} - ${mv_previous_year} )  * 100
+    sql: (${mv_current_year} - ${mv_previous_year} / ${mv_previous_year} )  * 100
     value_format: '0.00\%'        
     
     
