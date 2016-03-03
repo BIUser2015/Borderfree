@@ -33,8 +33,13 @@
   - dimension: country_buckets
     sql: |
       CASE
-      WHEN ${TABLE}.COUNTRY_NAME = 'CANADA' THEN CANADA
-      ELSE 'OTHER' END    
+      WHEN ${TABLE}.COUNTRY_NAME = 'Canada' THEN ${TABLE}.COUNTRY_NAME
+      ELSE 'OTHER' END 
+      
+  - dimension: status
+    sql_case:
+      canada: ${TABLE}.COUNTRY_NAME = 'CANADA'
+      other: true        
 
   - dimension: created_date
     sql: ${TABLE}.CREATED_DATE
@@ -111,9 +116,6 @@
 
   - dimension: shipping_carrier
     sql: ${TABLE}.SHIPPING_CARRIER
-
-  - dimension: status
-    sql: ${TABLE}.STATUS
 
   - dimension: total_value
     type: number
