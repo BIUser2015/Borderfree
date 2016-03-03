@@ -262,6 +262,10 @@
   - dimension: mmdd
     sql: right(${TABLE}.YYYYMMDD,5) 
     
+  - dimension: current_month
+    type: yesno
+    sql: month(${TABLE}.date_time_start) = month(sysdate)    
+    
   - dimension: current_quarter 
     type: yesno
     sql: quarter(${TABLE}.date_time_start) = quarter(sysdate)

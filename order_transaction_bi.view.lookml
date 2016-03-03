@@ -138,8 +138,31 @@
     filter: 
       calendar_dim.previous_year: YES 
     type: sum 
+    sql: ${transactions.total_value_usd}  
+    
+  - measure: mv_current_quarter
+    filter: 
+      calendar_dim.current_year: YES 
+    type: sum 
     sql: ${transactions.total_value_usd}    
     
+  - measure: mv_previous_quarter
+    filter: 
+      calendar_dim.current_year: YES 
+    type: sum 
+    sql: ${transactions.total_value_usd}
+    
+  - measure: mv_current_month
+    filter: 
+      calendar_dim.current_year: YES 
+    type: sum 
+    sql: ${transactions.total_value_usd}    
+    
+  - measure: mv_previous_month
+    filter: 
+      calendar_dim.current_year: YES 
+    type: sum 
+    sql: ${transactions.total_value_usd}        
     
     
     
