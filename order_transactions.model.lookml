@@ -19,3 +19,9 @@
       relationship: one_to_many 
       sql_on: ${merchant_dim.merch_id} = ${transactions.merch_id} and ${merchant_dim.date_to} = '2199-12-31'
       
+- explore: transactions
+  joins: 
+    - join: calendar_dim
+      type: inner
+      relationship: many_to_one
+      sql_on: ${calendar_dim.date_key} = ${transactions.ot_date_key}
