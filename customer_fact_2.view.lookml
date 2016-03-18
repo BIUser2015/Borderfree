@@ -20,6 +20,7 @@
 
   - dimension: customer_key
     type: number
+    primary_key: true
     sql: ${TABLE}.CUSTOMER_KEY
 
   - dimension: customer_last_name
