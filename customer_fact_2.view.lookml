@@ -367,7 +367,7 @@
     timeframes: [time, date, week, month]
     sql: ${TABLE}.run_time
 
-  - measure: count
+  - measure: customer_count
     type: count
-    drill_fields: [customer_last_name, customer_first_name]
+    drill_fields: [customer_key]
 
