@@ -13,9 +13,14 @@
 #     - join: users
 #       sql_on: ${users.id} = ${orders.user_id}
 
-- explore: calendar_dim 
+- explore: order_fact_totals 
   joins:
-    - join: customer_fact_2
+    - join: customer_fact
       type: inner
-      relationship: one_to_many
-      sql_on: ${calendar_dim.date_key} = ${customer_fact_2.first_bf_accepted_date_key}
+      relationship: many_to_one 
+      sql_on: ${order_fact_totals.customer_key} = ${customer_fact.customer_key}
+      
+    - join: merchant_dim
+      type: inner
+      relationship: many_to_one
+      sql_on: ${order_fact_totals.oh_merch_id} = ${merchant_dim.merch_id} and ${merchant_dim.ignore} = 0 and ${merchant_dim.date_to} = '2199-12-31'

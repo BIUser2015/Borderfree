@@ -762,22 +762,26 @@
     type: string
     sql: ${TABLE}.SUBMITTED_ORDER_YN
 
-  - measure: units
-    type: avg
-    sql: ${TABLE}.UNITS
-
   - measure: order
     type: count
     drill_fields: 
       - oh_order_id
       - oh_checkout_status
+      - merchant_currency 
       - mv
       - units
       
-  - dimension: new_vs_existing_customer
+  - measure: units
+    type: avg
+    sql: ${TABLE}.UNITS
+    
+  - dimension: merchant_currency 
     type: string
     sql: |
-      CASE WHEN ${TABLE}.oh_created_date_key != ${customer_fact_1.first_bf_accepted_date_key} THEN 'Existing' ELSE 'New' END 
+      select merch_pricing_ccy 
+      from merchant_dim 
+      join ${TABLE} on ${TABLE}.oh_merch_id = ${merchant_dim.merch_id}
+      where ${merchant_dim.ignore} = 0 and ${merchant_dim.date_to} = '2199-12-31'      
   
   - measure: gmv
     type: sum

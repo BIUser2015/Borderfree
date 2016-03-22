@@ -327,7 +327,7 @@
     type: sum
     sql: ${TABLE}.LIFETIME_MV_CONVERTED_USD_ACCEPTED
 
-  - measure: lifetime_mv_converted_usd_accepted
+  - measure: test2_avg_lifetime_mv_converted_usd_accepted
     label: 'test2 avg lifetime_mv_converted_usd_accepted' 
     type: avg
     sql: ${TABLE}.LIFETIME_MV_CONVERTED_USD_ACCEPTED
