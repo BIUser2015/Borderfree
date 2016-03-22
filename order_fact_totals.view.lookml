@@ -828,5 +828,5 @@
     hidden: true
     
   - measure: num_merchant_shopped
-    type: number
+    type: avg
     sql: ${distinct_merchant} / ${customer}
