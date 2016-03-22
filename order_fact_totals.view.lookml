@@ -769,7 +769,7 @@
     drill_fields: 
       - oh_order_id
       - oh_checkout_status
-      - merchant_currency 
+      - ${merchant_dim.merch_pricing_ccy} 
       - mv
       - units
       
@@ -777,14 +777,6 @@
     type: avg
     sql: ${TABLE}.UNITS
     
-  - dimension: merchant_currency 
-    type: string
-    sql: |
-      select merch_pricing_ccy 
-      from merchant_dim 
-      join ${TABLE} on ${TABLE}.oh_merch_id = ${merchant_dim.merch_id}
-      where ${merchant_dim.ignore} = 0 and ${merchant_dim.date_to} = '2199-12-31'      
-      
   - measure: gmv
     type: sum
     sql: ${TABLE}.GMV
