@@ -51,7 +51,7 @@
     sql: ${TABLE}.CANCELLED_ORDER_COUNT_LIFETIME
 
   - dimension: cohort_merch_id
-    type: int
+    type: number
     sql: ${TABLE}.COHORT_MERCH_ID
 
   - dimension: cohort_year_month
