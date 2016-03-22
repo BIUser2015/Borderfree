@@ -735,10 +735,12 @@
   - measure: ship_gmv
     type: sum
     sql: ${TABLE}.SHIP_GMV
+    hidden: true
 
   - measure: ship_mv
     type: sum
     sql: ${TABLE}.SHIP_MV
+    hidden: true
 
   - dimension: shipped_order_yn
     type: string
