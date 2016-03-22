@@ -795,7 +795,7 @@
         WHEN ${merchant_dim.merch_pricing_ccy} = 'GBP' THEN 1.4333 * gmv
         WHEN ${merchant_dim.merch_pricing_ccy} = 'EUR' THEN 1.0987 * gmv
         ELSE 1 * gmv
-        END) = ${TABLE}.GMV
+        END) 
   
   - measure: mv_usd_converted
     type: sum
@@ -803,7 +803,7 @@
         WHEN ${merchant_dim.merch_pricing_ccy} = 'GBP' THEN 1.4333 * mv
         WHEN ${merchant_dim.merch_pricing_ccy} = 'EUR' THEN 1.0987 * mv
         ELSE 1 * mv
-        END) = ${TABLE}.MV      
+        END)    
         
   - measure: aov_usd_converted
     type: number
