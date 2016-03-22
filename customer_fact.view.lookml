@@ -5,6 +5,7 @@
   - dimension: cohort_merch_id
     type: number
     sql: ${TABLE}.COHORT_MERCH_ID
+    hidden: true 
 
   - dimension: cohort_year_month
     type: number
@@ -20,6 +21,7 @@
 
   - dimension: customer_key
     type: number
+    primary_key: true
     sql: ${TABLE}.CUSTOMER_KEY
 
   - dimension: customer_last_name
@@ -45,21 +47,24 @@
   - dimension: first_bf_accepted_order_id
     type: string
     sql: ${TABLE}.FIRST_BF_ACCEPTED_ORDER_ID
+    hidden: true
 
   - dimension: first_billing_address_key
     type: number
     sql: ${TABLE}.FIRST_BILLING_ADDRESS_KEY
+    hidden: true
 
   - dimension: first_billing_country_key
     type: number
     sql: ${TABLE}.FIRST_BILLING_COUNTRY_KEY
+    hidden: true 
 
-  - dimension: first_day_accepted_order_count
-    type: number
+  - measure: first_day_accepted_order_count
+    type: avg
     sql: ${TABLE}.FIRST_DAY_ACCEPTED_ORDER_COUNT
 
-  - dimension: first_day_number_merchant_shopped
-    type: number
+  - measure: first_day_number_merchant_shopped
+    type: avg
     sql: ${TABLE}.FIRST_DAY_NUMBER_MERCHANT_SHOPPED
 
   - dimension: first_opt_in_bf_date_key
@@ -69,137 +74,151 @@
   - dimension: first_shipping_address_key
     type: number
     sql: ${TABLE}.FIRST_SHIPPING_ADDRESS_KEY
+    hidden: true
 
   - dimension: first_shipping_country_key
     type: number
     sql: ${TABLE}.FIRST_SHIPPING_COUNTRY_KEY
+    hidden: true
 
   - dimension: has_ever_opted_in_bf_yn
     type: string
     sql: ${TABLE}.HAS_EVER_OPTED_IN_BF_YN
 
-  - dimension: l365_accepted_order_count
-    type: number
+  - measure: l365_accepted_order_count
+    type: sum
     sql: ${TABLE}.L365_ACCEPTED_ORDER_COUNT
 
-  - dimension: l365_aov_converted_usd_accepted
-    type: number
+  - measure: l365_aov_converted_usd_accepted
+    type: avg
     sql: ${TABLE}.L365_AOV_CONVERTED_USD_ACCEPTED
+    hidden: true
 
-  - dimension: l365_aov_eur_accepted
-    type: number
+  - measure: l365_aov_eur_accepted
+    type: avg
     sql: ${TABLE}.L365_AOV_EUR_ACCEPTED
+    hidden: true
 
-  - dimension: l365_aov_gbp_accepted
-    type: number
+  - measure: l365_aov_gbp_accepted
+    type: avg
     sql: ${TABLE}.L365_AOV_GBP_ACCEPTED
+    hidden: true
 
-  - dimension: l365_aov_usd_accepted
-    type: number
+  - measure: l365_aov_usd_accepted
+    type: avg
     sql: ${TABLE}.L365_AOV_USD_ACCEPTED
+    hidden: true
 
-  - dimension: l365_aur_converted_usd_accepted
-    type: number
+  - measure: l365_aur_converted_usd_accepted
+    type: avg
     sql: ${TABLE}.L365_AUR_CONVERTED_USD_ACCEPTED
+    hidden: true
 
-  - dimension: l365_aur_eur_accepted
-    type: number
+  - measure: l365_aur_eur_accepted
+    type: avg
     sql: ${TABLE}.L365_AUR_EUR_ACCEPTED
+    hidden: true
 
-  - dimension: l365_aur_gbp_accepted
-    type: number
+  - measure: l365_aur_gbp_accepted
+    type: avg
     sql: ${TABLE}.L365_AUR_GBP_ACCEPTED
+    hidden: true
 
-  - dimension: l365_aur_usd_accepted
-    type: number
+  - measure: l365_aur_usd_accepted
+    type: avg
     sql: ${TABLE}.L365_AUR_USD_ACCEPTED
+    hidden: true
 
-  - dimension: l365_cancelled_order_count
-    type: number
+  - measure: l365_cancelled_order_count
+    type: sum
     sql: ${TABLE}.L365_CANCELLED_ORDER_COUNT
 
   - dimension: l365_customer_status
     type: string
     sql: ${TABLE}.L365_CUSTOMER_STATUS
 
-  - dimension: l365_gmv_converted_usd_accepted
-    type: number
+  - measure: l365_gmv_converted_usd_accepted
+    type: sum
     sql: ${TABLE}.L365_GMV_CONVERTED_USD_ACCEPTED
 
-  - dimension: l365_gmv_eur_accepted
-    type: number
+  - measure: l365_gmv_eur_accepted
+    type: sum
     sql: ${TABLE}.L365_GMV_EUR_ACCEPTED
 
-  - dimension: l365_gmv_gbp_accepted
-    type: number
+  - measure: l365_gmv_gbp_accepted
+    type: sum
     sql: ${TABLE}.L365_GMV_GBP_ACCEPTED
 
-  - dimension: l365_gmv_usd_accepted
-    type: number
+  - measure: l365_gmv_usd_accepted
+    type: sum
     sql: ${TABLE}.L365_GMV_USD_ACCEPTED
 
-  - dimension: l365_mv_converted_usd_accepted
-    type: number
+  - measure: l365_mv_converted_usd_accepted
+    type: sum
     sql: ${TABLE}.L365_MV_CONVERTED_USD_ACCEPTED
 
-  - dimension: l365_mv_eur_accepted
-    type: number
+  - measure: l365_mv_eur_accepted
+    type: sum
     sql: ${TABLE}.L365_MV_EUR_ACCEPTED
 
-  - dimension: l365_mv_gbp_accepted
-    type: number
+  - measure: l365_mv_gbp_accepted
+    type: sum
     sql: ${TABLE}.L365_MV_GBP_ACCEPTED
 
-  - dimension: l365_mv_usd_accepted
-    type: number
+  - measure: l365_mv_usd_accepted
+    type: sum
     sql: ${TABLE}.L365_MV_USD_ACCEPTED
 
-  - dimension: l365_num_item_accepted
-    type: number
+  - measure: l365_num_item_accepted
+    type: avg
     sql: ${TABLE}.L365_NUM_ITEM_ACCEPTED
+    hidden: true
 
-  - dimension: l365_num_item_accepted_eu_merch
-    type: number
+  - measure: l365_num_item_accepted_eu_merch
+    type: avg
     sql: ${TABLE}.L365_NUM_ITEM_ACCEPTED_EU_MERCH
+    hidden: true
 
-  - dimension: l365_num_item_accepted_uk_merch
-    type: number
+  - measure: l365_num_item_accepted_uk_merch
+    type: avg
     sql: ${TABLE}.L365_NUM_ITEM_ACCEPTED_UK_MERCH
+    hidden: true
 
-  - dimension: l365_num_item_accepted_us_merch
-    type: number
+  - measure: l365_num_item_accepted_us_merch
+    type: avg
     sql: ${TABLE}.L365_NUM_ITEM_ACCEPTED_US_MERCH
+    hidden: true
 
-  - dimension: l365_num_order_accepted
-    type: number
+  - measure: l365_num_order_accepted
+    type: sum
     sql: ${TABLE}.L365_NUM_ORDER_ACCEPTED
 
-  - dimension: l365_num_order_accepted_eu_merch
-    type: number
+  - measure: l365_num_order_accepted_eu_merch
+    type: sum
     sql: ${TABLE}.L365_NUM_ORDER_ACCEPTED_EU_MERCH
 
-  - dimension: l365_num_order_accepted_uk_merch
-    type: number
+  - measure: l365_num_order_accepted_uk_merch
+    type: sum
     sql: ${TABLE}.L365_NUM_ORDER_ACCEPTED_UK_MERCH
 
-  - dimension: l365_num_order_accepted_us_merch
-    type: number
+  - measure: l365_num_order_accepted_us_merch
+    type: sum
     sql: ${TABLE}.L365_NUM_ORDER_ACCEPTED_US_MERCH
 
-  - dimension: l365_number_merchant_shopped
-    type: number
+  - measure: l365_number_merchant_shopped
+    type: avg
     sql: ${TABLE}.L365_NUMBER_MERCHANT_SHOPPED
 
-  - dimension: l365_rejected_order_count
-    type: number
+  - measure: l365_rejected_order_count
+    type: sum
     sql: ${TABLE}.L365_REJECTED_ORDER_COUNT
 
   - dimension: l365_shopped_from_merch_entity
     type: string
     sql: ${TABLE}.L365_SHOPPED_FROM_MERCH_ENTITY
 
-  - dimension: l365_submitted_order_count
-    type: number
+  - measure: l365_submitted_order_count
+    type: sum
     sql: ${TABLE}.L365_SUBMITTED_ORDER_COUNT
 
   - dimension: last_bf_accepted_date_key
@@ -209,21 +228,24 @@
   - dimension: last_bf_accepted_order_id
     type: string
     sql: ${TABLE}.LAST_BF_ACCEPTED_ORDER_ID
+    hidden: true
 
   - dimension: last_billing_address_key
     type: number
     sql: ${TABLE}.LAST_BILLING_ADDRESS_KEY
+    hidden: true
 
   - dimension: last_billing_country_key
     type: number
     sql: ${TABLE}.LAST_BILLING_COUNTRY_KEY
+    hidden: true
 
-  - dimension: last_day_accepted_order_count
-    type: number
+  - measure: last_day_accepted_order_count
+    type: avg
     sql: ${TABLE}.LAST_DAY_ACCEPTED_ORDER_COUNT
 
-  - dimension: last_day_number_merchant_shopped
-    type: number
+  - measure: last_day_number_merchant_shopped
+    type: avg
     sql: ${TABLE}.LAST_DAY_NUMBER_MERCHANT_SHOPPED
 
   - dimension: last_opt_in_bf_date_key
@@ -233,141 +255,167 @@
   - dimension: last_shipping_address_key
     type: number
     sql: ${TABLE}.LAST_SHIPPING_ADDRESS_KEY
+    hidden: true
 
   - dimension: last_shipping_country_key
     type: number
     sql: ${TABLE}.LAST_SHIPPING_COUNTRY_KEY
+    hidden: true
 
-  - dimension: lifetime_accepted_order_count
-    type: number
+  - measure: lifetime_accepted_order_count
+    type: sum
     sql: ${TABLE}.LIFETIME_ACCEPTED_ORDER_COUNT
 
-  - dimension: lifetime_aov_converted_usd_accepted
-    type: number
+  - measure: lifetime_aov_converted_usd_accepted
+    type: avg
     sql: ${TABLE}.LIFETIME_AOV_CONVERTED_USD_ACCEPTED
 
-  - dimension: lifetime_aov_eur_accepted
-    type: number
+  - measure: lifetime_aov_eur_accepted
+    type: avg
     sql: ${TABLE}.LIFETIME_AOV_EUR_ACCEPTED
 
-  - dimension: lifetime_aov_gbp_accepted
-    type: number
+  - measure: lifetime_aov_gbp_accepted
+    type: avg
     sql: ${TABLE}.LIFETIME_AOV_GBP_ACCEPTED
 
-  - dimension: lifetime_aov_usd_accepted
-    type: number
+  - measure: lifetime_aov_usd_accepted
+    type: avg
     sql: ${TABLE}.LIFETIME_AOV_USD_ACCEPTED
 
-  - dimension: lifetime_aur_converted_usd_accepted
-    type: number
+  - measure: lifetime_aur_converted_usd_accepted
+    type: avg
     sql: ${TABLE}.LIFETIME_AUR_CONVERTED_USD_ACCEPTED
 
-  - dimension: lifetime_aur_eur_accepted
-    type: number
+  - measure: lifetime_aur_eur_accepted
+    type: avg
     sql: ${TABLE}.LIFETIME_AUR_EUR_ACCEPTED
 
-  - dimension: lifetime_aur_gbp_accepted
-    type: number
+  - measure: lifetime_aur_gbp_accepted
+    type: avg
     sql: ${TABLE}.LIFETIME_AUR_GBP_ACCEPTED
 
-  - dimension: lifetime_aur_usd_accepted
-    type: number
+  - measure: lifetime_aur_usd_accepted
+    type: avg
     sql: ${TABLE}.LIFETIME_AUR_USD_ACCEPTED
 
-  - dimension: lifetime_cancelled_order_count
-    type: number
+  - measure: lifetime_cancelled_order_count
+    type: sum
     sql: ${TABLE}.LIFETIME_CANCELLED_ORDER_COUNT
 
   - dimension: lifetime_customer_status
     type: string
     sql: ${TABLE}.LIFETIME_CUSTOMER_STATUS
 
-  - dimension: lifetime_gmv_converted_usd_accepted
-    type: number
+  - measure: lifetime_gmv_converted_usd_accepted
+    type: sum
     sql: ${TABLE}.LIFETIME_GMV_CONVERTED_USD_ACCEPTED
 
-  - dimension: lifetime_gmv_eur_accepted
-    type: number
+  - measure: lifetime_gmv_eur_accepted
+    type: sum
     sql: ${TABLE}.LIFETIME_GMV_EUR_ACCEPTED
 
-  - dimension: lifetime_gmv_gbp_accepted
-    type: number
+  - measure: lifetime_gmv_gbp_accepted
+    type: sum
     sql: ${TABLE}.LIFETIME_GMV_GBP_ACCEPTED
 
-  - dimension: lifetime_gmv_usd_accepted
-    type: number
+  - measure: lifetime_gmv_usd_accepted
+    type: sum
     sql: ${TABLE}.LIFETIME_GMV_USD_ACCEPTED
 
-  - dimension: lifetime_mv_converted_usd_accepted
-    type: number
+  - measure: lifetime_mv_converted_usd_accepted
+    label: 'test1 sum lifetime_mv_converted_usd_accepted' 
+    type: sum
     sql: ${TABLE}.LIFETIME_MV_CONVERTED_USD_ACCEPTED
 
-  - dimension: lifetime_mv_eur_accepted
-    type: number
+  - measure: lifetime_mv_converted_usd_accepted
+    label: 'test2 avg lifetime_mv_converted_usd_accepted' 
+    type: avg
+    sql: ${TABLE}.LIFETIME_MV_CONVERTED_USD_ACCEPTED
+    
+  - measure: lifetime_mv_eur_accepted
+    type: sum
     sql: ${TABLE}.LIFETIME_MV_EUR_ACCEPTED
 
-  - dimension: lifetime_mv_gbp_accepted
-    type: number
+  - measure: lifetime_mv_gbp_accepted
+    type: sum
     sql: ${TABLE}.LIFETIME_MV_GBP_ACCEPTED
 
-  - dimension: lifetime_mv_usd_accepted
-    type: number
+  - measure: lifetime_mv_usd_accepted
+    type: sum
     sql: ${TABLE}.LIFETIME_MV_USD_ACCEPTED
 
-  - dimension: lifetime_num_item_accepted
-    type: number
+  - measure: lifetime_num_item_accepted
+    type: avg
     sql: ${TABLE}.LIFETIME_NUM_ITEM_ACCEPTED
 
-  - dimension: lifetime_num_item_accepted_eu_merch
-    type: number
+  - measure: lifetime_num_item_accepted_eu_merch
+    type: avg
     sql: ${TABLE}.LIFETIME_NUM_ITEM_ACCEPTED_EU_MERCH
 
-  - dimension: lifetime_num_item_accepted_uk_merch
-    type: number
+  - measure: lifetime_num_item_accepted_uk_merch
+    type: avg
     sql: ${TABLE}.LIFETIME_NUM_ITEM_ACCEPTED_UK_MERCH
 
-  - dimension: lifetime_num_item_accepted_us_merch
-    type: number
+  - measure: lifetime_num_item_accepted_us_merch
+    type: avg
     sql: ${TABLE}.LIFETIME_NUM_ITEM_ACCEPTED_US_MERCH
 
-  - dimension: lifetime_num_order_accepted
-    type: number
+  - measure: lifetime_num_order_accepted
+    type: sum
     sql: ${TABLE}.LIFETIME_NUM_ORDER_ACCEPTED
 
-  - dimension: lifetime_num_order_accepted_eu_merch
-    type: number
+  - measure: lifetime_num_order_accepted_eu_merch
+    type: sum
     sql: ${TABLE}.LIFETIME_NUM_ORDER_ACCEPTED_EU_MERCH
 
-  - dimension: lifetime_num_order_accepted_uk_merch
-    type: number
+  - measure: lifetime_num_order_accepted_uk_merch
+    type: sum
     sql: ${TABLE}.LIFETIME_NUM_ORDER_ACCEPTED_UK_MERCH
 
-  - dimension: lifetime_num_order_accepted_us_merch
-    type: number
+  - measure: lifetime_num_order_accepted_us_merch
+    type: sum
     sql: ${TABLE}.LIFETIME_NUM_ORDER_ACCEPTED_US_MERCH
 
-  - dimension: lifetime_number_merchant_shopped
-    type: number
+  - measure: lifetime_number_merchant_shopped
+    type: avg
     sql: ${TABLE}.LIFETIME_NUMBER_MERCHANT_SHOPPED
 
-  - dimension: lifetime_rejected_order_count
-    type: number
+  - measure: lifetime_rejected_order_count
+    type: sum
     sql: ${TABLE}.LIFETIME_REJECTED_ORDER_COUNT
 
   - dimension: lifetime_shopped_from_merch_entity
     type: string
     sql: ${TABLE}.LIFETIME_SHOPPED_FROM_MERCH_ENTITY
 
-  - dimension: lifetime_submitted_order_count
-    type: number
+  - measure: lifetime_submitted_order_count
+    type: sum
     sql: ${TABLE}.LIFETIME_SUBMITTED_ORDER_COUNT
 
   - dimension_group: run
     type: time
     timeframes: [time, date, week, month]
     sql: ${TABLE}.run_time
+    hidden: true
 
-  - measure: count
+  - measure: mv_rank_period
+    type: number
+    sql: |
+      rank() over(order by ${lifetime_mv_converted_usd_accepted} desc) 
+      
+  - measure: customer
     type: count
-    drill_fields: [customer_last_name, customer_first_name]
-
+    drill_fields: 
+      - customer_key    
+      - customer_last_name
+      - customer_first_name
+      - customer_email
+      - has_ever_opted_in_bf_yn
+      - cohort_year_month
+      - lifetime_customer_status 
+      - days_since_last_purchase
+      - mv_rank_period
+      - lifetime_number_merchant_shopped 
+      - lifetime_mv_converted_usd_accepted
+      - lifetime_num_order_accepted
+      - lifetime_aov_converted_usd_accepted

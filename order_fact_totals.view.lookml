@@ -39,7 +39,7 @@
     sql: ${TABLE}.FX_CONVERSION_RATE
 
   - dimension: ignore
-    type: int
+    type: number
     sql: ${TABLE}."IGNORE"
 
   - dimension: item_lcp_inflation_duty_usd
@@ -59,7 +59,7 @@
     sql: ${TABLE}.ITEM_LCP_INFLATION_TAX_USD
 
   - dimension: max_num_same_item
-    type: int
+    type: number
     sql: ${TABLE}.MAX_NUM_SAME_ITEM
 
   - dimension: merchant_lcp_margin_total
@@ -179,7 +179,7 @@
     sql: ${TABLE}.OH_FISCAL_CREATED_DATE_KEY
 
   - dimension: oh_merch_id
-    type: int
+    type: number
     sql: ${TABLE}.OH_MERCH_ID
 
   - dimension: oh_merch_order_id
@@ -628,7 +628,7 @@
     sql: ${TABLE}.SUBMITTED_ORDER_YN
 
   - dimension: units
-    type: int
+    type: number
     sql: ${TABLE}.UNITS
 
   - measure: order
