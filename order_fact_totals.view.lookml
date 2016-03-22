@@ -821,12 +821,3 @@
   - measure: order_per_customer
     type: number
     sql: ${order} / ${customer}  
-    
-  - measure: distinct_merchant
-    type: count_distinct
-    sql: ${TABLE}.OH_MERCH_ID
-    hidden: true
-    
-  - measure: num_merchant_shopped
-    type: avg
-    sql: ${distinct_merchant} / ${customer}
