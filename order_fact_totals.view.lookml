@@ -782,7 +782,7 @@
       from merchant_dim 
       join ${TABLE} on ${TABLE}.oh_merch_id = ${merchant_dim.merch_id}
       where ${merchant_dim.ignore} = 0 and ${merchant_dim.date_to} = '2199-12-31'      
-  
+      
   - measure: gmv
     type: sum
     sql: ${TABLE}.GMV

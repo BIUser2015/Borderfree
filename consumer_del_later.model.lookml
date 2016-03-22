@@ -11,8 +11,8 @@
     - join: order_fact_totals
       type: inner
       relationship: one_to_many
-      sql_on: ${calendar_dim.date_key} = ${order_fact_totals.oh_created_date_key}
-      
+      sql_on: ${calendar_dim.date_key} = ${order_fact_totals.oh_created_date_key}  
+  
     - join: customer_fact_1
       type: inner
       relationship: many_to_one

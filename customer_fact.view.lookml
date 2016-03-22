@@ -398,6 +398,11 @@
     sql: ${TABLE}.run_time
     hidden: true
 
+  - dimension: new_vs_existing  
+    type: string
+    sql: |
+      CASE WHEN ${TABLE}.first_bf_accepted_date_key != ${order_fact_totals.oh_created_date_key} THEN 'Existing' ELSE 'New' END
+            
   - measure: mv_rank_period
     type: number
     sql: |
