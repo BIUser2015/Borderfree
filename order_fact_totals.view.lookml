@@ -823,15 +823,9 @@
     sql: ${order} / ${customer}  
     
   - measure: distinct_merchant
-    type: number
+    type: count_distinct
+    sql: ${TABLE}.OH_MERCH_ID
     hidden: true
-    sql: |
-      (
-        SELECT ${customer_key}, COUNT(DISTINCT ${oh_merch_id})
-        FROM ${TABLE}
-        WHERE ${TABLE}.ignore = 0 and ${TABLE}.accepted_order_yn = 'Y'
-        group by ${customer_key}
-      ) 
     
   - measure: num_merchant_shopped
     type: number
