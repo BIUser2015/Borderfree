@@ -18,9 +18,19 @@
     - join: customer_fact
       type: inner
       relationship: many_to_one 
-      sql_on: ${order_fact_totals.customer_key} = ${customer_fact.customer_key}
+      sql_on: ${order_fact_totals.customer_key} = ${customer_fact.customer_key} and ${order_fact_totals.customer_key} != 0
       
     - join: merchant_dim
       type: inner
       relationship: many_to_one
       sql_on: ${order_fact_totals.oh_merch_id} = ${merchant_dim.merch_id} and ${merchant_dim.ignore} = 0 and ${merchant_dim.date_to} = '2199-12-31'
+      
+    - join: country_dim
+      type: inner
+      relationship: many_to_one
+      sql_on: ${order_fact_totals.shipping_country_key} = ${country_dim.country_key} 
+      
+    - join: calendar_dim
+      type: inner
+      relationship: many_to_one
+      sql_on: ${order_fact_totals.oh_created_date_key} = ${calendar_dim.date_key} 
