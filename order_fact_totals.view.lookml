@@ -772,7 +772,12 @@
       - ${merchant_dim.merch_pricing_ccy} 
       - mv
       - units
-      
+  
+  - measure: customer
+    type: count_distinct 
+    sql: ${TABLE}.CUSTOMER_KEY
+    hidden: true
+    
   - measure: units
     type: avg
     sql: ${TABLE}.UNITS
@@ -808,4 +813,23 @@
   - measure: aov_usd_converted
     type: number
     sql: ${mv_usd_converted} / NULLIFZERO(${order})
+    
+  - measure: mv_usd_converted_per_customer
+    type: number
+    sql: ${mv_usd_converted} / ${customer}
+    
+  - measure: order_per_customer
+    type: number
+    sql: ${order} / ${customer}  
+    
+  - measure: distinct_merchant
+    type: number
+    sql: |
+      (
+        SELECT ${customer_key}, COUNT(DISTINCT ${oh_merch_id})
+        FROM ${TABLE}
+        WHERE ${TABLE}.ignore = 0 
+        group by ${customer_key}
+      ) 
+    
         
