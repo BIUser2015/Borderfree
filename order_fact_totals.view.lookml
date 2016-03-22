@@ -807,9 +807,5 @@
         
   - measure: aov_usd_converted
     type: number
-    sql: (CASE 
-        WHEN ${merchant_dim.merch_pricing_ccy} = 'GBP' THEN 1.4333 * mv
-        WHEN ${merchant_dim.merch_pricing_ccy} = 'EUR' THEN 1.0987 * mv
-        ELSE 1 * mv
-        END) / NULLIFZERO(${order})
+    sql: ${mv_usd_converted} / NULLIFZERO(${order})
         
