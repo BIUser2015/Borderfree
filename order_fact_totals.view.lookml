@@ -830,6 +830,6 @@
         FROM ${TABLE}
         WHERE ${TABLE}.ignore = 0 
         group by ${customer_key}
-      ) 
+      ) = ${TABLE}.customer_key 
     
         
