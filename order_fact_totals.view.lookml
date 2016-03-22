@@ -817,7 +817,3 @@
   - measure: mv_usd_converted_per_customer
     type: number
     sql: ${mv_usd_converted} / ${customer}
-    
-  - measure: order_per_customer
-    type: number
-    sql: ${order} / ${customer}  
