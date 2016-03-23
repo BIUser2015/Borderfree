@@ -14,6 +14,10 @@
 #       sql_on: ${users.id} = ${orders.user_id}
 
 - explore: order_fact_totals 
+  always_filter: 
+    accepted_order_yn : Y
+    ignore : 0
+    
   joins:
     - join: customer_fact
       type: inner
