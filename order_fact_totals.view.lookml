@@ -789,7 +789,9 @@
   - measure: mv
     type: sum
     sql: ${TABLE}.MV
-    
+    filter: 
+      ignore : 0 
+      
   - measure: aov
     type: number
     sql: ${mv} / NULLIFZERO(${order})
