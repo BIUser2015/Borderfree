@@ -16,7 +16,6 @@
 - explore: order_fact_totals 
   always_filter: 
     checkout_status : 'GREEN'
-    ignore : 0
     
   joins:
     - join: customer_fact
@@ -32,17 +31,17 @@
     - join: country_dim
       type: inner
       relationship: many_to_one
-      sql_on: ${order_fact_totals.shipping_country_key} = ${country_dim.country_key} 
+      sql_on: ${order_fact_totals.shipping_country_key} = ${country_dim.country_key} and ${order_fact_totals.ignore} = 0
       
     - join: calendar_dim
       type: inner
       relationship: many_to_one
-      sql_on: ${order_fact_totals.oh_created_date_key} = ${calendar_dim.date_key} ## and ${calendar_dim.date_time_start} < trunc(sysdate) 
+      sql_on: ${order_fact_totals.oh_created_date_key} = ${calendar_dim.date_key} and ${order_fact_totals.ignore} = 0 ## and ${calendar_dim.date_time_start} < trunc(sysdate) 
       
     - join: merch_per_customer
       type: inner
       relationship: many_to_one
-      sql_on: ${order_fact_totals.customer_key} = ${merch_per_customer.customer_key} and ${calendar_dim.year_month_number} = ${merch_per_customer.year_month_number}
+      sql_on: ${order_fact_totals.customer_key} = ${merch_per_customer.customer_key} and ${calendar_dim.year_month_number} = ${merch_per_customer.year_month_number} and ${order_fact_totals.ignore} = 0
     
 - view: merch_per_customer
   derived_table:
