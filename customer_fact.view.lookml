@@ -5,7 +5,6 @@
   - dimension: cohort_merch_id
     type: number
     sql: ${TABLE}.COHORT_MERCH_ID
-    hidden: true 
 
   - dimension: cohort_year_month
     type: number
@@ -140,34 +139,42 @@
   - measure: l365_gmv_converted_usd_accepted
     type: sum
     sql: ${TABLE}.L365_GMV_CONVERTED_USD_ACCEPTED
+    value_format: '"$"#,###'
 
   - measure: l365_gmv_eur_accepted
     type: sum
     sql: ${TABLE}.L365_GMV_EUR_ACCEPTED
+    value_format: '"€"#,###'
 
   - measure: l365_gmv_gbp_accepted
     type: sum
     sql: ${TABLE}.L365_GMV_GBP_ACCEPTED
+    value_format: '"£"#,###'
 
   - measure: l365_gmv_usd_accepted
     type: sum
     sql: ${TABLE}.L365_GMV_USD_ACCEPTED
+    value_format: '"$"#,###'
 
   - measure: l365_mv_converted_usd_accepted
     type: sum
     sql: ${TABLE}.L365_MV_CONVERTED_USD_ACCEPTED
+    value_format: '"$"#,###'
 
   - measure: l365_mv_eur_accepted
     type: sum
     sql: ${TABLE}.L365_MV_EUR_ACCEPTED
+    value_format: '"€"#,###'
 
   - measure: l365_mv_gbp_accepted
     type: sum
     sql: ${TABLE}.L365_MV_GBP_ACCEPTED
+    value_format: '"£"#,###'
 
   - measure: l365_mv_usd_accepted
     type: sum
     sql: ${TABLE}.L365_MV_USD_ACCEPTED
+    value_format: '"$"#,###'
 
   - measure: l365_num_item_accepted
     type: avg
@@ -269,34 +276,42 @@
   - measure: lifetime_aov_converted_usd_accepted
     type: avg
     sql: ${TABLE}.LIFETIME_AOV_CONVERTED_USD_ACCEPTED
+    value_format: '"$"#,###'
 
   - measure: lifetime_aov_eur_accepted
     type: avg
     sql: ${TABLE}.LIFETIME_AOV_EUR_ACCEPTED
+    value_format: '"€"#,###'
 
   - measure: lifetime_aov_gbp_accepted
     type: avg
     sql: ${TABLE}.LIFETIME_AOV_GBP_ACCEPTED
+    value_format: '"£"#,###'
 
   - measure: lifetime_aov_usd_accepted
     type: avg
     sql: ${TABLE}.LIFETIME_AOV_USD_ACCEPTED
+    value_format: '"$"#,###'
 
   - measure: lifetime_aur_converted_usd_accepted
     type: avg
     sql: ${TABLE}.LIFETIME_AUR_CONVERTED_USD_ACCEPTED
+    value_format: '"$"#,###'
 
   - measure: lifetime_aur_eur_accepted
     type: avg
     sql: ${TABLE}.LIFETIME_AUR_EUR_ACCEPTED
+    value_format: '"€"#,###'
 
   - measure: lifetime_aur_gbp_accepted
     type: avg
     sql: ${TABLE}.LIFETIME_AUR_GBP_ACCEPTED
+    value_format: '"£"#,###'
 
   - measure: lifetime_aur_usd_accepted
     type: avg
     sql: ${TABLE}.LIFETIME_AUR_USD_ACCEPTED
+    value_format: '"$"#,###'
 
   - measure: lifetime_cancelled_order_count
     type: sum
@@ -309,34 +324,42 @@
   - measure: lifetime_gmv_converted_usd_accepted
     type: sum
     sql: ${TABLE}.LIFETIME_GMV_CONVERTED_USD_ACCEPTED
+    value_format: '"$"#,###'
 
   - measure: lifetime_gmv_eur_accepted
     type: sum
     sql: ${TABLE}.LIFETIME_GMV_EUR_ACCEPTED
+    value_format: '"€"#,###'
 
   - measure: lifetime_gmv_gbp_accepted
     type: sum
     sql: ${TABLE}.LIFETIME_GMV_GBP_ACCEPTED
+    value_format: '"£"#,###'
 
   - measure: lifetime_gmv_usd_accepted
     type: sum
     sql: ${TABLE}.LIFETIME_GMV_USD_ACCEPTED
+    value_format: '"$"#,###'
 
   - measure: lifetime_mv_converted_usd_accepted
     type: sum
     sql: ${TABLE}.LIFETIME_MV_CONVERTED_USD_ACCEPTED
+    value_format: '"$"#,###'
     
   - measure: lifetime_mv_eur_accepted
     type: sum
     sql: ${TABLE}.LIFETIME_MV_EUR_ACCEPTED
+    value_format: '"€"#,###'
 
   - measure: lifetime_mv_gbp_accepted
     type: sum
     sql: ${TABLE}.LIFETIME_MV_GBP_ACCEPTED
+    value_format: '"£"#,###'
 
   - measure: lifetime_mv_usd_accepted
     type: sum
     sql: ${TABLE}.LIFETIME_MV_USD_ACCEPTED
+    value_format: '"$"#,###'
 
   - measure: lifetime_num_item_accepted
     type: avg
@@ -392,7 +415,7 @@
     sql: ${TABLE}.run_time
     hidden: true
 
-  - dimension: new_vs_existing  
+  - dimension: new_vs_existing_daily  
     type: string
     sql: |
       CASE WHEN ${TABLE}.first_bf_accepted_date_key != ${order_fact_totals.oh_created_date_key} THEN 'Existing' ELSE 'New' END
