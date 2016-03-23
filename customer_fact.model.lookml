@@ -33,4 +33,4 @@
     - join: calendar_dim
       type: inner
       relationship: many_to_one
-      sql_on: ${order_fact_totals.oh_created_date_key} = ${calendar_dim.date_key} 
+      sql_on: ${order_fact_totals.oh_created_date_key} = ${calendar_dim.date_key} ## and ${calendar_dim.date_time_start} < trunc(sysdate) 
