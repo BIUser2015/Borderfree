@@ -74,11 +74,6 @@
     type: count
     hidden: true
     
-  - measure: total_number_merchant_shopped
-    type: sum
-    sql: ${TABLE}.number_merchant_shopped
-    hidden: true
-    
   - measure: number_merchant_shopped
-    type: number
-    sql: ${TABLE}.total_number_merchant_shopped / ${TABLE}.customer 
+    type: avg
+    sql: ${TABLE}.number_merchant_shopped
