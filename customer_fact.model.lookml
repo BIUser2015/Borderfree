@@ -53,9 +53,10 @@
       , count(distinct o.oh_merch_id) as number_merchant_shopped 
       
       FROM agg.order_fact_totals o
-      JOIN dw.country_dim c on {order_fact_totals.shipping_country_key} = c.country_key
-      JOIN dw.calendar_dim cd on {order_fact_totals.oh_created_date_key} = cd.date_key
       WHERE o.ignore = 0 and o.accepted_order_yn = 'Y'
+      and o.shipping_country_key = ${order_fact_totals.shipping_country_key}
+      and o.oh_created_date_key = ${calendar_dim.date_key} 
+      
       GROUP BY o.customer_key  
   fields:
   
