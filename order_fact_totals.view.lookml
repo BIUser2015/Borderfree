@@ -716,6 +716,7 @@
     hidden: true
 
   - dimension: osm_shipping_method_id
+    label: 'shipping carrier' 
     type: string
     sql: ${TABLE}.OSM_SHIPPING_METHOD_ID
     
@@ -785,16 +786,17 @@
   - measure: gmv
     type: sum
     sql: ${TABLE}.GMV
+    value_format: '#,##0.00'
     
   - measure: mv
     type: sum
     sql: ${TABLE}.MV
-    filter: 
-      ignore : 0 
+    value_format: '#,##0.00'
       
   - measure: aov
     type: number
     sql: ${mv} / NULLIFZERO(${order})
+    value_format: '#,##0.00'
     
   - measure: gmv_usd_converted
     type: sum
@@ -803,6 +805,7 @@
         WHEN ${merchant_dim.merch_pricing_ccy} = 'EUR' THEN 1.0987 * gmv
         ELSE 1 * gmv
         END) 
+    value_format: '"$"#,###'    
   
   - measure: mv_usd_converted
     type: sum
@@ -811,14 +814,17 @@
         WHEN ${merchant_dim.merch_pricing_ccy} = 'EUR' THEN 1.0987 * mv
         ELSE 1 * mv
         END)    
-        
+    value_format: '"$"#,###'
+    
   - measure: aov_usd_converted
     type: number
     sql: ${mv_usd_converted} / NULLIFZERO(${order})
+    value_format: '"$"#,##0.00'
     
   - measure: mv_usd_converted_per_customer
     type: number
     sql: ${mv_usd_converted} / ${customer}
+    value_format: '"$"#,###'
     
   - measure: order_per_customer
     type: number
