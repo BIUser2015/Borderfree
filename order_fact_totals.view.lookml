@@ -831,3 +831,5 @@
     type: number
     sql: ${order} / ${customer}
     value_format: '#,##0.00'
+  
+  
