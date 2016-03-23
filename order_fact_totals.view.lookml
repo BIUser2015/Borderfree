@@ -780,7 +780,8 @@
     hidden: true
     
   - measure: units
-    type: avg
+    label: 'items'
+    type: sum
     sql: ${TABLE}.UNITS
     
   - measure: gmv
