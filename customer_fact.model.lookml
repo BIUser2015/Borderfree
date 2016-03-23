@@ -18,7 +18,7 @@
     - join: customer_fact
       type: inner
       relationship: many_to_one 
-      sql_on: ${order_fact_totals.customer_key} = ${customer_fact.customer_key} and ${order_fact_totals.customer_key} != 0 and ${order_fact_totals.ignore} = 0
+      sql_on: ${order_fact_totals.customer_key} = ${customer_fact.customer_key} and ${order_fact_totals.ignore} = 0
       
     - join: merchant_dim
       type: inner
