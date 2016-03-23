@@ -15,7 +15,7 @@
 
 - explore: order_fact_totals 
   always_filter: 
-    accepted_order_yn : Y
+    checkout_status : 'GREEN'
     ignore : 0
     
   joins:

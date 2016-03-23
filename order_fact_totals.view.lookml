@@ -168,7 +168,7 @@
     sql: ${TABLE}.MV_BUCKET_5_START
     hidden: true
 
-  - dimension: oh_checkout_status
+  - dimension: checkout_status
     type: string
     sql: ${TABLE}.OH_CHECKOUT_STATUS
 
