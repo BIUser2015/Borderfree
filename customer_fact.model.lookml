@@ -42,7 +42,7 @@
     - join: merch_per_customer
       type: inner
       relationship: many_to_one
-      sql_on: ${order_fact_totals.customer_key} = ${merch_per_customer.customer_key} and ${order_fact_totals.oh_created_date_key} = ${merch_per_customer.oh_created_date_key}
+      sql_on: ${order_fact_totals.customer_key} = ${merch_per_customer.customer_key} and ${calendar_dim.date_key} = ${merch_per_customer.oh_created_date_key}
     
 - view: merch_per_customer
   derived_table:
