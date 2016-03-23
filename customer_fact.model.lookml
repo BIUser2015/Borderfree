@@ -76,6 +76,8 @@
     hidden: true
     
   - measure: number_merchant_shopped
-    label: 'number_merchant_shopped_by_month'
+    label: 'number_merchant_shopped_by_month'   
     type: avg
     sql: ${TABLE}.number_merchant_shopped
+    value_format: '#,##0.00'
+    
