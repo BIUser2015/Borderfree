@@ -54,7 +54,12 @@
       
       FROM agg.order_fact_totals o
       JOIN dw.calendar_dim cd on o.oh_created_date_key = cd.date_key
-      WHERE o.ignore = 0 and o.accepted_order_yn = 'Y'
+      JOIN dw.merchant_dim md on o.oh_merch_id = md.merch_id
+      JOIN dw.country_dim c on o.shipping_country_key = c.country_key
+      WHERE o.ignore = 0 
+      and o.accepted_order_yn = 'Y'
+      and md.ignore = 0
+      and md.date_to = '2199-12-31'
       
       GROUP BY o.customer_key, cd.year_month_number
   fields:
