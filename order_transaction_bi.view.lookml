@@ -191,20 +191,19 @@
     type: number
     sql: (${mv_current_year} - ${mv_previous_year} ) 
 
-    
   - measure: vs_month_percentage
     type: number
-    sql: ((${mv_current_month} - ${mv_py_month} ) / ${mv_py_month} ) * 100
+    sql: ( (${mv_current_month}-${mv_py_month}) / (${mv_py_month}) ) 
     value_format: '0.00\%'
 
   - measure: vs_quarter_percentage
     type: number
-    sql: (${mv_current_quarter} - ${mv_py_quarter} / ${mv_py_quarter} )  * 100
+    sql: ((${mv_current_quarter} - ${mv_py_quarter})/ (${mv_py_quarter}) ) 
     value_format: '0.00\%'
     
   - measure: vs_year_percentage
     type: number
-    sql: (${mv_current_year} - ${mv_previous_year} / ${mv_previous_year} )  * 100
+    sql: ((${mv_current_year} - ${mv_previous_year}) / (${mv_previous_year}) )  
     value_format: '0.00\%'        
     
     
