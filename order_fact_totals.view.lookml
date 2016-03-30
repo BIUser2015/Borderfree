@@ -716,7 +716,7 @@
     hidden: true
 
   - dimension: osm_shipping_method_id
-    label: 'shipping carrier' 
+    label: 'Shipping Carrier' 
     type: string
     sql: ${TABLE}.OSM_SHIPPING_METHOD_ID
     
@@ -832,4 +832,42 @@
     sql: ${order} / ${customer}
     value_format: '#,##0.00'
   
+  - measure: buyer_vat_mccy
+    type: sum
+    sql: ${TABLE}.OQ_BUY_TOT_VAT_USD_TOTAL
+    value_format: '#,##0.00'
+    
+  - measure: buyer_tariff_mccy
+    type: sum
+    sql: ${TABLE}.OQ_BUY_TOT_TARIFF_USD_TOTAL
+    value_format: '#,##0.00'
   
+  - measure: buyer_shipping_mccy
+    type: sum
+    sql: ${TABLE}.OQ_BUY_TOT_SHIPPING_USD_TOTAL
+    value_format: '#,##0.00'
+    
+  - measure: buyer_handling_mccy
+    type: sum
+    sql: ${TABLE}.OQ_BUY_TOT_HANDLING_USD_TOTAL
+    value_format: '#,##0.00'
+    
+  - measure: lp_quoted_vat_mccy
+    type: sum
+    sql: ${TABLE}.OQ_LP_TOT_VAT_USD_TOTAL
+    value_format: '#,##0.00'
+    
+  - measure: lp_quoted_tariff_mccy
+    type: sum
+    sql: ${TABLE}.OQ_LP_TOT_TARIFF_USD_TOTAL
+    value_format: '#,##0.00'
+    
+  - measure: lp_quoted_shipping_mccy
+    type: sum
+    sql: ${TABLE}.OQ_LP_TOT_SHIPPING_USD_TOTAL
+    value_format: '#,##0.00'
+    
+  - measure: lp_quoted_handling_mccy
+    type: sum
+    sql: ${TABLE}.OQ_LP_TOT_HANDLING_USD_TOTAL
+    value_format: '#,##0.00'
