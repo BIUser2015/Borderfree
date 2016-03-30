@@ -121,6 +121,7 @@
     hidden: true 
 
   - dimension: merch_pricing_ccy
+    label: 'Merchant Pricing Currency'
     sql: ${TABLE}.MERCH_PRICING_CCY
 
   - dimension: merch_status

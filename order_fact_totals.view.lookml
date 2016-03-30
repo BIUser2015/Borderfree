@@ -1,8 +1,10 @@
 - view: order_fact_totals
+  label: 'Orders Level'
   sql_table_name: AGG.ORDER_FACT_TOTALS
   fields:
 
   - dimension: abandoned_order_yn
+    label: 'Abandoned Order Yes/No'
     type: string
     sql: ${TABLE}.ABANDONED_ORDER_YN
 
@@ -833,41 +835,49 @@
     value_format: '#,##0.00'
   
   - measure: buyer_vat_mccy
+    label: 'Buyer Vat Converted'
     type: sum
     sql: ${TABLE}.OQ_BUY_TOT_VAT_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: buyer_tariff_mccy
+    label: 'Buyer Tarriff Converted'
     type: sum
     sql: ${TABLE}.OQ_BUY_TOT_TARIFF_USD_TOTAL
     value_format: '#,##0.00'
   
   - measure: buyer_shipping_mccy
+    label: 'Buyer Shipping Converted'
     type: sum
     sql: ${TABLE}.OQ_BUY_TOT_SHIPPING_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: buyer_handling_mccy
+    label: 'Buyer Handling Converted'
     type: sum
     sql: ${TABLE}.OQ_BUY_TOT_HANDLING_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: lp_quoted_vat_mccy
+    label: 'Logistics Vat Quoted Converted'
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_VAT_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: lp_quoted_tariff_mccy
+    label: 'Logistics Tariff Quoted Converted'
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_TARIFF_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: lp_quoted_shipping_mccy
+    label: 'Logistics Shipping Quoted Converted'
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_SHIPPING_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: lp_quoted_handling_mccy
+    label: 'Logistics Handling Quoted Converted'
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_HANDLING_USD_TOTAL
     value_format: '#,##0.00'
