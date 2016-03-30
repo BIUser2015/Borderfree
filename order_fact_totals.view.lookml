@@ -187,20 +187,24 @@
     hidden: true
 
   - dimension: oh_created_date_key
+    label: 'Order Date'
     type: number
     sql: ${TABLE}.OH_CREATED_DATE_KEY
 
   - dimension: oh_created_hour
+    label: 'Order Hour'
     type: number
     sql: ${TABLE}.OH_CREATED_HOUR
 
   - dimension: oh_created_minute
+    label: 'Order Minute'
     type: number
     sql: ${TABLE}.OH_CREATED_MINUTE
 
   - dimension: oh_credit_card_key
     type: number
     sql: ${TABLE}.OH_CREDIT_CARD_KEY
+    hidden: true
 
   - dimension: oh_credit_card_type
     label: 'Payment Type'
@@ -215,6 +219,7 @@
   - dimension: oh_fiscal_created_date_key
     type: number
     sql: ${TABLE}.OH_FISCAL_CREATED_DATE_KEY
+    hidden: true
 
   - dimension: oh_merch_id
     label: 'Merchant ID'
@@ -724,6 +729,7 @@
 
   - dimension: osm_shipping_method_id
     label: 'Shipping Carrier' 
+    description: 'This is the carrier that the customer chose at checkout'
     type: string
     sql: ${TABLE}.OSM_SHIPPING_METHOD_ID
     
@@ -733,10 +739,12 @@
     hidden: true
 
   - dimension: price_model_type
+    label: 'MV Pricing Model'
     type: string
     sql: ${TABLE}.PRICE_MODEL_TYPE
     
   - dimension: rejected_order_yn
+    label: 'Rejected Order Yes / No'
     type: string
     sql: ${TABLE}.REJECTED_ORDER_YN
     
@@ -751,6 +759,7 @@
     hidden: true
 
   - dimension: shipped_order_yn
+    label: 'Fully Shipped Order Yes / No'
     type: string
     sql: ${TABLE}.SHIPPED_ORDER_YN
 
@@ -765,10 +774,12 @@
     hidden: true
 
   - dimension: started_order_yn
+    label: 'Started Order Yes / No'
     type: string
     sql: ${TABLE}.STARTED_ORDER_YN
 
   - dimension: submitted_order_yn
+    label: 'Submitted Order Yes / No'
     type: string
     sql: ${TABLE}.SUBMITTED_ORDER_YN
 
@@ -850,48 +861,56 @@
   
   - measure: buyer_vat_mccy
     label: 'Buyer Vat MCCY'
+    description: 'This is what was the buyer paid for vat in merchant currency'
     type: sum
     sql: ${TABLE}.OQ_BUY_TOT_VAT_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: buyer_tariff_mccy
     label: 'Buyer Tarriff MCCY'
+    description: 'This is what was the buyer paid for tariff in merchant currency'
     type: sum
     sql: ${TABLE}.OQ_BUY_TOT_TARIFF_USD_TOTAL
     value_format: '#,##0.00'
   
   - measure: buyer_shipping_mccy
     label: 'Buyer Shipping MCCY'
+    description: 'This is what was the buyer paid for shipping in merchant currency'
     type: sum
     sql: ${TABLE}.OQ_BUY_TOT_SHIPPING_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: buyer_handling_mccy
     label: 'Buyer Handling MCCY'
+    description: 'This is what was the buyer paid for handling in merchant currency'
     type: sum
     sql: ${TABLE}.OQ_BUY_TOT_HANDLING_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: lp_quoted_vat_mccy
     label: 'Logistics Vat Quoted MCCY'
+    description: 'This is what was the vat was quoted in merchant currency''
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_VAT_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: lp_quoted_tariff_mccy
     label: 'Logistics Tariff Quoted MCCY'
+    description: 'This is what was the tariff was quoted in merchant currency''
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_TARIFF_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: lp_quoted_shipping_mccy
     label: 'Logistics Shipping Quoted MCCY'
+    description: 'This is what was the shipping was quoted in merchant currency''
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_SHIPPING_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: lp_quoted_handling_mccy
     label: 'Logistics Handling Quoted MCCY'
+    description: 'This is what was the handling was quoted in merchant currency''
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_HANDLING_USD_TOTAL
     value_format: '#,##0.00'
