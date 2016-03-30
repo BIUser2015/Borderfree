@@ -787,29 +787,35 @@
     hidden: true
     
   - measure: units
-    label: 'items'
+    label: 'Number of items'
+    description: 'Total number of items in order'
     type: sum
     sql: ${TABLE}.UNITS
     
   - measure: gmv
+    label: 'Gross Merchant Value'
+    description: 'Gross merchant value based on pricing model'
     type: sum
     sql: ${TABLE}.GMV
     value_format: '#,##0.00'
     
   - measure: mv
-    label: 'Merchant Volume'
-    description: 'Merchant volumne based on pricing model'
+    label: 'Merchant Value'
+    description: 'Merchant value based on pricing model'
     type: sum
     sql: ${TABLE}.MV
     value_format: '#,##0.00'
       
   - measure: aov
+    label: 'Average Order Value'
+    description: 'Total order value divided by total amount of orders'
     type: number
     sql: ${mv} / NULLIFZERO(${order})
     value_format: '#,##0.00'
     
   - measure: gmv_usd_converted
     type: sum
+    description: 'Currently taking implied assumption' 
     sql: (CASE 
         WHEN ${merchant_dim.merch_pricing_ccy} = 'GBP' THEN 1.4333 * gmv
         WHEN ${merchant_dim.merch_pricing_ccy} = 'EUR' THEN 1.0987 * gmv
@@ -819,6 +825,7 @@
   
   - measure: mv_usd_converted
     type: sum
+    description: 'Currently taking implied assumption' 
     sql: (CASE 
         WHEN ${merchant_dim.merch_pricing_ccy} = 'GBP' THEN 1.4333 * mv
         WHEN ${merchant_dim.merch_pricing_ccy} = 'EUR' THEN 1.0987 * mv
@@ -842,49 +849,49 @@
     value_format: '#,##0.00'
   
   - measure: buyer_vat_mccy
-    label: 'Buyer Vat Converted'
+    label: 'Buyer Vat Converted to MCCY'
     type: sum
     sql: ${TABLE}.OQ_BUY_TOT_VAT_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: buyer_tariff_mccy
-    label: 'Buyer Tarriff Converted'
+    label: 'Buyer Tarriff Converted to MCCY'
     type: sum
     sql: ${TABLE}.OQ_BUY_TOT_TARIFF_USD_TOTAL
     value_format: '#,##0.00'
   
   - measure: buyer_shipping_mccy
-    label: 'Buyer Shipping Converted'
+    label: 'Buyer Shipping Coverted to MCCY'
     type: sum
     sql: ${TABLE}.OQ_BUY_TOT_SHIPPING_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: buyer_handling_mccy
-    label: 'Buyer Handling Converted'
+    label: 'Buyer Handling Converted to MCCY'
     type: sum
     sql: ${TABLE}.OQ_BUY_TOT_HANDLING_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: lp_quoted_vat_mccy
-    label: 'Logistics Vat Quoted Converted'
+    label: 'Logistics Vat Quoted Converted to MCCY'
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_VAT_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: lp_quoted_tariff_mccy
-    label: 'Logistics Tariff Quoted Converted'
+    label: 'Logistics Tariff Quoted Converted to MCCY'
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_TARIFF_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: lp_quoted_shipping_mccy
-    label: 'Logistics Shipping Quoted Converted'
+    label: 'Logistics Shipping Quoted Converted to MCCY'
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_SHIPPING_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: lp_quoted_handling_mccy
-    label: 'Logistics Handling Quoted Converted'
+    label: 'Logistics Handling Quoted Converted to MCCY'
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_HANDLING_USD_TOTAL
     value_format: '#,##0.00'
