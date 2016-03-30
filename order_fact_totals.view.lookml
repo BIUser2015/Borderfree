@@ -4,11 +4,12 @@
   fields:
 
   - dimension: abandoned_order_yn
-    label: 'Abandoned Order Yes/No'
+    label: 'Abandoned Order Yes / No'
     type: string
     sql: ${TABLE}.ABANDONED_ORDER_YN
 
   - dimension: accepted_order_yn
+    label: 'Accepted Order Yes / No'
     type: string
     sql: ${TABLE}.ACCEPTED_ORDER_YN
 
@@ -23,6 +24,7 @@
     hidden: true
 
   - dimension: cancelled_order_yn
+    label: 'Cancelled Order Yes / No'
     type: string
     sql: ${TABLE}.CANCELLED_ORDER_YN
 
@@ -201,10 +203,12 @@
     sql: ${TABLE}.OH_CREDIT_CARD_KEY
 
   - dimension: oh_credit_card_type
+    label: 'Payment Type'
     type: string
     sql: ${TABLE}.OH_CREDIT_CARD_TYPE
 
   - dimension: oh_ddu
+    label: 'Duty Type'
     type: string
     sql: ${TABLE}.OH_DDU
 
@@ -213,13 +217,14 @@
     sql: ${TABLE}.OH_FISCAL_CREATED_DATE_KEY
 
   - dimension: oh_merch_id
+    label: 'Merchant ID'
     type: number
     sql: ${TABLE}.OH_MERCH_ID
 
   - dimension: oh_merch_order_id
+    label: 'Merchant Order ID'
     type: string
     sql: ${TABLE}.OH_MERCH_ORDER_ID
-    hidden: true
 
   - dimension: oh_order_id
     type: string
@@ -792,6 +797,8 @@
     value_format: '#,##0.00'
     
   - measure: mv
+    label: 'Merchant Volume'
+    description: 'Merchant volumne based on pricing model'
     type: sum
     sql: ${TABLE}.MV
     value_format: '#,##0.00'
