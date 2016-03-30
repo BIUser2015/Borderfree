@@ -1,4 +1,5 @@
 - view: merchant_dim
+  label: 'Merchant Dimension'
   sql_table_name: DW.MERCHANT_DIM
   fields:
 

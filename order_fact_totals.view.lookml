@@ -849,49 +849,49 @@
     value_format: '#,##0.00'
   
   - measure: buyer_vat_mccy
-    label: 'Buyer Vat Converted to MCCY'
+    label: 'Buyer Vat MCCY'
     type: sum
     sql: ${TABLE}.OQ_BUY_TOT_VAT_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: buyer_tariff_mccy
-    label: 'Buyer Tarriff Converted to MCCY'
+    label: 'Buyer Tarriff MCCY'
     type: sum
     sql: ${TABLE}.OQ_BUY_TOT_TARIFF_USD_TOTAL
     value_format: '#,##0.00'
   
   - measure: buyer_shipping_mccy
-    label: 'Buyer Shipping Coverted to MCCY'
+    label: 'Buyer Shipping MCCY'
     type: sum
     sql: ${TABLE}.OQ_BUY_TOT_SHIPPING_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: buyer_handling_mccy
-    label: 'Buyer Handling Converted to MCCY'
+    label: 'Buyer Handling MCCY'
     type: sum
     sql: ${TABLE}.OQ_BUY_TOT_HANDLING_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: lp_quoted_vat_mccy
-    label: 'Logistics Vat Quoted Converted to MCCY'
+    label: 'Logistics Vat Quoted MCCY'
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_VAT_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: lp_quoted_tariff_mccy
-    label: 'Logistics Tariff Quoted Converted to MCCY'
+    label: 'Logistics Tariff Quoted MCCY'
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_TARIFF_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: lp_quoted_shipping_mccy
-    label: 'Logistics Shipping Quoted Converted to MCCY'
+    label: 'Logistics Shipping Quoted MCCY'
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_SHIPPING_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: lp_quoted_handling_mccy
-    label: 'Logistics Handling Quoted Converted to MCCY'
+    label: 'Logistics Handling Quoted MCCY'
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_HANDLING_USD_TOTAL
     value_format: '#,##0.00'
