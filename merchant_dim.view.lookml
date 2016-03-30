@@ -6,6 +6,7 @@
     primary_key: true 
     type: number
     sql: ${TABLE}.MERCH_KEY
+    hidden: true 
 
   - dimension: accepted_tac
     sql: ${TABLE}.ACCEPTED_TAC
@@ -59,6 +60,8 @@
     hidden: true 
 
   - dimension: financial_entity_name
+    label: 'Financial Entity'
+    description: 'Legal Entity in which Merchant rolls into'
     sql: ${TABLE}.FINANCIAL_ENTITY_NAME
 
   - dimension: hosted_by
@@ -94,13 +97,16 @@
     hidden: true 
 
   - dimension: merch_id
+    label: 'Merchant ID'
     type: number
     sql: ${TABLE}.MERCH_ID
 
   - dimension: merch_name
+    label: 'Merchant Name'
     sql: ${TABLE}.MERCH_NAME
 
   - dimension: merch_official_name
+    label: 'Merchant Legal Name'
     sql: ${TABLE}.MERCH_OFFICIAL_NAME
 
   - dimension: merch_opened_by
@@ -123,6 +129,7 @@
 
   - dimension: merch_type
     sql: ${TABLE}.MERCH_TYPE
+    hidden: true 
 
   - dimension: merch_website_url
     sql: ${TABLE}.MERCH_WEBSITE_URL
