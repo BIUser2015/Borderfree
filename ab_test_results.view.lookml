@@ -33,6 +33,11 @@
   - measure: count_rows
     label: 'Count of Records'
     type: count 
+    
+  - measure: count_experiments
+    label: 'Count of Experiments'
+    type: count_distinct     
+    sql: ${experiment_id}
 
     
 
