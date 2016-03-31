@@ -29,6 +29,12 @@
     label: 'Test Variation'
     type: string
     sql: ${TABLE}.VARIATION
+    
+  - measure: count_rows
+    label: 'Count of Records'
+    type: count 
+
+    
 
 
 
