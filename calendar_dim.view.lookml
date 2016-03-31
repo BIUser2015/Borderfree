@@ -1,4 +1,5 @@
 - view: calendar_dim
+  label: 'Calendar Dimension'
   sql_table_name: DW.CALENDAR_DIM
   fields:
 
@@ -6,12 +7,14 @@
     type: number
     primary_key: true
     sql: ${TABLE}.DATE_KEY
+    hidden: true 
 
   - dimension_group: date_time_end
     type: time
     timeframes: [date, week, month]
     convert_tz: false
     sql: ${TABLE}.DATE_TIME_END
+    hidden: true 
 
   - dimension_group: date_time_start
     type: time
@@ -21,6 +24,7 @@
 
   - dimension: date_value
     sql: ${TABLE}.DATE_VALUE
+    hidden: true 
 
   - dimension: day_of_month_number
     type: number
@@ -65,31 +69,37 @@
     timeframes: [date, week, month]
     convert_tz: false
     sql: ${TABLE}.ISO_WEEK_END_DATE
+    hidden: true 
 
   - dimension: iso_week_number
     type: number
     sql: ${TABLE}.ISO_WEEK_NUMBER
+    hidden: true 
 
   - dimension_group: iso_week_start
     type: time
     timeframes: [date, week, month]
     convert_tz: false
     sql: ${TABLE}.ISO_WEEK_START_DATE
+    hidden: true 
 
   - dimension: last_day_of_month_flag
     type: number
     sql: ${TABLE}.LAST_DAY_OF_MONTH_FLAG
+    hidden: true 
 
   - dimension: last_day_of_quarter_flag
     type: number
     sql: ${TABLE}.LAST_DAY_OF_QUARTER_FLAG
-
+    hidden: true 
+     
   - dimension_group: month_end
     type: time
     timeframes: [date, week, month]
     convert_tz: false
     sql: ${TABLE}.MONTH_END_DATE
-
+    hidden: true
+    
   - dimension: month_name
     sql: ${TABLE}.MONTH_NAME
     html: <a href=/dashboards/22><font color="#2FB2DE">{{ rendered_value }} <img src="/images/qr-graph-line@2x.png" height=20 width=20> </a>
@@ -140,6 +150,7 @@
 
   - dimension: qtd_ly_flag
     sql: ${TABLE}.QTD_LY_FLAG
+    hidden: true 
 
   - dimension_group: quarter_end
     type: time
@@ -269,30 +280,38 @@
   - dimension: current_quarter 
     type: yesno
     sql: quarter(${TABLE}.date_time_start) = quarter(sysdate)
+    hidden: true 
 
   - dimension: current_year 
     type: yesno
-    sql: year(${TABLE}.date_time_start) = year(sysdate)    
+    sql: year(${TABLE}.date_time_start) = year(sysdate)
+    hidden: true 
+
 
   - dimension: previous_year 
     type: yesno
     sql: year(${TABLE}.date_time_start) = year(sysdate)-1 
+    hidden: true 
     
   - dimension: two_years 
     type: yesno
     sql: year(${TABLE}.date_time_start) >= year(sysdate)-1 
+    hidden: true 
     
   - dimension: up_to_same_date_in_month
     type: yesno
     sql: EXTRACT(DAY FROM CURRENT_DATE) > ${TABLE}.day_of_month_number
+    hidden: true 
     
   - dimension: up_to_same_date_in_quarter 
     type: yesno
     sql: (EXTRACT(DOQ FROM sysdate)) > ${TABLE}.day_of_quarter_number
+    hidden: true 
     
   - dimension: up_to_same_date_in_year
     type: yesno
-    sql: EXTRACT(DOY FROM sysdate) > ${TABLE}.day_of_year_number      
+    sql: EXTRACT(DOY FROM sysdate) > ${TABLE}.day_of_year_number 
+    hidden: true 
 
   - measure: count
     type: count
