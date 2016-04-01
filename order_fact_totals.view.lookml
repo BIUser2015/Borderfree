@@ -890,28 +890,28 @@
     
   - measure: lp_quoted_vat_mccy
     label: 'Logistics Vat Quoted MCCY'
-    description: 'This is what was the vat was quoted in merchant currency''
+    description: 'This is what was the vat was quoted in merchant currency'
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_VAT_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: lp_quoted_tariff_mccy
     label: 'Logistics Tariff Quoted MCCY'
-    description: 'This is what was the tariff was quoted in merchant currency''
+    description: 'This is what was the tariff was quoted in merchant currency'
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_TARIFF_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: lp_quoted_shipping_mccy
     label: 'Logistics Shipping Quoted MCCY'
-    description: 'This is what was the shipping was quoted in merchant currency''
+    description: 'This is what was the shipping was quoted in merchant currency'
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_SHIPPING_USD_TOTAL
     value_format: '#,##0.00'
     
   - measure: lp_quoted_handling_mccy
     label: 'Logistics Handling Quoted MCCY'
-    description: 'This is what was the handling was quoted in merchant currency''
+    description: 'This is what was the handling was quoted in merchant currency'
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_HANDLING_USD_TOTAL
     value_format: '#,##0.00'
