@@ -232,10 +232,11 @@
     sql: ${TABLE}.OH_MERCH_ORDER_ID
 
   - dimension: oh_order_id
+    label: 'BF Order ID'
     type: string
     primary_key: true
     sql: ${TABLE}.OH_ORDER_ID
-    hidden: true
+
 
   - dimension: oq_buy_currency_key
     type: number
