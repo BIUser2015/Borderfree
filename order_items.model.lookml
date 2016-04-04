@@ -7,8 +7,15 @@
 # # and define the joins that connect them together.
 #
 - explore: order_fact
-#   joins:
-#     - join: orders
-#       sql_on: ${orders.id} = ${order_items.order_id}
-#     - join: users
-#       sql_on: ${users.id} = ${orders.user_id}
+  label: 'Order Items'
+  joins:
+  
+   - join: merchant_dim
+     type: inner
+     relationship: many_to_one
+     sql_on: ${order_fact.oh_merch_id} = ${merchant_dim.merch_id} and ${merchant_dim.ignore} = 0 and ${merchant_dim.date_to} = '2199-12-31'
+      
+   - join: country_dim
+     type: inner
+     relationship: many_to_one
+     sql_on: ${order_fact.shipping_country_key} = ${country_dim.country_key}
