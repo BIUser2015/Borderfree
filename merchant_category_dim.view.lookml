@@ -57,6 +57,7 @@
   - dimension: etl_job_num
     type: number
     sql: ${TABLE}.ETL_JOB_NUM
+    hidden: true 
 
   - dimension: external_id
     type: string
@@ -125,6 +126,7 @@
   - dimension: url
     type: string
     sql: ${TABLE}.URL
+    hidden: true 
 
   - dimension: version
     type: number
