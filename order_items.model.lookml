@@ -28,4 +28,9 @@
    - join: product_dim
      type: inner
      relationship: many_to_one
-     sql_on: ${order_fact.catalog_product_key} = ${product_dim.product_key}           
+     sql_on: ${order_fact.catalog_product_key} = ${product_dim.product_key}
+     
+   - join: merchant_category_dim
+     type: inner
+     relationship: many_to_one
+     sql_on: ${order_fact.merchant_category_key} = ${merchant_category_dim.merch_category_key}
