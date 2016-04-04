@@ -1,4 +1,5 @@
 - view: order_fact
+  label: 'Order Items'
   sql_table_name: DW.ORDER_FACT
   fields:
 
@@ -14,10 +15,12 @@
   - dimension: billing_address_key
     type: number
     sql: ${TABLE}.BILLING_ADDRESS_KEY
+    hidden: true
 
   - dimension: billing_country_key
     type: number
     sql: ${TABLE}.BILLING_COUNTRY_KEY
+    hidden: true
 
   - dimension: cancelled_order_yn
     sql: ${TABLE}.CANCELLED_ORDER_YN
@@ -25,9 +28,11 @@
   - dimension: catalog_product_key
     type: int
     sql: ${TABLE}.CATALOG_PRODUCT_KEY
+    hidden: true
 
   - dimension: category_id
     sql: ${TABLE}.CATEGORY_ID
+    hidden: true
 
   - dimension: checkout_client
     sql: ${TABLE}.CHECKOUT_CLIENT
@@ -43,6 +48,7 @@
   - dimension: coupon_key
     type: number
     sql: ${TABLE}.COUPON_KEY
+    hidden: true
 
   - dimension: customer_key
     type: number
@@ -52,10 +58,12 @@
     type: time
     timeframes: [time, date, week, month]
     sql: ${TABLE}.ETL_INSERTED
+    hidden: true
 
   - dimension: etl_job_num
     type: int
     sql: ${TABLE}.ETL_JOB_NUM
+    hidden: true
 
   - dimension_group: etl_updated
     type: time
@@ -76,21 +84,26 @@
   - dimension: ignore
     type: int
     sql: ${TABLE}."IGNORE"
+    hidden: true
 
   - dimension: is_kit
     sql: ${TABLE}.IS_KIT
+    hidden: true
 
   - dimension: lp_order_confirm_state_key
     type: int
     sql: ${TABLE}.LP_ORDER_CONFIRM_STATE_KEY
+    hidden: true
 
   - dimension: manual_db_update_key
     type: int
     sql: ${TABLE}.MANUAL_DB_UPDATE_KEY
+    hidden: true
 
   - dimension: merch_key
     type: number
     sql: ${TABLE}.MERCH_KEY
+    hidden: true
 
   - dimension: merchant_category_key
     type: number
@@ -98,6 +111,7 @@
 
   - dimension: mm_vat_inclusive_flag
     sql: ${TABLE}.MM_VAT_INCLUSIVE_FLAG
+    hidden: true
 
   - dimension: mv
     type: number
@@ -105,6 +119,7 @@
 
   - dimension: obp_billing_addr_hash_value
     sql: ${TABLE}.OBP_BILLING_ADDR_HASH_VALUE
+    hidden: true
 
   - dimension: obp_billing_country_code
     sql: ${TABLE}.OBP_BILLING_COUNTRY_CODE
@@ -118,12 +133,14 @@
 
   - dimension: obp_shipping_addr_hash_value
     sql: ${TABLE}.OBP_SHIPPING_ADDR_HASH_VALUE
+    hidden: true
 
   - dimension: obp_shipping_country_code
     sql: ${TABLE}.OBP_SHIPPING_COUNTRY_CODE
 
   - dimension: obp_shipping_locale
     sql: ${TABLE}.OBP_SHIPPING_LOCALE
+    hidden: true
 
   - dimension: oh_checkout_status
     sql: ${TABLE}.OH_CHECKOUT_STATUS
@@ -131,10 +148,12 @@
   - dimension: oh_checkout_status_key
     type: number
     sql: ${TABLE}.OH_CHECKOUT_STATUS_KEY
+    hidden: true
 
   - dimension: oh_combined_shipping_id
     type: int
     sql: ${TABLE}.OH_COMBINED_SHIPPING_ID
+    hidden: true
 
   - dimension: oh_coupon_code
     sql: ${TABLE}.OH_COUPON_CODE
@@ -168,6 +187,7 @@
 
   - dimension: oh_gss_tran_id
     sql: ${TABLE}.OH_GSS_TRAN_ID
+    hidden: true
 
   - dimension: oh_hub_id
     type: int
@@ -178,6 +198,7 @@
 
   - dimension: oh_last_lp_confirm_result
     sql: ${TABLE}.OH_LAST_LP_CONFIRM_RESULT
+    hidden: true
 
   - dimension: oh_last_restriction_code
     sql: ${TABLE}.OH_LAST_RESTRICTION_CODE
@@ -185,9 +206,11 @@
   - dimension: oh_last_update_date_key
     type: number
     sql: ${TABLE}.OH_LAST_UPDATE_DATE_KEY
+    hidden: true
 
   - dimension: oh_last_update_time
     sql: ${TABLE}.OH_LAST_UPDATE_TIME
+    hidden: true
 
   - dimension: oh_lcc_method
     sql: ${TABLE}.OH_LCC_METHOD
@@ -199,6 +222,7 @@
   - dimension: oh_lp_confirm_attempts
     type: int
     sql: ${TABLE}.OH_LP_CONFIRM_ATTEMPTS
+    hidden: true
 
   - dimension: oh_lp_expiry_date_key
     type: number
@@ -206,6 +230,7 @@
 
   - dimension: oh_lp_expiry_time
     sql: ${TABLE}.OH_LP_EXPIRY_TIME
+    hidden: true
 
   - dimension: oh_lp_id
     type: int
@@ -235,16 +260,20 @@
 
   - dimension: oh_payment_id
     sql: ${TABLE}.OH_PAYMENT_ID
+    hidden: true
 
   - dimension: oh_po_file_created_date_key
     type: number
     sql: ${TABLE}.OH_PO_FILE_CREATED_DATE_KEY
+    hidden: true
 
   - dimension: oh_po_file_created_time
     sql: ${TABLE}.OH_PO_FILE_CREATED_TIME
+    hidden: true
 
   - dimension: oh_retry_group_id
     sql: ${TABLE}.OH_RETRY_GROUP_ID
+    hidden: true
 
   - dimension: oh_settlement_type
     sql: ${TABLE}.OH_SETTLEMENT_TYPE
@@ -266,6 +295,7 @@
 
   - dimension: oh_updated_time
     sql: ${TABLE}.OH_UPDATED_TIME
+    hidden: true
 
   - dimension: oi_catalog_product_id
     sql: ${TABLE}.OI_CATALOG_PRODUCT_ID
@@ -276,6 +306,7 @@
   - dimension: oi_derived_from_id
     type: int
     sql: ${TABLE}.OI_DERIVED_FROM_ID
+    hidden: true
 
   - dimension: oi_hs_code
     sql: ${TABLE}.OI_HS_CODE
@@ -285,13 +316,16 @@
 
   - dimension: oi_is_furniture
     sql: ${TABLE}.OI_IS_FURNITURE
+    hidden: true
 
   - dimension: oi_is_fws_permit_req
     sql: ${TABLE}.OI_IS_FWS_PERMIT_REQ
+    hidden: true
 
   - dimension: oi_item_id
     type: int
     sql: ${TABLE}.OI_ITEM_ID
+    hidden: true
 
   - dimension: oi_logistics_state
     sql: ${TABLE}.OI_LOGISTICS_STATE
@@ -1621,7 +1655,8 @@
   - dimension: submitted_order_yn
     sql: ${TABLE}.SUBMITTED_ORDER_YN
 
-  - measure: count
+  - measure: item_count
+    label: 'Number of Items'
     type: count
-    drill_fields: [oh_po_file_created_time, oh_created_time]
+
 
