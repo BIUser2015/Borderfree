@@ -3,6 +3,11 @@
   sql_table_name: DW.ORDER_FACT
   fields:
 
+  - dimension: order_fact_row_id
+    type: number
+    primary_key: true 
+    sql: ${TABLE}.ORDER_FACT_ROW_ID
+
   - dimension: abandoned_order_yn
     sql: ${TABLE}.ABANDONED_ORDER_YN
 
@@ -26,7 +31,7 @@
     sql: ${TABLE}.CANCELLED_ORDER_YN
 
   - dimension: catalog_product_key
-    type: int
+    type: number
     sql: ${TABLE}.CATALOG_PRODUCT_KEY
     hidden: true
 
@@ -61,7 +66,7 @@
     hidden: true
 
   - dimension: etl_job_num
-    type: int
+    type: number
     sql: ${TABLE}.ETL_JOB_NUM
     hidden: true
 
@@ -82,7 +87,7 @@
     sql: ${TABLE}.GMV_PRICE_MODEL_TYPE
 
   - dimension: ignore
-    type: int
+    type: number
     sql: ${TABLE}."IGNORE"
     hidden: true
 
@@ -91,12 +96,12 @@
     hidden: true
 
   - dimension: lp_order_confirm_state_key
-    type: int
+    type: number
     sql: ${TABLE}.LP_ORDER_CONFIRM_STATE_KEY
     hidden: true
 
   - dimension: manual_db_update_key
-    type: int
+    type: number
     sql: ${TABLE}.MANUAL_DB_UPDATE_KEY
     hidden: true
 
@@ -128,7 +133,7 @@
     sql: ${TABLE}.OBP_BILLING_EMAIL
 
   - dimension: obp_billing_profile_id
-    type: int
+    type: number
     sql: ${TABLE}.OBP_BILLING_PROFILE_ID
 
   - dimension: obp_shipping_addr_hash_value
@@ -151,7 +156,7 @@
     hidden: true
 
   - dimension: oh_combined_shipping_id
-    type: int
+    type: number
     sql: ${TABLE}.OH_COMBINED_SHIPPING_ID
     hidden: true
 
@@ -190,7 +195,7 @@
     hidden: true
 
   - dimension: oh_hub_id
-    type: int
+    type: number
     sql: ${TABLE}.OH_HUB_ID
 
   - dimension: oh_is_pricebook
@@ -216,11 +221,11 @@
     sql: ${TABLE}.OH_LCC_METHOD
 
   - dimension: oh_lcp_rule_id
-    type: int
+    type: number
     sql: ${TABLE}.OH_LCP_RULE_ID
 
   - dimension: oh_lp_confirm_attempts
-    type: int
+    type: number
     sql: ${TABLE}.OH_LP_CONFIRM_ATTEMPTS
     hidden: true
 
@@ -233,7 +238,7 @@
     hidden: true
 
   - dimension: oh_lp_id
-    type: int
+    type: number
     sql: ${TABLE}.OH_LP_ID
 
   - dimension: oh_lp_order_confirm_state
@@ -246,7 +251,7 @@
     sql: ${TABLE}.OH_MERCH_CONFIRMED
 
   - dimension: oh_merch_id
-    type: int
+    type: number
     sql: ${TABLE}.OH_MERCH_ID
 
   - dimension: oh_merch_order_id
@@ -286,7 +291,7 @@
     sql: ${TABLE}.OH_SUBMITTED_TIME
 
   - dimension: oh_tpl_shipping_id
-    type: int
+    type: number
     sql: ${TABLE}.OH_TPL_SHIPPING_ID
 
   - dimension: oh_updated_date_key
@@ -304,7 +309,7 @@
     sql: ${TABLE}.OI_COO
 
   - dimension: oi_derived_from_id
-    type: int
+    type: number
     sql: ${TABLE}.OI_DERIVED_FROM_ID
     hidden: true
 
@@ -323,7 +328,7 @@
     hidden: true
 
   - dimension: oi_item_id
-    type: int
+    type: number
     sql: ${TABLE}.OI_ITEM_ID
     hidden: true
 
@@ -467,7 +472,7 @@
     sql: ${TABLE}.OIP_E4X_LIST_PRICE_USD
 
   - dimension: oip_e4_x_price_item_id
-    type: int
+    type: number
     sql: ${TABLE}.OIP_E4X_PRICE_ITEM_ID
 
   - dimension: oip_e4_x_sale_price_usd
@@ -498,7 +503,7 @@
     sql: ${TABLE}.OIP_FEE_RATE_ID
 
   - dimension: oip_fee_rate_id_usd
-    type: int
+    type: number
     sql: ${TABLE}.OIP_FEE_RATE_ID_USD
 
   - dimension: oip_fee_rate_value
@@ -591,7 +596,7 @@
     sql: ${TABLE}.OIP_LP_LIST_PRICE_USD
 
   - dimension: oip_lp_price_item_id
-    type: int
+    type: number
     sql: ${TABLE}.OIP_LP_PRICE_ITEM_ID
 
   - dimension: oip_lp_sale_price_usd
@@ -681,7 +686,7 @@
     sql: ${TABLE}.OIP_MP_PLP_DISCOUNT_USD
 
   - dimension: oip_mp_price_item_id
-    type: int
+    type: number
     sql: ${TABLE}.OIP_MP_PRICE_ITEM_ID
 
   - dimension: oip_mp_sale_price_usd
@@ -759,7 +764,7 @@
     sql: ${TABLE}.OIP_MPP_LIST_PRICE_USD
 
   - dimension: oip_mpp_price_item_id
-    type: int
+    type: number
     sql: ${TABLE}.OIP_MPP_PRICE_ITEM_ID
 
   - dimension: oip_mpp_sale_price_usd
@@ -837,7 +842,7 @@
     sql: ${TABLE}.OIP_MS_LIST_PRICE_USD
 
   - dimension: oip_ms_price_item_id
-    type: int
+    type: number
     sql: ${TABLE}.OIP_MS_PRICE_ITEM_ID
 
   - dimension: oip_ms_sale_price_usd
@@ -865,7 +870,7 @@
     sql: ${TABLE}.OIP_MS_VAT_USD
 
   - dimension: oip_price_item_id
-    type: int
+    type: number
     sql: ${TABLE}.OIP_PRICE_ITEM_ID
 
   - dimension: oip_sale_price
@@ -975,7 +980,7 @@
     sql: ${TABLE}.OIPM_LIST_PRICE_USD
 
   - dimension: oipm_price_item_id
-    type: int
+    type: number
     sql: ${TABLE}.OIPM_PRICE_ITEM_ID
 
   - dimension: oipm_sale_price_usd
@@ -1012,7 +1017,7 @@
     sql: ${TABLE}.OPT_IN_MERCH
 
   - dimension: oq_buy_activity_id
-    type: int
+    type: number
     sql: ${TABLE}.OQ_BUY_ACTIVITY_ID
 
   - dimension: oq_buy_created_date_key
@@ -1035,7 +1040,7 @@
     sql: ${TABLE}.OQ_BUY_GRAND_TOT_USD
 
   - dimension: oq_buy_gss_quote_id
-    type: int
+    type: number
     sql: ${TABLE}.OQ_BUY_GSS_QUOTE_ID
 
   - dimension: oq_buy_logistics_quote_id
@@ -1050,7 +1055,7 @@
     sql: ${TABLE}.OQ_BUY_ORDER_DISCOUNT_USD
 
   - dimension: oq_buy_quote_id
-    type: int
+    type: number
     sql: ${TABLE}.OQ_BUY_QUOTE_ID
 
   - dimension: oq_buy_status
@@ -1180,7 +1185,7 @@
     sql: ${TABLE}.OQ_BUY_VAT_REDUCTION_MCCY
 
   - dimension: oq_e4_x_activity_id
-    type: int
+    type: number
     sql: ${TABLE}.OQ_E4X_ACTIVITY_ID
 
   - dimension: oq_e4_x_created_date_key
@@ -1203,7 +1208,7 @@
     sql: ${TABLE}.OQ_E4X_ORDER_DISCOUNT_USD
 
   - dimension: oq_e4_x_quote_id
-    type: int
+    type: number
     sql: ${TABLE}.OQ_E4X_QUOTE_ID
 
   - dimension: oq_e4_x_status
@@ -1265,7 +1270,7 @@
     sql: ${TABLE}.OQ_E4X_TYPE
 
   - dimension: oq_lp_activity_id
-    type: int
+    type: number
     sql: ${TABLE}.OQ_LP_ACTIVITY_ID
 
   - dimension: oq_lp_bt_calculation_id
@@ -1291,7 +1296,7 @@
     sql: ${TABLE}.OQ_LP_ORDER_DISCOUNT_USD
 
   - dimension: oq_lp_quote_id
-    type: int
+    type: number
     sql: ${TABLE}.OQ_LP_QUOTE_ID
 
   - dimension: oq_lp_status
@@ -1353,7 +1358,7 @@
     sql: ${TABLE}.OQ_LP_TYPE
 
   - dimension: oq_mer_activity_id
-    type: int
+    type: number
     sql: ${TABLE}.OQ_MER_ACTIVITY_ID
 
   - dimension: oq_mer_created_date_key
@@ -1372,7 +1377,7 @@
     sql: ${TABLE}.OQ_MER_ORDER_DISCOUNT_USD
 
   - dimension: oq_mer_quote_id
-    type: int
+    type: number
     sql: ${TABLE}.OQ_MER_QUOTE_ID
 
   - dimension: oq_mer_status
@@ -1446,7 +1451,7 @@
     sql: ${TABLE}.OQ_MERCHANT_GRAND_TOT_USD
 
   - dimension: oq_mp_activity_id
-    type: int
+    type: number
     sql: ${TABLE}.OQ_MP_ACTIVITY_ID
 
   - dimension: oq_mp_created_date_key
@@ -1473,7 +1478,7 @@
     sql: ${TABLE}.OQ_MP_PLP_DISCOUNT_USD
 
   - dimension: oq_mp_quote_id
-    type: int
+    type: number
     sql: ${TABLE}.OQ_MP_QUOTE_ID
 
   - dimension: oq_mp_status
@@ -1535,7 +1540,7 @@
     sql: ${TABLE}.OQ_MP_TYPE
 
   - dimension: oq_ms_activity_id
-    type: int
+    type: number
     sql: ${TABLE}.OQ_MS_ACTIVITY_ID
 
   - dimension: oq_ms_created_date_key
@@ -1558,7 +1563,7 @@
     sql: ${TABLE}.OQ_MS_ORDER_DISCOUNT_USD
 
   - dimension: oq_ms_quote_id
-    type: int
+    type: number
     sql: ${TABLE}.OQ_MS_QUOTE_ID
 
   - dimension: oq_ms_status
@@ -1618,10 +1623,6 @@
 
   - dimension: oq_ms_type
     sql: ${TABLE}.OQ_MS_TYPE
-
-  - dimension: order_fact_row_id
-    type: int
-    sql: ${TABLE}.ORDER_FACT_ROW_ID
 
   - dimension: osm_shipping_method_id
     sql: ${TABLE}.OSM_SHIPPING_METHOD_ID
