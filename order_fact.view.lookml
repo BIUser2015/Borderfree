@@ -1837,5 +1837,30 @@
   - measure: item_count
     label: 'Number of Items'
     type: count
+    
+  - measure: item_mv
+    label: 'Item Merchant Value'
+    description: 'Merchant value based on pricing model'
+    type: sum
+    sql: ${TABLE}.MV
+    value_format: '#,##0.00'
+
+  - measure: item_gmv
+    label: 'Item Gross Merchant Value'
+    description: 'Gross merchant value based on pricing model'
+    type: sum
+    sql: ${TABLE}.GMV
+    value_format: '#,##0.00'
+
+  - measure: order_count
+    label: 'Number of Orders'
+    type: count_distinct
+    sql: ${TABLE}.OH_ORDER_ID
+ 
+  - measure: item_sale_price
+    label: 'Item Sale Price MCCY'
+    type: sum
+    sql: ${TABLE}.OIPM_SALE_PRICE_USD
+  
 
 
