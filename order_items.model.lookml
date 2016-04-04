@@ -19,3 +19,8 @@
      type: inner
      relationship: many_to_one
      sql_on: ${order_fact.shipping_country_key} = ${country_dim.country_key}
+     
+   - join: calendar_dim
+     type: inner
+     relationship: many_to_one
+     sql_on: ${order_fact.oh_created_date_key} = ${calendar_dim.date_key} and ${order_fact.ignore} = 0     

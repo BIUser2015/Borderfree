@@ -74,14 +74,17 @@
     type: time
     timeframes: [time, date, week, month]
     sql: ${TABLE}.ETL_UPDATED
+    hidden: true
 
   - dimension: fx_conversion_rate
     type: number
     sql: ${TABLE}.FX_CONVERSION_RATE
+    hidden: true
 
   - dimension: gmv
     type: number
     sql: ${TABLE}.GMV
+    hidden: true
 
   - dimension: gmv_price_model_type
     sql: ${TABLE}.GMV_PRICE_MODEL_TYPE
@@ -207,6 +210,7 @@
 
   - dimension: oh_last_restriction_code
     sql: ${TABLE}.OH_LAST_RESTRICTION_CODE
+    hidden: true
 
   - dimension: oh_last_update_date_key
     type: number
@@ -356,70 +360,87 @@
 
   - dimension: oi_replaced
     sql: ${TABLE}.OI_REPLACED
+    hidden: true
 
   - dimension: oi_restricted
     sql: ${TABLE}.OI_RESTRICTED
+    hidden: true
 
   - dimension_group: oi_updated
     type: time
     timeframes: [time, date, week, month]
     sql: ${TABLE}.OI_UPDATED
+    hidden: true
 
   - dimension: oip_cod_handling
     type: number
     sql: ${TABLE}.OIP_COD_HANDLING
+    hidden: true
 
   - dimension: oip_cod_handling_usd
     type: number
     sql: ${TABLE}.OIP_COD_HANDLING_USD
+    hidden: true
 
   - dimension: oip_cod_shipping
     type: number
     sql: ${TABLE}.OIP_COD_SHIPPING
+    hidden: true
 
   - dimension: oip_cod_shipping_usd
     type: number
     sql: ${TABLE}.OIP_COD_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_cop_handling
     type: number
     sql: ${TABLE}.OIP_COP_HANDLING
+    hidden: true
 
   - dimension: oip_cop_handling_usd
     type: number
     sql: ${TABLE}.OIP_COP_HANDLING_USD
+    hidden: true
 
   - dimension: oip_cop_shipping
     type: number
     sql: ${TABLE}.OIP_COP_SHIPPING
+    hidden: true
 
   - dimension: oip_cop_shipping_usd
     type: number
     sql: ${TABLE}.OIP_COP_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_discount
     type: number
     sql: ${TABLE}.OIP_DISCOUNT
+    hidden: true
 
   - dimension: oip_discount_prorated
     type: number
     sql: ${TABLE}.OIP_DISCOUNT_PRORATED
+    hidden: true
 
   - dimension: oip_discount_prorated_usd
     type: number
     sql: ${TABLE}.OIP_DISCOUNT_PRORATED_USD
+    hidden: true
 
   - dimension: oip_discount_usd
     type: number
     sql: ${TABLE}.OIP_DISCOUNT_USD
+    hidden: true
 
   - dimension: oip_dutiable_price
     type: number
     sql: ${TABLE}.OIP_DUTIABLE_PRICE
+    hidden: true
 
   - dimension: oip_dutiable_price_usd
     type: number
     sql: ${TABLE}.OIP_DUTIABLE_PRICE_USD
+    hidden: true
 
   - dimension: oip_e4_x_cod_handling_usd
     type: number
@@ -428,79 +449,99 @@
   - dimension: oip_e4_x_cod_shipping_usd
     type: number
     sql: ${TABLE}.OIP_E4X_COD_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_e4_x_cop_handling_usd
     type: number
     sql: ${TABLE}.OIP_E4X_COP_HANDLING_USD
+    hidden: true
 
   - dimension: oip_e4_x_cop_shipping_usd
     type: number
     sql: ${TABLE}.OIP_E4X_COP_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_e4_x_discount_prorated_usd
     type: number
     sql: ${TABLE}.OIP_E4X_DISCOUNT_PRORATED_USD
+    hidden: true
 
   - dimension: oip_e4_x_discount_usd
     type: number
     sql: ${TABLE}.OIP_E4X_DISCOUNT_USD
+    hidden: true
 
   - dimension: oip_e4_x_dutiable_price_usd
     type: number
     sql: ${TABLE}.OIP_E4X_DUTIABLE_PRICE_USD
+    hidden: true
 
   - dimension: oip_e4_x_fee_rate_id
     sql: ${TABLE}.OIP_E4X_FEE_RATE_ID
+    hidden: true
 
   - dimension: oip_e4_x_fee_rate_value_usd
     type: number
     sql: ${TABLE}.OIP_E4X_FEE_RATE_VALUE_USD
+    hidden: true
 
   - dimension: oip_e4_x_financial_fees_usd
     type: number
     sql: ${TABLE}.OIP_E4X_FINANCIAL_FEES_USD
+    hidden: true
 
   - dimension: oip_e4_x_financial_state
     sql: ${TABLE}.OIP_E4X_FINANCIAL_STATE
+    hidden: true
 
   - dimension: oip_e4_x_handling_usd
     type: number
     sql: ${TABLE}.OIP_E4X_HANDLING_USD
+    hidden: true
 
   - dimension: oip_e4_x_list_price_usd
     type: number
     sql: ${TABLE}.OIP_E4X_LIST_PRICE_USD
+    hidden: true
 
   - dimension: oip_e4_x_price_item_id
     type: number
     sql: ${TABLE}.OIP_E4X_PRICE_ITEM_ID
+    hidden: true
 
   - dimension: oip_e4_x_sale_price_usd
     type: number
     sql: ${TABLE}.OIP_E4X_SALE_PRICE_USD
+    hidden: true
 
   - dimension: oip_e4_x_shipping_usd
     type: number
     sql: ${TABLE}.OIP_E4X_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_e4_x_tariff_usd
     type: number
     sql: ${TABLE}.OIP_E4X_TARIFF_USD
+    hidden: true
 
   - dimension: oip_e4_x_tpl_handling_usd
     type: number
     sql: ${TABLE}.OIP_E4X_TPL_HANDLING_USD
+    hidden: true
 
   - dimension: oip_e4_x_tpl_shipping_usd
     type: number
     sql: ${TABLE}.OIP_E4X_TPL_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_e4_x_vat_usd
     type: number
     sql: ${TABLE}.OIP_E4X_VAT_USD
+    hidden: true
 
   - dimension: oip_fee_rate_id
     sql: ${TABLE}.OIP_FEE_RATE_ID
+    hidden: true
 
   - dimension: oip_fee_rate_id_usd
     type: number
@@ -521,127 +562,159 @@
   - dimension: oip_financial_fees_usd
     type: number
     sql: ${TABLE}.OIP_FINANCIAL_FEES_USD
+    hidden: true
 
   - dimension: oip_financial_state
     sql: ${TABLE}.OIP_FINANCIAL_STATE
+    hidden: true
 
   - dimension: oip_financial_state_usd
     type: number
     sql: ${TABLE}.OIP_FINANCIAL_STATE_USD
+    hidden: true
 
   - dimension: oip_handling
     type: number
     sql: ${TABLE}.OIP_HANDLING
+    hidden: true
 
   - dimension: oip_handling_usd
     type: number
     sql: ${TABLE}.OIP_HANDLING_USD
+    hidden: true
 
   - dimension: oip_list_price
     type: number
     sql: ${TABLE}.OIP_LIST_PRICE
+    hidden: true
 
   - dimension: oip_list_price_usd
     type: number
     sql: ${TABLE}.OIP_LIST_PRICE_USD
+    hidden: true
 
   - dimension: oip_lp_cod_handling_usd
     type: number
     sql: ${TABLE}.OIP_LP_COD_HANDLING_USD
+    hidden: true
 
   - dimension: oip_lp_cod_shipping_usd
     type: number
     sql: ${TABLE}.OIP_LP_COD_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_lp_cop_handling_usd
     type: number
     sql: ${TABLE}.OIP_LP_COP_HANDLING_USD
+    hidden: true
 
   - dimension: oip_lp_cop_shipping_usd
     type: number
     sql: ${TABLE}.OIP_LP_COP_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_lp_discount_prorated_usd
     type: number
     sql: ${TABLE}.OIP_LP_DISCOUNT_PRORATED_USD
+    hidden: true
 
   - dimension: oip_lp_discount_usd
     type: number
     sql: ${TABLE}.OIP_LP_DISCOUNT_USD
+    hidden: true
 
   - dimension: oip_lp_dutiable_price_usd
     type: number
     sql: ${TABLE}.OIP_LP_DUTIABLE_PRICE_USD
+    hidden: true
 
   - dimension: oip_lp_fee_rate_id
     sql: ${TABLE}.OIP_LP_FEE_RATE_ID
+    hidden: true
 
   - dimension: oip_lp_fee_rate_value_usd
     type: number
     sql: ${TABLE}.OIP_LP_FEE_RATE_VALUE_USD
+    hidden: true
 
   - dimension: oip_lp_financial_fees_usd
     type: number
     sql: ${TABLE}.OIP_LP_FINANCIAL_FEES_USD
+    hidden: true
 
   - dimension: oip_lp_financial_state
     sql: ${TABLE}.OIP_LP_FINANCIAL_STATE
+    hidden: true
 
   - dimension: oip_lp_handling_usd
     type: number
     sql: ${TABLE}.OIP_LP_HANDLING_USD
+    hidden: true
 
   - dimension: oip_lp_list_price_usd
     type: number
     sql: ${TABLE}.OIP_LP_LIST_PRICE_USD
+    hidden: true
 
   - dimension: oip_lp_price_item_id
     type: number
     sql: ${TABLE}.OIP_LP_PRICE_ITEM_ID
+    hidden: true
 
   - dimension: oip_lp_sale_price_usd
     type: number
     sql: ${TABLE}.OIP_LP_SALE_PRICE_USD
+    hidden: true
 
   - dimension: oip_lp_shipping_usd
     type: number
     sql: ${TABLE}.OIP_LP_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_lp_tariff_usd
     type: number
     sql: ${TABLE}.OIP_LP_TARIFF_USD
+    hidden: true
 
   - dimension: oip_lp_tpl_handling_usd
     type: number
     sql: ${TABLE}.OIP_LP_TPL_HANDLING_USD
+    hidden: true
 
   - dimension: oip_lp_tpl_shipping_usd
     type: number
     sql: ${TABLE}.OIP_LP_TPL_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_lp_vat_usd
     type: number
     sql: ${TABLE}.OIP_LP_VAT_USD
+    hidden: true
 
   - dimension: oip_mer_vat_as_margin
     type: number
     sql: ${TABLE}.OIP_MER_VAT_AS_MARGIN
+    hidden: true
 
   - dimension: oip_mer_vat_reduction
     type: number
     sql: ${TABLE}.OIP_MER_VAT_REDUCTION
+    hidden: true
 
   - dimension: oip_mp_cod_handling_usd
     type: number
     sql: ${TABLE}.OIP_MP_COD_HANDLING_USD
+    hidden: true
 
   - dimension: oip_mp_cod_shipping_usd
     type: number
     sql: ${TABLE}.OIP_MP_COD_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_mp_cop_handling_usd
     type: number
     sql: ${TABLE}.OIP_MP_COP_HANDLING_USD
+    hidden: true
 
   - dimension: oip_mp_cop_shipping_usd
     type: number
@@ -665,241 +738,302 @@
   - dimension: oip_mp_fee_rate_value_usd
     type: number
     sql: ${TABLE}.OIP_MP_FEE_RATE_VALUE_USD
+    hidden: true
 
   - dimension: oip_mp_financial_fees_usd
     type: number
     sql: ${TABLE}.OIP_MP_FINANCIAL_FEES_USD
+    hidden: true
 
   - dimension: oip_mp_financial_state
     sql: ${TABLE}.OIP_MP_FINANCIAL_STATE
+    hidden: true
 
   - dimension: oip_mp_handling_usd
     type: number
     sql: ${TABLE}.OIP_MP_HANDLING_USD
+    hidden: true
 
   - dimension: oip_mp_list_price_usd
     type: number
     sql: ${TABLE}.OIP_MP_LIST_PRICE_USD
+    hidden: true
 
   - dimension: oip_mp_plp_discount_usd
     type: number
     sql: ${TABLE}.OIP_MP_PLP_DISCOUNT_USD
+    hidden: true
 
   - dimension: oip_mp_price_item_id
     type: number
     sql: ${TABLE}.OIP_MP_PRICE_ITEM_ID
+    hidden: true
 
   - dimension: oip_mp_sale_price_usd
     type: number
     sql: ${TABLE}.OIP_MP_SALE_PRICE_USD
+    hidden: true
 
   - dimension: oip_mp_shipping_usd
     type: number
     sql: ${TABLE}.OIP_MP_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_mp_tariff_usd
     type: number
     sql: ${TABLE}.OIP_MP_TARIFF_USD
+    hidden: true
 
   - dimension: oip_mp_tpl_handling_usd
     type: number
     sql: ${TABLE}.OIP_MP_TPL_HANDLING_USD
+    hidden: true
 
   - dimension: oip_mp_tpl_shipping_usd
     type: number
     sql: ${TABLE}.OIP_MP_TPL_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_mp_vat_usd
     type: number
     sql: ${TABLE}.OIP_MP_VAT_USD
+    hidden: true
 
   - dimension: oip_mpp_cod_handling_usd
     type: number
     sql: ${TABLE}.OIP_MPP_COD_HANDLING_USD
+    hidden: true
 
   - dimension: oip_mpp_cod_shipping_usd
     type: number
     sql: ${TABLE}.OIP_MPP_COD_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_mpp_cop_handling_usd
     type: number
     sql: ${TABLE}.OIP_MPP_COP_HANDLING_USD
+    hidden: true
 
   - dimension: oip_mpp_cop_shipping_usd
     type: number
     sql: ${TABLE}.OIP_MPP_COP_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_mpp_discount_prorated_usd
     type: number
     sql: ${TABLE}.OIP_MPP_DISCOUNT_PRORATED_USD
+    hidden: true
 
   - dimension: oip_mpp_discount_usd
     type: number
     sql: ${TABLE}.OIP_MPP_DISCOUNT_USD
+    hidden: true
 
   - dimension: oip_mpp_dutiable_price_usd
     type: number
     sql: ${TABLE}.OIP_MPP_DUTIABLE_PRICE_USD
+    hidden: true
 
   - dimension: oip_mpp_fee_rate_id
     sql: ${TABLE}.OIP_MPP_FEE_RATE_ID
+    hidden: true
 
   - dimension: oip_mpp_fee_rate_value_usd
     type: number
     sql: ${TABLE}.OIP_MPP_FEE_RATE_VALUE_USD
+    hidden: true
 
   - dimension: oip_mpp_financial_fees_usd
     type: number
     sql: ${TABLE}.OIP_MPP_FINANCIAL_FEES_USD
+    hidden: true
 
   - dimension: oip_mpp_financial_state
     sql: ${TABLE}.OIP_MPP_FINANCIAL_STATE
+    hidden: true
 
   - dimension: oip_mpp_handling_usd
     type: number
     sql: ${TABLE}.OIP_MPP_HANDLING_USD
+    hidden: true
 
   - dimension: oip_mpp_list_price_usd
     type: number
     sql: ${TABLE}.OIP_MPP_LIST_PRICE_USD
+    hidden: true
 
   - dimension: oip_mpp_price_item_id
     type: number
     sql: ${TABLE}.OIP_MPP_PRICE_ITEM_ID
+    hidden: true
 
   - dimension: oip_mpp_sale_price_usd
     type: number
     sql: ${TABLE}.OIP_MPP_SALE_PRICE_USD
+    hidden: true
 
   - dimension: oip_mpp_shipping_usd
     type: number
     sql: ${TABLE}.OIP_MPP_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_mpp_tariff_usd
     type: number
     sql: ${TABLE}.OIP_MPP_TARIFF_USD
+    hidden: true
 
   - dimension: oip_mpp_tpl_handling_usd
     type: number
     sql: ${TABLE}.OIP_MPP_TPL_HANDLING_USD
+    hidden: true
 
   - dimension: oip_mpp_tpl_shipping_usd
     type: number
     sql: ${TABLE}.OIP_MPP_TPL_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_mpp_vat_usd
     type: number
     sql: ${TABLE}.OIP_MPP_VAT_USD
+    hidden: true
 
   - dimension: oip_ms_cod_handling_usd
     type: number
     sql: ${TABLE}.OIP_MS_COD_HANDLING_USD
+    hidden: true
 
   - dimension: oip_ms_cod_shipping_usd
     type: number
     sql: ${TABLE}.OIP_MS_COD_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_ms_cop_handling_usd
     type: number
     sql: ${TABLE}.OIP_MS_COP_HANDLING_USD
+    hidden: true
 
   - dimension: oip_ms_cop_shipping_usd
     type: number
     sql: ${TABLE}.OIP_MS_COP_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_ms_discount_prorated_usd
     type: number
     sql: ${TABLE}.OIP_MS_DISCOUNT_PRORATED_USD
+    hidden: true
 
   - dimension: oip_ms_discount_usd
     type: number
     sql: ${TABLE}.OIP_MS_DISCOUNT_USD
+    hidden: true
 
   - dimension: oip_ms_dutiable_price_usd
     type: number
     sql: ${TABLE}.OIP_MS_DUTIABLE_PRICE_USD
+    hidden: true
 
   - dimension: oip_ms_fee_rate_id
     sql: ${TABLE}.OIP_MS_FEE_RATE_ID
+    hidden: true
 
   - dimension: oip_ms_fee_rate_value_usd
     type: number
     sql: ${TABLE}.OIP_MS_FEE_RATE_VALUE_USD
+    hidden: true
 
   - dimension: oip_ms_financial_fees_usd
     type: number
     sql: ${TABLE}.OIP_MS_FINANCIAL_FEES_USD
+    hidden: true
 
   - dimension: oip_ms_financial_state
     sql: ${TABLE}.OIP_MS_FINANCIAL_STATE
+    hidden: true
 
   - dimension: oip_ms_handling_usd
     type: number
     sql: ${TABLE}.OIP_MS_HANDLING_USD
+    hidden: true
 
   - dimension: oip_ms_list_price_usd
     type: number
     sql: ${TABLE}.OIP_MS_LIST_PRICE_USD
+    hidden: true
 
   - dimension: oip_ms_price_item_id
     type: number
     sql: ${TABLE}.OIP_MS_PRICE_ITEM_ID
+    hidden: true
 
   - dimension: oip_ms_sale_price_usd
     type: number
     sql: ${TABLE}.OIP_MS_SALE_PRICE_USD
+    hidden: true
 
   - dimension: oip_ms_shipping_usd
     type: number
     sql: ${TABLE}.OIP_MS_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_ms_tariff_usd
     type: number
     sql: ${TABLE}.OIP_MS_TARIFF_USD
+    hidden: true
 
   - dimension: oip_ms_tpl_handling_usd
     type: number
     sql: ${TABLE}.OIP_MS_TPL_HANDLING_USD
+    hidden: true
 
   - dimension: oip_ms_tpl_shipping_usd
     type: number
     sql: ${TABLE}.OIP_MS_TPL_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_ms_vat_usd
     type: number
     sql: ${TABLE}.OIP_MS_VAT_USD
+    hidden: true
 
   - dimension: oip_price_item_id
     type: number
     sql: ${TABLE}.OIP_PRICE_ITEM_ID
+    hidden: true
 
   - dimension: oip_sale_price
     type: number
     sql: ${TABLE}.OIP_SALE_PRICE
+    hidden: true
 
   - dimension: oip_sale_price_usd
     type: number
     sql: ${TABLE}.OIP_SALE_PRICE_USD
+    hidden: true
 
   - dimension: oip_shipping
     type: number
     sql: ${TABLE}.OIP_SHIPPING
+    hidden: true
 
   - dimension: oip_shipping_usd
     type: number
     sql: ${TABLE}.OIP_SHIPPING_USD
+    hidden: true
 
   - dimension: oip_tariff
     type: number
     sql: ${TABLE}.OIP_TARIFF
+    hidden: true
 
   - dimension: oip_tariff_usd
     type: number
     sql: ${TABLE}.OIP_TARIFF_USD
+    hidden: true
 
   - dimension: oip_tpl_handling
     type: number
     sql: ${TABLE}.OIP_TPL_HANDLING
+    hidden: true
 
   - dimension: oip_tpl_handling_usd
     type: number
@@ -952,60 +1086,75 @@
   - dimension: oipm_discount_usd
     type: number
     sql: ${TABLE}.OIPM_DISCOUNT_USD
+    hidden: true
 
   - dimension: oipm_dutiable_price_usd
     type: number
     sql: ${TABLE}.OIPM_DUTIABLE_PRICE_USD
+    hidden: true
 
   - dimension: oipm_fee_rate_id_usd
     sql: ${TABLE}.OIPM_FEE_RATE_ID_USD
+    hidden: true
 
   - dimension: oipm_fee_rate_value_usd
     type: number
     sql: ${TABLE}.OIPM_FEE_RATE_VALUE_USD
+    hidden: true
 
   - dimension: oipm_financial_fees_usd
     type: number
     sql: ${TABLE}.OIPM_FINANCIAL_FEES_USD
+    hidden: true
 
   - dimension: oipm_financial_state_usd
     sql: ${TABLE}.OIPM_FINANCIAL_STATE_USD
+    hidden: true
 
   - dimension: oipm_handling_usd
     type: number
     sql: ${TABLE}.OIPM_HANDLING_USD
+    hidden: true
 
   - dimension: oipm_list_price_usd
     type: number
     sql: ${TABLE}.OIPM_LIST_PRICE_USD
+    hidden: true
 
   - dimension: oipm_price_item_id
     type: number
     sql: ${TABLE}.OIPM_PRICE_ITEM_ID
+    hidden: true
 
   - dimension: oipm_sale_price_usd
     type: number
     sql: ${TABLE}.OIPM_SALE_PRICE_USD
+    hidden: true
 
   - dimension: oipm_shipping_usd
     type: number
     sql: ${TABLE}.OIPM_SHIPPING_USD
+    hidden: true
 
   - dimension: oipm_tariff_usd
     type: number
     sql: ${TABLE}.OIPM_TARIFF_USD
+    hidden: true
 
   - dimension: oipm_tpl_handling_usd
     type: number
     sql: ${TABLE}.OIPM_TPL_HANDLING_USD
+    hidden: true
 
   - dimension: oipm_tpl_shipping_usd
     type: number
     sql: ${TABLE}.OIPM_TPL_SHIPPING_USD
+    hidden: true
 
   - dimension: oipm_vat_usd
     type: number
     sql: ${TABLE}.OIPM_VAT_USD
+    hidden: true
 
   - dimension: op_frn
     sql: ${TABLE}.OP_FRN
@@ -1019,10 +1168,12 @@
   - dimension: oq_buy_activity_id
     type: number
     sql: ${TABLE}.OQ_BUY_ACTIVITY_ID
+    hidden: true
 
   - dimension: oq_buy_created_date_key
     type: number
     sql: ${TABLE}.OQ_BUY_CREATED_DATE_KEY
+    hidden: true
 
   - dimension: oq_buy_currency
     sql: ${TABLE}.OQ_BUY_CURRENCY
@@ -1034,14 +1185,17 @@
   - dimension: oq_buy_grand_tot
     type: number
     sql: ${TABLE}.OQ_BUY_GRAND_TOT
+    hidden: true
 
   - dimension: oq_buy_grand_tot_usd
     type: number
     sql: ${TABLE}.OQ_BUY_GRAND_TOT_USD
+    hidden: true
 
   - dimension: oq_buy_gss_quote_id
     type: number
     sql: ${TABLE}.OQ_BUY_GSS_QUOTE_ID
+    hidden: true
 
   - dimension: oq_buy_logistics_quote_id
     sql: ${TABLE}.OQ_BUY_LOGISTICS_QUOTE_ID
@@ -1049,21 +1203,26 @@
   - dimension: oq_buy_order_discount
     type: number
     sql: ${TABLE}.OQ_BUY_ORDER_DISCOUNT
+    hidden: true
 
   - dimension: oq_buy_order_discount_usd
     type: number
     sql: ${TABLE}.OQ_BUY_ORDER_DISCOUNT_USD
+    hidden: true
 
   - dimension: oq_buy_quote_id
     type: number
     sql: ${TABLE}.OQ_BUY_QUOTE_ID
+    hidden: true
 
   - dimension: oq_buy_status
     sql: ${TABLE}.OQ_BUY_STATUS
+    hidden: true
 
   - dimension: oq_buy_tot_cod_handling
     type: number
     sql: ${TABLE}.OQ_BUY_TOT_COD_HANDLING
+    hidden: true
 
   - dimension: oq_buy_tot_cod_handling_usd
     type: number
@@ -1557,78 +1716,97 @@
   - dimension: oq_ms_grand_tot_usd
     type: number
     sql: ${TABLE}.OQ_MS_GRAND_TOT_USD
+    hidden: true
 
   - dimension: oq_ms_order_discount_usd
     type: number
     sql: ${TABLE}.OQ_MS_ORDER_DISCOUNT_USD
+    hidden: true
 
   - dimension: oq_ms_quote_id
     type: number
     sql: ${TABLE}.OQ_MS_QUOTE_ID
+    hidden: true
 
   - dimension: oq_ms_status
     sql: ${TABLE}.OQ_MS_STATUS
+    hidden: true
 
   - dimension: oq_ms_tot_cod_handling_usd
     type: number
     sql: ${TABLE}.OQ_MS_TOT_COD_HANDLING_USD
+    hidden: true
 
   - dimension: oq_ms_tot_cod_shipping_usd
     type: number
     sql: ${TABLE}.OQ_MS_TOT_COD_SHIPPING_USD
+    hidden: true
 
   - dimension: oq_ms_tot_cop_handling_usd
     type: number
     sql: ${TABLE}.OQ_MS_TOT_COP_HANDLING_USD
+    hidden: true
 
   - dimension: oq_ms_tot_cop_shipping_usd
     type: number
     sql: ${TABLE}.OQ_MS_TOT_COP_SHIPPING_USD
+    hidden: true
 
   - dimension: oq_ms_tot_discount_usd
     type: number
     sql: ${TABLE}.OQ_MS_TOT_DISCOUNT_USD
+    hidden: true
 
   - dimension: oq_ms_tot_financial_fees_usd
     type: number
     sql: ${TABLE}.OQ_MS_TOT_FINANCIAL_FEES_USD
+    hidden: true
 
   - dimension: oq_ms_tot_handling_usd
     type: number
     sql: ${TABLE}.OQ_MS_TOT_HANDLING_USD
+    hidden: true
 
   - dimension: oq_ms_tot_product_usd
     type: number
     sql: ${TABLE}.OQ_MS_TOT_PRODUCT_USD
+    hidden: true
 
   - dimension: oq_ms_tot_shipping_usd
     type: number
     sql: ${TABLE}.OQ_MS_TOT_SHIPPING_USD
+    hidden: true
 
   - dimension: oq_ms_tot_tariff_usd
     type: number
     sql: ${TABLE}.OQ_MS_TOT_TARIFF_USD
+    hidden: true
 
   - dimension: oq_ms_tot_tpl_handling_usd
     type: number
     sql: ${TABLE}.OQ_MS_TOT_TPL_HANDLING_USD
+    hidden: true
 
   - dimension: oq_ms_tot_tpl_shipping_usd
     type: number
     sql: ${TABLE}.OQ_MS_TOT_TPL_SHIPPING_USD
+    hidden: true
 
   - dimension: oq_ms_tot_vat_usd
     type: number
     sql: ${TABLE}.OQ_MS_TOT_VAT_USD
+    hidden: true
 
   - dimension: oq_ms_type
     sql: ${TABLE}.OQ_MS_TYPE
+    hidden: true
 
   - dimension: osm_shipping_method_id
     sql: ${TABLE}.OSM_SHIPPING_METHOD_ID
 
   - dimension: pd_product_parent_id
     sql: ${TABLE}.PD_PRODUCT_PARENT_ID
+    hidden: true
 
   - dimension: price_model_type
     sql: ${TABLE}.PRICE_MODEL_TYPE
