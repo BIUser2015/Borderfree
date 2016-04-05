@@ -3,14 +3,13 @@
   fields:
 
   - dimension: cohort_merch_id
-    description: 'the first BF merchant (ID) shopped from in customer lifetime'
     type: number
     sql: ${TABLE}.COHORT_MERCH_ID
     hidden: true
     
   - dimension: merch_name
     label: 'Cohort Merchant'
-    description: 'the first BF merchant shopped from in customer lifetime'
+    description: 'the BF merchant where a customer placed his/her first order'
     type: string
     sql: ${TABLE}.COHORT_MERCH_ID = ${merchant_dim.merch_name} and ${merchant_dim.ignore} = 0 and ${merchant_dim.date_to} = '2199-12-31' 
 
@@ -40,6 +39,7 @@
     sql: ${TABLE}.CUSTOMER_MIDDLE_INITIALS
 
   - dimension: days_since_last_purchase
+    description: 'this metric is based on daily refresh and it cannot be applied in historical analysis'  
     type: number
     sql: ${TABLE}.DAYS_SINCE_LAST_PURCHASE
 
@@ -67,10 +67,12 @@
     hidden: true 
 
   - measure: first_day_accepted_order_count
+    description: 'this metric should always be calculated on customer level as it returns the number of accepted order placed by a customer in his/her first day'
     type: avg
     sql: ${TABLE}.FIRST_DAY_ACCEPTED_ORDER_COUNT
 
   - measure: first_day_number_merchant_shopped
+    description: 'this metric should always be calculated on customer level as it returns the number of distinct merchant shopped by a customer in his/her first day'
     type: avg
     sql: ${TABLE}.FIRST_DAY_NUMBER_MERCHANT_SHOPPED
 
