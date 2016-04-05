@@ -115,5 +115,5 @@
 
   - dimension: L90_yesno
     label: 'Past 3 months'
-    type: yesno
+    type: string
     sql: ${TABLE}.L90_yesno
