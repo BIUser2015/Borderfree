@@ -162,4 +162,3 @@
     sql: ${TABLE}.VAT_TYPE
     hidden: true 
 
-
