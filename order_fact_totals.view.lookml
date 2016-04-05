@@ -799,33 +799,34 @@
     hidden: true
     
   - measure: units
-    label: 'Number of items'
+    label: 'Number of Items'
     description: 'Total number of items in order'
     type: sum
     sql: ${TABLE}.UNITS
     
   - measure: gmv
-    label: 'Gross Merchant Value'
+    ##label: 'Gross Merchant Value'
     description: 'Gross merchant value based on pricing model'
     type: sum
     sql: ${TABLE}.GMV
     value_format: '#,##0.00'
     
   - measure: mv
-    label: 'Merchant Value'
+    ##label: 'Merchant Value'
     description: 'Merchant value based on pricing model'
     type: sum
     sql: ${TABLE}.MV
     value_format: '#,##0.00'
       
   - measure: aov
-    label: 'Average Order Value'
-    description: 'Total order value divided by total amount of orders'
+    ##label: 'Average Order Value'
+    description: 'Average order value - Total order value divided by total amount of orders based on pricing model'
     type: number
     sql: ${mv} / NULLIFZERO(${order})
     value_format: '#,##0.00'
     
   - measure: gmv_usd_converted
+    label: 'Gmv (in $USD)'
     type: sum
     description: 'Currently taking implied assumption' 
     sql: (CASE 
@@ -836,6 +837,7 @@
     value_format: '"$"#,###'    
   
   - measure: mv_usd_converted
+    label: 'MV (in $USD)'
     type: sum
     description: 'Currently taking implied assumption' 
     sql: (CASE 
@@ -846,12 +848,16 @@
     value_format: '"$"#,###'
     
   - measure: aov_usd_converted
+    label: 'Aov (in $USD)'
     type: number
+    description: 'Currently taking implied assumption' 
     sql: ${mv_usd_converted} / NULLIFZERO(${order})
     value_format: '"$"#,##0.00'
     
   - measure: mv_usd_converted_per_customer
+    label: 'MV (in $USD) per customer'
     type: number
+    description: 'Currently taking implied assumption' 
     sql: ${mv_usd_converted} / ${customer}
     value_format: '"$"#,###'
     

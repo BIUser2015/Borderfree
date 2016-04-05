@@ -11,7 +11,7 @@
     sql: ${TABLE}.MARKEDUP_RATE
 
   - dimension: merch_rate_id
-    type: int
+    type: number
     primary_key: true 
     sql: ${TABLE}.MERCH_RATE_ID
 
@@ -24,7 +24,7 @@
     value_format: '#,##0.00'
 
   - dimension: reporting_date
-    type: int
+    type: number
     sql: ${TABLE}.REPORTING_DATE
 
   - dimension: shopper_currency

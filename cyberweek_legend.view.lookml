@@ -23,7 +23,7 @@
     sql: ${TABLE}.ORDERED_DAY
 
   - dimension: sorting_order
-    type: int
+    type: number
     sql: ${TABLE}.SORTING_ORDER
 
   - measure: count

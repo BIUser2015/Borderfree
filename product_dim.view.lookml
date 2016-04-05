@@ -184,7 +184,7 @@
     hidden: true
 
   - dimension: merch_id
-    type: int
+    type: number
     sql: ${TABLE}.MERCH_ID
     hidden: true
 
