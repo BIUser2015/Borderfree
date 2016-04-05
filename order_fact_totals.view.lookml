@@ -855,13 +855,14 @@
     value_format: '"$"#,##0.00'
     
   - measure: mv_usd_converted_per_customer
-    label: 'Mv (in $USD) per customer'
+    label: 'Mv (in $USD) per Customer'
     type: number
     description: 'Currently taking implied assumption' 
     sql: ${mv_usd_converted} / ${customer}
     value_format: '"$"#,###'
     
   - measure: order_per_customer
+    label: 'Order per Customer'
     type: number
     sql: ${order} / ${customer}
     value_format: '#,##0.00'
