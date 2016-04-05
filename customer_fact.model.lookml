@@ -4,10 +4,14 @@
 - include: "*.dashboard.lookml"  # include all dashboards in this project
 
 - explore: order_fact_totals 
+  label: 'Customer Fact'
   always_filter: 
     order_fact_totals.checkout_status: 'GREEN'
   conditionally_filter:                     
     calendar_dim.current_year: 'Yes'
+    unless:
+      - calendar_dim.year_value
+      - calendar_dim.year_month_number
 
   joins:
     - join: customer_fact
