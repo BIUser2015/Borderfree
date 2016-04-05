@@ -7,12 +7,8 @@
   label: 'Customer Fact'
   always_filter: 
     order_fact_totals.checkout_status: 'GREEN'
-  conditionally_filter:                     
-    calendar_dim.current_year: 'Yes'
-    unless:
-      - calendar_dim.year_value
-      - calendar_dim.year_month_number
-
+    calendar_dim.year_value: 2016
+    
   joins:
     - join: customer_fact
       type: inner
