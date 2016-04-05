@@ -275,7 +275,7 @@
     
   - dimension: current_day
     type: yesno
-    sql: day(${TABLE}.date_time_start) = trunc(sysdate)
+    sql: trunc(${TABLE}.date_time_start) = trunc(sysdate)
     
   - dimension: current_month
     type: yesno
