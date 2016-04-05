@@ -3,8 +3,16 @@
   fields:
 
   - dimension: cohort_merch_id
+    description: 'the first BF merchant (ID) shopped from in customer lifetime'
     type: number
     sql: ${TABLE}.COHORT_MERCH_ID
+    hidden: true
+    
+  - dimension: merch_name
+    label: 'Cohort Merchant'
+    description: 'the first BF merchant shopped from in customer lifetime'
+    type: string
+    sql: ${TABLE}.COHORT_MERCH_ID = ${merchant_dim.merch_name} and ${merchant_dim.ignore} = 0 and ${merchant_dim.date_to} = '2199-12-31' 
 
   - dimension: cohort_year_month
     type: number
