@@ -5,8 +5,9 @@
 
 - explore: order_fact_totals 
   always_filter: 
-    order_fact_totals.checkout_status : 'GREEN'
-    calendar_dim.year_value: 2016
+    order_fact_totals.checkout_status: 'GREEN'
+  conditionally_filter:                     
+    calendar_dim.current_year: 'Yes'
 
   joins:
     - join: customer_fact
