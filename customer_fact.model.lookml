@@ -95,7 +95,7 @@
     ##persist_for: 24 hours
     ##indexes: [date_key]
     sql: |
-      select distinct cd.date_key
+      select cd.date_key
       , 'Yes' as L90_yesno
       from dw.calendar_dim cd  
       join (
