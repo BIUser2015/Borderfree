@@ -36,7 +36,7 @@
     - join: calendar_dim
       type: inner
       relationship: many_to_one
-      sql_on: ${order_fact_totals.oh_created_date_key} = ${calendar_dim.date_key} and ${order_fact_totals.ignore} = 0 ##and trunc(${calendar_dim.date_time_start}) < trunc(sysdate) 
+      sql_on: ${order_fact_totals.oh_created_date_key} = ${calendar_dim.date_key} and ${order_fact_totals.ignore} = 0 and ${calendar_dim.current_day} = 'No'
       
     - join: merch_per_customer
       type: inner
