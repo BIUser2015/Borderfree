@@ -837,7 +837,7 @@
     value_format: '"$"#,###'    
   
   - measure: mv_usd_converted
-    label: 'MV (in $USD)'
+    label: 'Mv (in $USD)'
     type: sum
     description: 'Currently taking implied assumption' 
     sql: (CASE 
@@ -855,7 +855,7 @@
     value_format: '"$"#,##0.00'
     
   - measure: mv_usd_converted_per_customer
-    label: 'MV (in $USD) per customer'
+    label: 'Mv (in $USD) per customer'
     type: number
     description: 'Currently taking implied assumption' 
     sql: ${mv_usd_converted} / ${customer}
