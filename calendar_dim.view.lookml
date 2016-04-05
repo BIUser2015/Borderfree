@@ -273,6 +273,10 @@
   - dimension: mmdd
     sql: right(${TABLE}.YYYYMMDD,5) 
     
+  - dimension: current_day
+    type: yesno
+    sql: ${TABLE}.date_time_start = trunc(sysdate)
+    
   - dimension: current_month
     type: yesno
     sql: month(${TABLE}.date_time_start) = month(sysdate)    
@@ -286,7 +290,6 @@
     type: yesno
     sql: year(${TABLE}.date_time_start) = year(sysdate)
     hidden: true 
-
 
   - dimension: previous_year 
     type: yesno
