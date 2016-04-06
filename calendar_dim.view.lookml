@@ -276,6 +276,7 @@
   - dimension: current_day
     type: yesno
     sql: trunc(${TABLE}.date_time_start) = trunc(sysdate)
+    hidden: true
     
   - dimension: current_month
     type: yesno
@@ -335,4 +336,29 @@
     - year_week_name
     - day_of_week_short_name
     - day_of_week_name
+
+    customer_fact_detail:
+    - current_month
+    - date_time_start_date
+    - date_time_start_week
+    - date_time_start_month
+    - day_of_week_number
+    - day_of_month_number
+    - day_of_quarter_number
+    - day_of_week_name
+    - day_of_year_number
+    - is_weekend_flag
+    - month_name
+    - month_value
+    - month_year
+    - quarter_name
+    - quarter_value
+    - week_in_month_number
+    - week_in_year_value
+    - year_month_name
+    - year_month_number
+    - year_name
+    - year_quarter_name
+    - year_value
+    - year_week_name
 

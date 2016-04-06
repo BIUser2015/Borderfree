@@ -29,6 +29,7 @@
       type: inner
       relationship: many_to_one
       sql_on: ${order_fact_totals.oh_created_date_key} = ${calendar_dim.date_key} and ${order_fact_totals.ignore} = 0 and ${calendar_dim.current_day} = 'No'
+      fields: [calendar_dim.customer_fact_detail*]
       
     - join: merch_per_customer
       type: inner
@@ -72,7 +73,8 @@
     hidden: true
     
   - measure: number_merchant_shopped
-    label: 'avg_number_merchant_shopped_by_month'   
+    label: 'Average Number of Merchant Shopped by Month'
+    description: 'this metric is calculated on the fly and not stored in any table; this MUST BE calculated solely by month'
     type: avg
     sql: ${TABLE}.number_merchant_shopped
     value_format: '#,##0.00'
