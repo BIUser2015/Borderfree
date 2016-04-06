@@ -1,4 +1,4 @@
-- view: merch_per_customer
+- view: merchant_per_customer
 
 # # Specify the table name if it's different from the view name:
 #   sql_table_name: my_schema_name.testing_pdt
