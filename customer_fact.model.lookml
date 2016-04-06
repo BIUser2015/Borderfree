@@ -31,12 +31,12 @@
       sql_on: ${order_fact_totals.oh_created_date_key} = ${calendar_dim.date_key} and ${order_fact_totals.ignore} = 0 and ${calendar_dim.current_day} = 'No'
       fields: [calendar_dim.customer_fact_detail*]
       
-    - join: merch_per_customer
+    - join: merchant_per_customer
       type: inner
       relationship: many_to_one
-      sql_on: ${order_fact_totals.customer_key} = ${merch_per_customer.customer_key} and ${calendar_dim.year_month_number} = ${merch_per_customer.year_month_number} and ${order_fact_totals.ignore} = 0
+      sql_on: ${order_fact_totals.customer_key} = ${merchant_per_customer.customer_key} and ${calendar_dim.year_month_number} = ${merchant_per_customer.year_month_number} and ${order_fact_totals.ignore} = 0
 
-- view: merch_per_customer
+- view: merchant_per_customer
   derived_table:
     ##persist_for: 24 hours
     ##indexes: [customer_key]
