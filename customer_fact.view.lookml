@@ -1,4 +1,5 @@
 - view: customer_fact
+  label: 'Customer Level'
   sql_table_name: DEV.CUSTOMER_FACT
   fields:
 
@@ -67,12 +68,12 @@
     hidden: true 
 
   - measure: first_day_accepted_order_count
-    description: 'this metric should always be calculated on customer level as it returns the number of accepted order placed by a customer in his/her first day'
+    description: 'this metric should always be calculated on customer level as it returns the number of accepted order placed by a customer in his/her first shopping day'
     type: avg
     sql: ${TABLE}.FIRST_DAY_ACCEPTED_ORDER_COUNT
 
   - measure: first_day_number_merchant_shopped
-    description: 'this metric should always be calculated on customer level as it returns the number of distinct merchant shopped by a customer in his/her first day'
+    description: 'this metric should always be calculated on customer level as it returns the number of distinct merchant shopped by a customer in his/her first shopping day'
     type: avg
     sql: ${TABLE}.FIRST_DAY_NUMBER_MERCHANT_SHOPPED
 
@@ -95,6 +96,8 @@
     sql: ${TABLE}.HAS_EVER_OPTED_IN_BF_YN
 
   - measure: l365_accepted_order_count
+    label: 'l365 Accepted Order Count'
+    description: 'total number of accepted orders in last 365 days, calculation is refreshed daily'
     type: sum
     sql: ${TABLE}.L365_ACCEPTED_ORDER_COUNT
 
@@ -139,102 +142,142 @@
     hidden: true
 
   - measure: l365_cancelled_order_count
+    label: 'l365 Cancelled Order Count'
+    description: 'total number of cancelled orders in last 365 days, calculation is refreshed daily'
     type: sum
     sql: ${TABLE}.L365_CANCELLED_ORDER_COUNT
 
   - dimension: l365_customer_status
+    label: 'l365 Customer Status'
+    description: 'customer status in last 365 days, calculation is refreshed daily'
     type: string
     sql: ${TABLE}.L365_CUSTOMER_STATUS
 
   - measure: l365_gmv_converted_usd_accepted
+    label: 'l365 Gmv (converted in $USD) accepted'
+    description: 'Gross merchant value in last 365 days converted in USD - currently taking implied assumption' 
     type: sum
     sql: ${TABLE}.L365_GMV_CONVERTED_USD_ACCEPTED
     value_format: '"$"#,###'
 
   - measure: l365_gmv_eur_accepted
+    label: 'l365 Gmv (in €EUR) accepted'
+    description: 'Gross merchant value (merchant pricing CCY in EUR) in last 365 days' 
     type: sum
     sql: ${TABLE}.L365_GMV_EUR_ACCEPTED
     value_format: '"€"#,###'
 
   - measure: l365_gmv_gbp_accepted
+    label: 'l365 Gmv (in £GBP) accepted'
+    description: 'Gross merchant value (merchant pricing CCY in GBP) in last 365 days' 
     type: sum
     sql: ${TABLE}.L365_GMV_GBP_ACCEPTED
     value_format: '"£"#,###'
 
   - measure: l365_gmv_usd_accepted
+    label: 'l365 Gmv (in $USD) accepted'
+    description: 'Gross merchant value (merchant pricing CCY in USD) in last 365 days' 
     type: sum
     sql: ${TABLE}.L365_GMV_USD_ACCEPTED
     value_format: '"$"#,###'
 
   - measure: l365_mv_converted_usd_accepted
+    label: 'l365 Mv (converted in $USD) accepted'
+    description: 'Merchant value in last 365 days converted in USD - currently taking implied assumption' 
     type: sum
     sql: ${TABLE}.L365_MV_CONVERTED_USD_ACCEPTED
     value_format: '"$"#,###'
 
   - measure: l365_mv_eur_accepted
+    label: 'l365 Mv (in €EUR) accepted'
+    description: 'Merchant value (merchant pricing CCY in EUR) in last 365 days' 
     type: sum
     sql: ${TABLE}.L365_MV_EUR_ACCEPTED
     value_format: '"€"#,###'
 
   - measure: l365_mv_gbp_accepted
+    label: 'l365 Mv (in £GBP) accepted'
+    description: 'Merchant value (merchant pricing CCY in GBP) in last 365 days' 
     type: sum
     sql: ${TABLE}.L365_MV_GBP_ACCEPTED
     value_format: '"£"#,###'
 
   - measure: l365_mv_usd_accepted
+    label: 'l365 Mv (in $USD) accepted'
+    description: 'Merchant value (merchant pricing CCY in USD) in last 365 days' 
     type: sum
     sql: ${TABLE}.L365_MV_USD_ACCEPTED
     value_format: '"$"#,###'
 
   - measure: l365_num_item_accepted
-    type: avg
+    label: 'l365 Number of Items accepted'
+    description: 'Total number of items in accepted order in last 365 days'
+    type: sum
     sql: ${TABLE}.L365_NUM_ITEM_ACCEPTED
-    hidden: true
-
+    
   - measure: l365_num_item_accepted_eu_merch
-    type: avg
+    label: 'l365 Number of Items (from EU merchant) accepted'
+    description: 'Total number of items (merchant pricing CCY in EUR) in accepted order in last 365 days'
+    type: sum
     sql: ${TABLE}.L365_NUM_ITEM_ACCEPTED_EU_MERCH
-    hidden: true
 
   - measure: l365_num_item_accepted_uk_merch
-    type: avg
+    label: 'l365 Number of Items (from UK merchant) accepted'
+    description: 'Total number of items (merchant pricing CCY in GBP) in accepted order in last 365 days'
+    type: sum
     sql: ${TABLE}.L365_NUM_ITEM_ACCEPTED_UK_MERCH
-    hidden: true
-
+    
   - measure: l365_num_item_accepted_us_merch
-    type: avg
+    label: 'l365 Number of Items (from US merchant) accepted'
+    description: 'Total number of items (merchant pricing CCY in USD) in accepted order in last 365 days'
+    type: sum
     sql: ${TABLE}.L365_NUM_ITEM_ACCEPTED_US_MERCH
-    hidden: true
-
+    
   - measure: l365_num_order_accepted
+    label: 'l365 Number of Orders accepted'
+    description: 'Total number of accepted orders in last 365 days'
     type: sum
     sql: ${TABLE}.L365_NUM_ORDER_ACCEPTED
 
   - measure: l365_num_order_accepted_eu_merch
+    label: 'l365 Number of Orders (from EU merchant) accepted'
+    description: 'Total number of accepted orders (merchant pricing CCY in EUR) in last 365 days'
     type: sum
     sql: ${TABLE}.L365_NUM_ORDER_ACCEPTED_EU_MERCH
 
   - measure: l365_num_order_accepted_uk_merch
+    label: 'l365 Number of Orders (from UK merchant) accepted'
+    description: 'Total number of accepted orders (merchant pricing CCY in GBP) in last 365 days'
     type: sum
     sql: ${TABLE}.L365_NUM_ORDER_ACCEPTED_UK_MERCH
 
   - measure: l365_num_order_accepted_us_merch
+    label: 'l365 Number of Orders (from US merchant) accepted'
+    description: 'Total number of accepted orders (merchant pricing CCY in USD) in last 365 days'
     type: sum
     sql: ${TABLE}.L365_NUM_ORDER_ACCEPTED_US_MERCH
 
   - measure: l365_number_merchant_shopped
+    label: 'l365 Number of Merchant Shopped'
+    description: 'user of this metric should always apply the l365 Customer Stauts dimension to filter customers who have placed accepted orders in last 365 days before running calculation'
     type: avg
     sql: ${TABLE}.L365_NUMBER_MERCHANT_SHOPPED
 
   - measure: l365_rejected_order_count
+    label: 'l365 Rejected Order Count'
+    description: 'total number of rejected orders in last 365 days, calculation is refreshed daily'
     type: sum
     sql: ${TABLE}.L365_REJECTED_ORDER_COUNT
 
   - dimension: l365_shopped_from_merch_entity
+    label: 'l365 Customers Segmented by Merchant Entity'
+    description: 'customers are segmented by merchant pricing ccy according to the merchants that they shopped from in last 365 days'
     type: string
     sql: ${TABLE}.L365_SHOPPED_FROM_MERCH_ENTITY
 
   - measure: l365_submitted_order_count
+    label: 'l365 Submitted Order Count'
+    description: 'total number of submitted orders in last 365 days, calculation is refreshed daily'
     type: sum
     sql: ${TABLE}.L365_SUBMITTED_ORDER_COUNT
 
@@ -258,10 +301,12 @@
     hidden: true
 
   - measure: last_day_accepted_order_count
+    description: 'this metric should always be calculated on customer level as it returns the number of accepted order placed by a customer in his/her last shopping day'
     type: avg
     sql: ${TABLE}.LAST_DAY_ACCEPTED_ORDER_COUNT
 
   - measure: last_day_number_merchant_shopped
+    description: 'this metric should always be calculated on customer level as it returns the number of distinct merchant shopped by a customer in his/her last shopping day'
     type: avg
     sql: ${TABLE}.LAST_DAY_NUMBER_MERCHANT_SHOPPED
 
@@ -280,142 +325,203 @@
     hidden: true
 
   - measure: lifetime_accepted_order_count
+    label: 'lifetime Accepted Order Count'
+    description: 'total number of accepted orders in lifetime, calculation is refreshed daily'  
     type: sum
     sql: ${TABLE}.LIFETIME_ACCEPTED_ORDER_COUNT
 
   - measure: lifetime_aov_converted_usd_accepted
+    label: 'lifetime Aov (converted in $USD) accepted'
+    description: 'Average order value in lifetime converted in USD - currently taking implied assumption' 
     type: avg
     sql: ${TABLE}.LIFETIME_AOV_CONVERTED_USD_ACCEPTED
     value_format: '"$"#,###'
 
   - measure: lifetime_aov_eur_accepted
+    label: 'lifetime Aov (in €EUR) accepted'
+    description: 'Average order value in lifetime in EUR (merchant pricing CCY)' 
     type: avg
     sql: ${TABLE}.LIFETIME_AOV_EUR_ACCEPTED
     value_format: '"€"#,###'
 
   - measure: lifetime_aov_gbp_accepted
+    label: 'lifetime Aov (in £GBP) accepted'
+    description: 'Average order value in lifetime in GBP (merchant pricing CCY)' 
     type: avg
     sql: ${TABLE}.LIFETIME_AOV_GBP_ACCEPTED
     value_format: '"£"#,###'
 
   - measure: lifetime_aov_usd_accepted
+    label: 'lifetime Aov (in $USD) accepted'
+    description: 'Average order value in lifetime in USD (merchant pricing CCY)' 
     type: avg
     sql: ${TABLE}.LIFETIME_AOV_USD_ACCEPTED
     value_format: '"$"#,###'
 
   - measure: lifetime_aur_converted_usd_accepted
+    label: 'lifetime Aur (converted in $USD) accepted'
+    description: 'Average unit retail in lifetime converted in USD - currently taking implied assumption' 
     type: avg
     sql: ${TABLE}.LIFETIME_AUR_CONVERTED_USD_ACCEPTED
     value_format: '"$"#,###'
 
   - measure: lifetime_aur_eur_accepted
+    label: 'lifetime Aur (in €EUR) accepted'
+    description: 'Average unit retail in lifetime in EUR (merchant pricing CCY)'
     type: avg
     sql: ${TABLE}.LIFETIME_AUR_EUR_ACCEPTED
     value_format: '"€"#,###'
 
   - measure: lifetime_aur_gbp_accepted
+    label: 'lifetime Aur (in £GBP) accepted'
+    description: 'Average unit retail in lifetime in GBP (merchant pricing CCY)'
     type: avg
     sql: ${TABLE}.LIFETIME_AUR_GBP_ACCEPTED
     value_format: '"£"#,###'
 
   - measure: lifetime_aur_usd_accepted
+    label: 'lifetime Aur (in $USD) accepted'
+    description: 'Average unit retail in lifetime in USD (merchant pricing CCY)'
     type: avg
     sql: ${TABLE}.LIFETIME_AUR_USD_ACCEPTED
     value_format: '"$"#,###'
 
   - measure: lifetime_cancelled_order_count
+    label: 'lifetime Cancelled Order Count'
+    description: 'total number of cancelled orders in lifetime, calculation is refreshed daily'  
     type: sum
     sql: ${TABLE}.LIFETIME_CANCELLED_ORDER_COUNT
 
   - dimension: lifetime_customer_status
+    label: 'lifetime Customer Status'
+    description: 'customer status in lifetime, calculation is refreshed daily'
     type: string
     sql: ${TABLE}.LIFETIME_CUSTOMER_STATUS
 
   - measure: lifetime_gmv_converted_usd_accepted
+    label: 'lifetime Gmv (converted in $USD) accepted'
+    description: 'Gross merchant value in lifetime converted in USD - currently taking implied assumption' 
     type: sum
     sql: ${TABLE}.LIFETIME_GMV_CONVERTED_USD_ACCEPTED
     value_format: '"$"#,###'
 
   - measure: lifetime_gmv_eur_accepted
+    label: 'lifetime Gmv (in €EUR) accepted'
+    description: 'Gross merchant value (merchant pricing CCY in EUR) in lifetime' 
     type: sum
     sql: ${TABLE}.LIFETIME_GMV_EUR_ACCEPTED
     value_format: '"€"#,###'
 
   - measure: lifetime_gmv_gbp_accepted
+    label: 'lifetime Gmv (in £GBP) accepted'
+    description: 'Gross merchant value (merchant pricing CCY in GBP) in lifetime' 
     type: sum
     sql: ${TABLE}.LIFETIME_GMV_GBP_ACCEPTED
     value_format: '"£"#,###'
 
   - measure: lifetime_gmv_usd_accepted
+    label: 'lifetime Gmv (in $USD) accepted'
+    description: 'Gross merchant value (merchant pricing CCY in USD) in lifetime' 
     type: sum
     sql: ${TABLE}.LIFETIME_GMV_USD_ACCEPTED
     value_format: '"$"#,###'
 
   - measure: lifetime_mv_converted_usd_accepted
+    label: 'lifetime Mv (converted in $USD) accepted'
+    description: 'Merchant value in lifetime converted in USD - currently taking implied assumption' 
     type: sum
     sql: ${TABLE}.LIFETIME_MV_CONVERTED_USD_ACCEPTED
     value_format: '"$"#,###'
     
   - measure: lifetime_mv_eur_accepted
+    label: 'lifetime Mv (in €EUR) accepted'
+    description: 'Merchant value (merchant pricing CCY in EUR) in lifetime' 
     type: sum
     sql: ${TABLE}.LIFETIME_MV_EUR_ACCEPTED
     value_format: '"€"#,###'
 
   - measure: lifetime_mv_gbp_accepted
+    label: 'lifetime Mv (in £GBP) accepted'
+    description: 'Merchant value (merchant pricing CCY in GBP) in lifetime' 
     type: sum
     sql: ${TABLE}.LIFETIME_MV_GBP_ACCEPTED
     value_format: '"£"#,###'
 
   - measure: lifetime_mv_usd_accepted
+    label: 'lifetime Mv (in $USD) accepted'
+    description: 'Merchant value (merchant pricing CCY in USD) in lifetime' 
     type: sum
     sql: ${TABLE}.LIFETIME_MV_USD_ACCEPTED
     value_format: '"$"#,###'
 
   - measure: lifetime_num_item_accepted
-    type: avg
+    label: 'lifetime Number of Items accepted'
+    description: 'Total number of items in accepted order in lifetime'
+    type: sum
     sql: ${TABLE}.LIFETIME_NUM_ITEM_ACCEPTED
 
   - measure: lifetime_num_item_accepted_eu_merch
-    type: avg
+    label: 'lifetime Number of Items (from EU merchant) accepted'
+    description: 'Total number of items (merchant pricing CCY in EUR) in accepted order in lifetime'
+    type: sum
     sql: ${TABLE}.LIFETIME_NUM_ITEM_ACCEPTED_EU_MERCH
 
   - measure: lifetime_num_item_accepted_uk_merch
-    type: avg
+    label: 'lifetime Number of Items (from UK merchant) accepted'
+    description: 'Total number of items (merchant pricing CCY in GBP) in accepted order in lifetime'
+    type: sum
     sql: ${TABLE}.LIFETIME_NUM_ITEM_ACCEPTED_UK_MERCH
 
   - measure: lifetime_num_item_accepted_us_merch
-    type: avg
+    label: 'lifetime Number of Items (from US merchant) accepted'
+    description: 'Total number of items (merchant pricing CCY in USD) in accepted order in lifetime'
+    type: sum
     sql: ${TABLE}.LIFETIME_NUM_ITEM_ACCEPTED_US_MERCH
 
   - measure: lifetime_num_order_accepted
+    label: 'lifetime Number of Orders accepted'
+    description: 'Total number of accepted orders in lifetime'
     type: sum
     sql: ${TABLE}.LIFETIME_NUM_ORDER_ACCEPTED
 
   - measure: lifetime_num_order_accepted_eu_merch
+    label: 'lifetime Number of Orders (from EU merchant) accepted'
+    description: 'Total number of accepted orders (merchant pricing CCY in EUR) in lifetime'
     type: sum
     sql: ${TABLE}.LIFETIME_NUM_ORDER_ACCEPTED_EU_MERCH
 
   - measure: lifetime_num_order_accepted_uk_merch
+    label: 'lifetime Number of Orders (from UK merchant) accepted'
+    description: 'Total number of accepted orders (merchant pricing CCY in GBP) in lifetime'
     type: sum
     sql: ${TABLE}.LIFETIME_NUM_ORDER_ACCEPTED_UK_MERCH
 
   - measure: lifetime_num_order_accepted_us_merch
+    label: 'lifetime Number of Orders (from US merchant) accepted'
+    description: 'Total number of accepted orders (merchant pricing CCY in USD) in lifetime'
     type: sum
     sql: ${TABLE}.LIFETIME_NUM_ORDER_ACCEPTED_US_MERCH
 
   - measure: lifetime_number_merchant_shopped
+    label: 'lifetime Number of Merchant Shopped'
     type: avg
     sql: ${TABLE}.LIFETIME_NUMBER_MERCHANT_SHOPPED
-
+    
   - measure: lifetime_rejected_order_count
+    label: 'lifetime Rejected Order Count'
+    description: 'total number of rejected orders in lifetime, calculation is refreshed daily'  
     type: sum
     sql: ${TABLE}.LIFETIME_REJECTED_ORDER_COUNT
 
   - dimension: lifetime_shopped_from_merch_entity
+    label: 'lifetime Customers Segmented by Merchant Entity'
+    description: 'customers are segmented by merchant pricing ccy according to the merchants that they shopped from in lifetime'
     type: string
     sql: ${TABLE}.LIFETIME_SHOPPED_FROM_MERCH_ENTITY
 
   - measure: lifetime_submitted_order_count
+    label: 'lifetime Submitted Order Count'
+    description: 'total number of submitted orders in lifetime, calculation is refreshed daily'  
     type: sum
     sql: ${TABLE}.LIFETIME_SUBMITTED_ORDER_COUNT
 
@@ -431,11 +537,14 @@
       CASE WHEN ${TABLE}.first_bf_accepted_date_key != ${order_fact_totals.oh_created_date_key} THEN 'Existing' ELSE 'New' END
             
   - measure: mv_rank_period
+    label: 'Rank by MV (converted in $USD)'
+    description: 'Currently taking implied assumption' 
     type: number
     sql: |
       rank() over(order by ${lifetime_mv_converted_usd_accepted} desc) 
       
   - measure: customer
+    description: 'distinct number of customer'
     type: count
     drill_fields: 
       - customer_key    
