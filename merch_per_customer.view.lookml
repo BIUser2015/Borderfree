@@ -7,7 +7,7 @@
   derived_table:
     ##persist_for: 24 hours
     ##indexes: [customer_key]
-     sql: |
+    sql: |
       SELECT o.customer_key
       , cd.year_month_number
       , count(distinct o.oh_merch_id) as number_merchant_shopped 
