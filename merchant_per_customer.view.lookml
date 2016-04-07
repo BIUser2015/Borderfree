@@ -20,10 +20,16 @@
       and o.accepted_order_yn = 'Y'
       and md.ignore = 0
       and md.date_to = '2199-12-31'
+      and {% condition year_month %} cd.year_month_number {% endcondition %}
       
       GROUP BY o.customer_key, cd.year_month_number
 
   fields:
+  
+  - filter: year_month
+    label: 'Order Created Year Month'
+    type: number
+    suggest_dimension: ${calendar_dim.year_month_number}
   
   - dimension: customer_key
     type: number
