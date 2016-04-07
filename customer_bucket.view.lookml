@@ -68,7 +68,7 @@
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       where oft.ignore = 0
       and oft.accepted_order_yn = 'Y'
-      and {% condition year_month %} -cf.cohort_year_month {% endcondition %}
+      and {% condition cohort_year_month %} cf.cohort_year_month {% endcondition %}
       and {% condition year_month %} cd.year_month_number {% endcondition %}
       group by oft.customer_key, cd.year_month_number   ) sub1 
       join (  select sub1x.customer_key
@@ -82,7 +82,7 @@
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       where oft.ignore = 0
       and oft.accepted_order_yn = 'Y'
-      and {% condition year_month %} -cf.cohort_year_month {% endcondition %}
+      and {% condition cohort_year_month %} cf.cohort_year_month {% endcondition %}
       and {% condition year_month %} cd.year_month_number {% endcondition %}
       group by oft.customer_key   ) sub1x 
       left join agg.order_fact_totals oft on sub1x.customer_key = oft.customer_key  
@@ -122,7 +122,7 @@
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       where oft.ignore = 0
       and oft.accepted_order_yn = 'Y'
-      and {% condition year_month %} -cf.cohort_year_month {% endcondition %}
+      and {% condition cohort_year_month %} cf.cohort_year_month {% endcondition %}
       and {% condition year_month %} cd.year_month_number {% endcondition %}
       group by oft.customer_key, cd.year_month_number   ) sub1 
       join (  select sub1x.customer_key
@@ -136,7 +136,7 @@
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       where oft.ignore = 0
       and oft.accepted_order_yn = 'Y'
-      and {% condition year_month %} -cf.cohort_year_month {% endcondition %}
+      and {% condition cohort_year_month %} cf.cohort_year_month {% endcondition %}
       and {% condition year_month %} cd.year_month_number {% endcondition %}
       group by oft.customer_key   ) sub1x 
       left join agg.order_fact_totals oft on sub1x.customer_key = oft.customer_key  
@@ -220,15 +220,24 @@
     type: number
     suggest_dimension: ${calendar_dim.year_month_number}
     
+  - filter: cohort_year_month
+    label: 'Cohort Year Month Number'
+    description: 'MUST use this filter together with the Order Created Year Month filter and please insert the SAME year month number and set the condition to "is not equal to"; otherwise, the calculation will be wrong'
+    type: number
+    suggest_dimension: ${calendar_dim.year_month_number}  
+    
   - dimension: order_created_month
     type: number
     sql: ${TABLE}.order_created_month
     hidden: true
     
   - dimension: customer_bucket
+    description: 'this must be used together with Customer Count by Bucket'
     type: string
     sql: ${TABLE}.customer_bucket
     
   - dimension: customer_count_by_bucket
+    label: 'Customer Count by Bucket'
+    description: 'this must be used together with Customer Bucket'
     type: number
     sql: ${TABLE}.customer_count_by_bucket

@@ -10,11 +10,6 @@
     customer_bucket.year_month: 201601
     
   joins:
-   - join: customer_fact
-     type: inner
-     relationship: many_to_one 
-     sql_on: ${order_fact_totals.customer_key} = ${customer_fact.customer_key} and ${order_fact_totals.ignore} = 0
-      
    - join: merchant_dim
      type: inner
      relationship: many_to_one
