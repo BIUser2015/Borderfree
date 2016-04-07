@@ -7,7 +7,7 @@
   label: 'Customer Bucket, Monthly Metrics'
   always_filter: 
     order_fact_totals.checkout_status: 'GREEN'
-    calendar_dim.year_month_number: 201601
+    customer_bucket.order_created_month: 201601
     
   joins:
    - join: customer_fact
@@ -31,9 +31,9 @@
      type: inner
      relationship: many_to_one
      sql_on: ${order_fact_totals.oh_created_date_key} = ${calendar_dim.date_key} and ${order_fact_totals.ignore} = 0 and ${calendar_dim.current_day} = 'No'
-     fields: [calendar_dim.customer_bucket_detail*]
+     fields: []
       
-   - join: merchant_per_customer
+   - join: customer_bucket
      type: inner
      relationship: many_to_one
-     sql_on: ${order_fact_totals.customer_key} = ${merchant_per_customer.customer_key} and ${calendar_dim.year_month_number} = ${merchant_per_customer.year_month_number} and ${order_fact_totals.ignore} = 0
+     sql_on: ${calendar_dim.year_month_number} = ${customer_bucket.order_created_month} and ${order_fact_totals.ignore} = 0
