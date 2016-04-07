@@ -8,6 +8,7 @@
   always_filter: 
     order_fact_totals.checkout_status: 'GREEN'
     customer_bucket.year_month: 201601
+    customer_bucket.cohort_year_month: NOT 201601
     
   joins:
    - join: merchant_dim
