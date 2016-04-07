@@ -363,3 +363,8 @@
     - year_value
     - year_week_name
 
+    customer_bucket_detail:
+    - current_month
+    - year_month_name 
+    - year_month_number 
+    - year_value 
