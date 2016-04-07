@@ -28,7 +28,7 @@
   
   - filter: year_month
     label: 'Order Created Year Month'
-    description: 'please use this filter and the query will run much faster'
+    description: 'please use this filter so that the query will run much faster'
     type: number
     suggest_dimension: ${calendar_dim.year_month_number}
   
