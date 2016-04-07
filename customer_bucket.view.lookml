@@ -229,5 +229,5 @@
     sql: ${TABLE}.customer_bucket
     
   - measure: customer_count_by_bucket
-    type: avg
+    type: sum
     sql: ${TABLE}.customer_count_by_bucket
