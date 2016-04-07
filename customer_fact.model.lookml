@@ -6,7 +6,7 @@
 - explore: order_fact_totals 
   label: 'Customer Fact'
   always_filter: 
-    order_fact_totals.checkout_status: 'GREEN'
+    order_fact_totals.accepted_order_yn: 'Y' 
     calendar_dim.year_value: 2016
     
   joins:
