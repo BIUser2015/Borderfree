@@ -223,11 +223,12 @@
   - dimension: order_created_month
     type: number
     sql: ${TABLE}.order_created_month
+    hidden: true
     
   - dimension: customer_bucket
     type: string
     sql: ${TABLE}.customer_bucket
     
-  - measure: customer_count_by_bucket
-    type: sum
+  - dimension: customer_count_by_bucket
+    type: number
     sql: ${TABLE}.customer_count_by_bucket

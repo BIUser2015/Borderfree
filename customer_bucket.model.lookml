@@ -7,7 +7,7 @@
   label: 'Customer Bucket, Monthly Metrics'
   always_filter: 
     order_fact_totals.checkout_status: 'GREEN'
-    customer_bucket.order_created_month: 201601
+    customer_bucket.year_month: 201601
     
   joins:
    - join: customer_fact
