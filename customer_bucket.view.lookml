@@ -238,6 +238,6 @@
     
   - dimension: customer_count_by_bucket
     label: 'Customer Count by Bucket'
-    description: 'this must be used together with Customer Bucket'
+    description: 'this must be used together with Customer Bucket; all counts are based on accepted orders'
     type: number
     sql: ${TABLE}.customer_count_by_bucket
