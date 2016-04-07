@@ -25,6 +25,7 @@
      type: inner
      relationship: many_to_one
      sql_on: ${order_fact_totals.shipping_country_key} = ${country_dim.country_key} and ${order_fact_totals.ignore} = 0
+     fields: [country_name]
       
    - join: calendar_dim
      type: inner
