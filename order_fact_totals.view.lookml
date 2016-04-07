@@ -826,7 +826,7 @@
     value_format: '#,##0.00'
     
   - measure: gmv_usd_converted
-    label: 'Gmv (in $USD)'
+    label: 'Gmv (converted in $USD)'
     type: sum
     description: 'Currently taking implied assumption' 
     sql: (CASE 
@@ -837,7 +837,7 @@
     value_format: '"$"#,###'    
   
   - measure: mv_usd_converted
-    label: 'Mv (in $USD)'
+    label: 'Mv (converted in $USD)'
     type: sum
     description: 'Currently taking implied assumption' 
     sql: (CASE 
@@ -848,14 +848,14 @@
     value_format: '"$"#,###'
     
   - measure: aov_usd_converted
-    label: 'Aov (in $USD)'
+    label: 'Aov (converted in $USD)'
     type: number
     description: 'Currently taking implied assumption' 
     sql: ${mv_usd_converted} / NULLIFZERO(${order})
     value_format: '"$"#,##0.00'
     
   - measure: mv_usd_converted_per_customer
-    label: 'Mv (in $USD) per Customer'
+    label: 'Mv (converted in $USD) per Customer'
     type: number
     description: 'Currently taking implied assumption' 
     sql: ${mv_usd_converted} / ${customer}
