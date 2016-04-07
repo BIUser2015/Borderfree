@@ -335,7 +335,7 @@
     description: 'Average order value converted in USD, lifetime - currently taking implied assumption' 
     type: avg
     sql: ${TABLE}.LIFETIME_AOV_CONVERTED_USD_ACCEPTED
-    value_format: '"$"#,###'
+    value_format: '"$"#,##0.0'
 
   - measure: lifetime_aov_eur_accepted
     label: 'lifetime Aov (in €EUR) accepted'
