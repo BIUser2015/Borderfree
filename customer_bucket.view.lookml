@@ -17,7 +17,7 @@
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
 
       where oft.ignore = 0
-      and oft.accepted_order_yn = 'Y'
+      and oft.oh_checkout_status = 'GREEN'
       and {% condition year_month %} cd.year_month_number {% endcondition %}
 
       group by cd.year_month_number 
@@ -35,7 +35,7 @@
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       
       where oft.ignore = 0
-      and oft.accepted_order_yn = 'Y'
+      and oft.oh_checkout_status = 'GREEN'
       and {% condition year_month %} cf.cohort_year_month {% endcondition %}
       and {% condition year_month %} cd.year_month_number {% endcondition %}
       
@@ -67,7 +67,7 @@
       join dw.calendar_dim cd on oft.oh_created_date_key = cd.date_key
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       where oft.ignore = 0
-      and oft.accepted_order_yn = 'Y'
+      and oft.oh_checkout_status = 'GREEN'
       and {% condition cohort_year_month %} cf.cohort_year_month {% endcondition %}
       and {% condition year_month %} cd.year_month_number {% endcondition %}
       group by oft.customer_key, cd.year_month_number   ) sub1 
@@ -81,13 +81,13 @@
       join dw.calendar_dim cd on oft.oh_created_date_key = cd.date_key
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       where oft.ignore = 0
-      and oft.accepted_order_yn = 'Y'
+      and oft.oh_checkout_status = 'GREEN'
       and {% condition cohort_year_month %} cf.cohort_year_month {% endcondition %}
       and {% condition year_month %} cd.year_month_number {% endcondition %}
       group by oft.customer_key   ) sub1x 
       left join agg.order_fact_totals oft on sub1x.customer_key = oft.customer_key  
       where oft.ignore = 0 
-      and oft.accepted_order_yn = 'Y' 
+      and oft.oh_checkout_status = 'GREEN' 
       and oft.oh_created_date_key < sub1x.first_order_M_date_key 
       group by sub1x.customer_key   ) sub2 on sub1.customer_key = sub2.customer_key 
       ) SUB 
@@ -121,7 +121,7 @@
       join dw.calendar_dim cd on oft.oh_created_date_key = cd.date_key
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       where oft.ignore = 0
-      and oft.accepted_order_yn = 'Y'
+      and oft.oh_checkout_status = 'GREEN'
       and {% condition cohort_year_month %} cf.cohort_year_month {% endcondition %}
       and {% condition year_month %} cd.year_month_number {% endcondition %}
       group by oft.customer_key, cd.year_month_number   ) sub1 
@@ -135,13 +135,13 @@
       join dw.calendar_dim cd on oft.oh_created_date_key = cd.date_key
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       where oft.ignore = 0
-      and oft.accepted_order_yn = 'Y'
+      and oft.oh_checkout_status = 'GREEN'
       and {% condition cohort_year_month %} cf.cohort_year_month {% endcondition %}
       and {% condition year_month %} cd.year_month_number {% endcondition %}
       group by oft.customer_key   ) sub1x 
       left join agg.order_fact_totals oft on sub1x.customer_key = oft.customer_key  
       where oft.ignore = 0 
-      and oft.accepted_order_yn = 'Y' 
+      and oft.oh_checkout_status = 'GREEN' 
       and oft.oh_created_date_key < sub1x.first_order_M_date_key 
       group by sub1x.customer_key   ) sub2 on sub1.customer_key = sub2.customer_key 
       ) SUB 
@@ -170,7 +170,7 @@
       join dw.calendar_dim cd on oft.oh_created_date_key = cd.date_key
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       where oft.ignore = 0
-      and oft.accepted_order_yn = 'Y'
+      and oft.oh_checkout_status = 'GREEN'
       and cd.year_month_number = (
       select distinct cd.year_month_number 
       from dw.calendar_dim cd 
@@ -183,7 +183,7 @@
       join dw.calendar_dim cd on oft.oh_created_date_key = cd.date_key
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       where oft.ignore = 0
-      and oft.accepted_order_yn = 'Y'
+      and oft.oh_checkout_status = 'GREEN'
       and {% condition year_month %} cd.year_month_number {% endcondition %}  ) sub2 on sub1.customer_key = sub2.customer_key 
       ) lp    
       where lp.lapsed_yn = 'Y'
@@ -238,6 +238,6 @@
     
   - dimension: customer_count_by_bucket
     label: 'Customer Count by Bucket'
-    description: 'this must be used together with Customer Bucket; all counts are based on accepted orders'
+    description: 'this must be used together with Customer Bucket; all counts are based on GREEN checkout status'
     type: number
     sql: ${TABLE}.customer_count_by_bucket
