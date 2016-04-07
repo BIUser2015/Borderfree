@@ -339,6 +339,7 @@
 
     customer_fact_detail:
     - current_month
+    - date_key
     - date_time_start_date
     - date_time_start_week
     - date_time_start_month
