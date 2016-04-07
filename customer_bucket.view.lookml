@@ -68,7 +68,7 @@
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       where oft.ignore = 0
       and oft.accepted_order_yn = 'Y'
-      and {% condition year_month %} <> cf.cohort_year_month {% endcondition %}
+      and {% condition year_month %} -cf.cohort_year_month {% endcondition %}
       and {% condition year_month %} cd.year_month_number {% endcondition %}
       group by oft.customer_key, cd.year_month_number   ) sub1 
       join (  select sub1x.customer_key
@@ -82,7 +82,7 @@
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       where oft.ignore = 0
       and oft.accepted_order_yn = 'Y'
-      and {% condition year_month %} <> cf.cohort_year_month {% endcondition %}
+      and {% condition year_month %} -cf.cohort_year_month {% endcondition %}
       and {% condition year_month %} cd.year_month_number {% endcondition %}
       group by oft.customer_key   ) sub1x 
       left join agg.order_fact_totals oft on sub1x.customer_key = oft.customer_key  
@@ -122,7 +122,7 @@
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       where oft.ignore = 0
       and oft.accepted_order_yn = 'Y'
-      and {% condition year_month %} <> cf.cohort_year_month {% endcondition %}
+      and {% condition year_month %} -cf.cohort_year_month {% endcondition %}
       and {% condition year_month %} cd.year_month_number {% endcondition %}
       group by oft.customer_key, cd.year_month_number   ) sub1 
       join (  select sub1x.customer_key
@@ -136,7 +136,7 @@
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       where oft.ignore = 0
       and oft.accepted_order_yn = 'Y'
-      and {% condition year_month %} <> cf.cohort_year_month {% endcondition %}
+      and {% condition year_month %} -cf.cohort_year_month {% endcondition %}
       and {% condition year_month %} cd.year_month_number {% endcondition %}
       group by oft.customer_key   ) sub1x 
       left join agg.order_fact_totals oft on sub1x.customer_key = oft.customer_key  
