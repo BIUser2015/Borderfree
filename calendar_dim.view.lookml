@@ -367,4 +367,3 @@
     - current_month
     - year_month_name 
     - year_month_number 
-    - year_value 
