@@ -863,7 +863,7 @@
     
   - measure: order_per_customer
     label: 'Order per Customer'
-    type: avg
+    type: number
     sql: ${order} / ${customer}
     value_format: '#,##0.00'
   
