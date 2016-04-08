@@ -543,7 +543,11 @@
     type: number
     sql: |
       rank() over(order by ${lifetime_mv_converted_usd_accepted} desc) 
-      
+  
+  - dimension: last_shipping_country
+    type: string
+    sql: ${TABLE}.last_shipping_country_key = ${country_dim.country_key}
+        
   - measure: customer_count
     description: 'distinct number of customer'
     type: count
@@ -554,6 +558,7 @@
       - customer_email
       - has_ever_opted_in_bf_yn
       - cohort_year_month
+      - last_shipping_country
       - lifetime_customer_status 
       - days_since_last_purchase
       - mv_rank_period
