@@ -8,11 +8,12 @@
     sql: ${TABLE}.COHORT_MERCH_ID
     hidden: true
     
-  - dimension: merch_name
-    label: 'Cohort Merchant'
-    description: 'the first BF merchant where a customer placed his/her order'
-    type: string
-    sql: ${TABLE}.COHORT_MERCH_ID = ${merchant_dim.merch_name} and ${merchant_dim.ignore} = 0 and ${merchant_dim.date_to} = '2199-12-31' 
+  ## below dimension is not working and it is still in testing phrase  
+  ##- dimension: merch_name
+    ##label: 'Cohort Merchant'
+    ##description: 'the first BF merchant where a customer placed his/her order'
+    ##type: string
+    ##sql: ${TABLE}.COHORT_MERCH_ID = ${merchant_dim.merch_name} and ${merchant_dim.ignore} = 0 and ${merchant_dim.date_to} = '2199-12-31' 
 
   - dimension: cohort_year_month
     type: number
@@ -554,7 +555,6 @@
       - customer_email
       - has_ever_opted_in_bf_yn
       - cohort_year_month
-      - merch_name
       - lifetime_customer_status 
       - days_since_last_purchase
       - mv_rank_period
