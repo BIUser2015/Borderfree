@@ -546,7 +546,8 @@
   
   - dimension: last_shipping_country
     type: string
-    sql: ${TABLE}.last_shipping_country_key = ${country_dim.country_key}
+    sql: |
+      ${country_dim.country_name} on ${TABLE}.last_shipping_country_key = ${country_dim.country_key}
         
   - measure: customer_count
     description: 'distinct number of customer'
