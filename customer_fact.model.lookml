@@ -36,3 +36,15 @@
       relationship: many_to_one
       sql_on: ${order_fact_totals.customer_key} = ${merchant_per_customer.customer_key} and ${calendar_dim.year_month_number} = ${merchant_per_customer.year_month_number} and ${merchant_dim.ignore} = 0 and ${merchant_dim.date_to} = '2199-12-31' and ${order_fact_totals.ignore} = 0
 
+
+
+##- connection: verticaprod
+
+##- include: "*.view.lookml"       # include all views in this project
+##- include: "*.dashboard.lookml"  # include all dashboards in this project
+
+##- explore: customer_bucket 
+  ##label: 'Customer Bucket, Monthly Metrics'
+  ##always_filter: 
+    ##customer_bucket.year_month: 201601
+    ##customer_bucket.cohort_year_month: <> 201601
