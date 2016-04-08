@@ -5,12 +5,10 @@
 
 - explore: order_fact_totals 
   label: 'Customer Fact'
-  conditionally_filter:                     
+  always_filter:                     
     order_fact_totals.accepted_order_yn: 'Y' 
-    calendar_dim.year_value: 2016
-    unless:                                 
-      - calendar_dim.year_month_number 
-      
+    ##calendar_dim.year_value: 2016
+    
   joins:
     - join: customer_fact
       type: inner
