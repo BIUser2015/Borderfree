@@ -532,6 +532,7 @@
     hidden: true
 
   - dimension: new_vs_existing_daily  
+    description: 'this dimension is only for daily calculation'
     type: string
     sql: |
       CASE WHEN ${TABLE}.first_bf_accepted_date_key != ${order_fact_totals.oh_created_date_key} THEN 'Existing' ELSE 'New' END
