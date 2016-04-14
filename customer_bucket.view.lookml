@@ -18,7 +18,7 @@
 
       where oft.ignore = 0
       and oft.accepted_order_yn = 'Y'
-      and {% condition year_month %} cd.year_month_number {% endcondition %}
+      and cast({% parameter year_month %} as int) = cd.year_month_number
 
       group by cd.year_month_number 
 
@@ -36,8 +36,8 @@
       
       where oft.ignore = 0
       and oft.accepted_order_yn = 'Y'
-      and {% condition year_month %} cf.cohort_year_month {% endcondition %}
-      and {% condition year_month %} cd.year_month_number {% endcondition %}
+      and cast({% parameter year_month %} as int) = cf.cohort_year_month
+      and cast({% parameter year_month %} as int) = cd.year_month_number
       
       group by cd.year_month_number 
       
@@ -68,8 +68,8 @@
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       where oft.ignore = 0
       and oft.accepted_order_yn = 'Y'
-      and {% condition cohort_year_month %} cf.cohort_year_month {% endcondition %}
-      and {% condition year_month %} cd.year_month_number {% endcondition %}
+      and cast({% parameter year_month %} as int) <> cf.cohort_year_month
+      and cast({% parameter year_month %} as int) = cd.year_month_number
       group by oft.customer_key, cd.year_month_number   ) sub1 
       join (  select sub1x.customer_key
       , max(oft.oh_created_date_key) as prior_order_date_key    
@@ -82,8 +82,8 @@
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       where oft.ignore = 0
       and oft.accepted_order_yn = 'Y'
-      and {% condition cohort_year_month %} cf.cohort_year_month {% endcondition %}
-      and {% condition year_month %} cd.year_month_number {% endcondition %}
+      and cast({% parameter year_month %} as int) <> cf.cohort_year_month
+      and cast({% parameter year_month %} as int) = cd.year_month_number
       group by oft.customer_key   ) sub1x 
       left join agg.order_fact_totals oft on sub1x.customer_key = oft.customer_key  
       where oft.ignore = 0 
@@ -122,8 +122,8 @@
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       where oft.ignore = 0
       and oft.accepted_order_yn = 'Y'
-      and {% condition cohort_year_month %} cf.cohort_year_month {% endcondition %}
-      and {% condition year_month %} cd.year_month_number {% endcondition %}
+      and cast({% parameter year_month %} as int) <> cf.cohort_year_month
+      and cast({% parameter year_month %} as int) = cd.year_month_number
       group by oft.customer_key, cd.year_month_number   ) sub1 
       join (  select sub1x.customer_key
       , max(oft.oh_created_date_key) as prior_order_date_key    
@@ -136,8 +136,8 @@
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       where oft.ignore = 0
       and oft.accepted_order_yn = 'Y'
-      and {% condition cohort_year_month %} cf.cohort_year_month {% endcondition %}
-      and {% condition year_month %} cd.year_month_number {% endcondition %}
+      and cast({% parameter year_month %} as int) <> cf.cohort_year_month
+      and cast({% parameter year_month %} as int) = cd.year_month_number
       group by oft.customer_key   ) sub1x 
       left join agg.order_fact_totals oft on sub1x.customer_key = oft.customer_key  
       where oft.ignore = 0 
@@ -176,7 +176,7 @@
       from dw.calendar_dim cd 
       join (  select distinct cd.month_start_date 
       from dw.calendar_dim cd 
-      where {% condition year_month %} cd.year_month_number {% endcondition %}  ) a on cd.month_start_date = (  trunc(add_months(a.month_start_date, -12), 'MM')  ) )   ) sub1 
+      where cast({% parameter year_month %} as int) = cd.year_month_number  ) a on cd.month_start_date = (  trunc(add_months(a.month_start_date, -12), 'MM')  ) )   ) sub1 
             
       left join ( select distinct oft.customer_key 
       from agg.order_fact_totals oft
@@ -184,7 +184,8 @@
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       where oft.ignore = 0
       and oft.accepted_order_yn = 'Y'
-      and {% condition year_month %} cd.year_month_number {% endcondition %}  ) sub2 on sub1.customer_key = sub2.customer_key 
+      ##and {% condition year_month %} cd.year_month_number {% endcondition %}  
+      and cast({% parameter year_month %} as int) = cd.year_month_number  ) sub2 on sub1.customer_key = sub2.customer_key 
       ) lp    
       where lp.lapsed_yn = 'Y'
 
@@ -204,7 +205,7 @@
       join (
       select distinct cd.year_month_number as year_month_number
       from dw.calendar_dim cd
-      where {% condition year_month %} cd.year_month_number {% endcondition %}
+      where cast({% parameter year_month %} as int) = cd.year_month_number
       ) x on y.year_month_number = x.year_month_number
       ) z
       ) z1
@@ -217,14 +218,15 @@
   - filter: year_month
     label: 'Order Created Year Month'
     description: 'MUST use this filter and please insert ONLY ONE year month number, e.g., 201601 at a time; otherwise, the calculation will be wrong'
-    type: number
+    ##type: number
+    type: string ## beta testing on {% parameter year_month %} <> the type must be string
     suggest_dimension: ${calendar_dim.year_month_number}
     
-  - filter: cohort_year_month
-    label: 'Cohort Year Month Number'
-    description: 'MUST use this filter together with the Order Created Year Month filter and please insert the SAME year month number and set the condition to "is not equal to"; otherwise, the calculation will be wrong'
-    type: number
-    suggest_dimension: ${calendar_dim.year_month_number}  
+  ##- filter: cohort_year_month
+    ##label: 'Cohort Year Month Number'
+    ##description: 'MUST use this filter together with the Order Created Year Month filter and please insert the SAME year month number and set the condition to "is not equal to"; otherwise, the calculation will be wrong'
+    ##type: number
+    ##suggest_dimension: ${calendar_dim.year_month_number}  
     
   - dimension: order_created_month
     type: number
