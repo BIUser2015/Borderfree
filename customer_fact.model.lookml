@@ -7,7 +7,7 @@
   label: 'Customer Fact'
   always_filter:                     
     order_fact_totals.accepted_order_yn: 'Y' 
-    ##calendar_dim.year_value: 2016
+    calendar_dim.year_value: 2016
     
   joins:
     - join: customer_fact
