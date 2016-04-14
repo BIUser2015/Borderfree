@@ -184,7 +184,6 @@
       join dw.merchant_dim md on oft.oh_merch_id = md.merch_id and md.ignore = 0 and md.date_to = '2199-12-31' 
       where oft.ignore = 0
       and oft.accepted_order_yn = 'Y'
-      ##and {% condition year_month %} cd.year_month_number {% endcondition %}  
       and cast({% parameter year_month %} as int) = cd.year_month_number  ) sub2 on sub1.customer_key = sub2.customer_key 
       ) lp    
       where lp.lapsed_yn = 'Y'
