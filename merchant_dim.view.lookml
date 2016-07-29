@@ -162,3 +162,6 @@
     sql: ${TABLE}.VAT_TYPE
     hidden: true 
 
+  - dimension: consumer_account_enabled
+    sql: nvl(${TABLE}.CONSUMER_ACCOUNT_ENABLED,'N')
+    

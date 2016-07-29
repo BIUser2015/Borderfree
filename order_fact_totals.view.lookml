@@ -922,3 +922,11 @@
     type: sum
     sql: ${TABLE}.OQ_LP_TOT_HANDLING_USD_TOTAL
     value_format: '#,##0.00'
+    
+  - dimension: user_account_yn
+    type: string
+    sql: ${TABLE}.USER_ACCOUNT_ID_YN
+    
+  - dimension: user_account_id
+    type: string
+    sql: ${TABLE}.USER_ACCOUNT_ID
