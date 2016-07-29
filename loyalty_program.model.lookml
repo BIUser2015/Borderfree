@@ -15,7 +15,7 @@
 - explore: user_accounts
   joins:
     - join: order_fact_totals
-      type: full_outer
+      type: left_outer
       relationship: one_to_many
       sql_on: ${user_accounts.user_accountid} = ${order_fact_totals.user_account_id}  
   
