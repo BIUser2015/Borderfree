@@ -22,4 +22,9 @@
     - join: merchant_dim
       type: full_outer
       relationship: many_to_one
-      sql_on: ${order_fact_totals.oh_merch_id} = ${merchant_dim.merch_id}   
+      sql_on: ${order_fact_totals.oh_merch_id} = ${merchant_dim.merch_id} and ${merchant_dim.ignore} = 0
+      
+    - join: calendar_dim
+      type: left_outer
+      relationship: many_to_one 
+      sql_on: ${calendar_dim.date_key} = ${order_fact_totals.oh_created_date_key}
