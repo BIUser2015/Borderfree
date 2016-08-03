@@ -22,7 +22,7 @@
     - join: merchant_dim
       type: full_outer
       relationship: many_to_one
-      sql_on: ${order_fact_totals.oh_merch_id} = ${merchant_dim.merch_id} and ${merchant_dim.ignore} = 0
+      sql_on: ${order_fact_totals.oh_merch_id} = ${merchant_dim.merch_id}  and ${merchant_dim.ignore} = 0 and ${merchant_dim.date_to} = '2199-12-31'
       
     - join: calendar_dim
       type: left_outer
@@ -30,6 +30,6 @@
       sql_on: ${calendar_dim.date_key} = ${order_fact_totals.oh_created_date_key}
       
     - join: country_dim
-      type: inner
+      type: left_outer
       relationship: many_to_one
-      sql_on: ${order_fact_totals.shipping_country_key} = ${country_dim.country_key} and ${merchant_dim.ignore} = 0 and ${merchant_dim.date_to} = '2199-12-31' and ${order_fact_totals.ignore} = 0
+      sql_on: ${user_accounts.account_country} = ${country_dim.country_code}
