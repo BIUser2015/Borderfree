@@ -15,7 +15,7 @@
       sql_on: ${ab_test_results.experiment_id} = ${ab_metadata.experiment_id}
       
     - join: order_fact_totals
-      type: left_outer
+      type: inner
       relationship: one_to_one
       sql_on: ${ab_test_results.order_id} = ${order_fact_totals.oh_order_id} and ${order_fact_totals.ignore} = 0
       
