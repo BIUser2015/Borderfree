@@ -148,7 +148,6 @@
 
   - dimension: obp_shipping_locale
     sql: ${TABLE}.OBP_SHIPPING_LOCALE
-    hidden: true
 
   - dimension: oh_checkout_status
     sql: ${TABLE}.OH_CHECKOUT_STATUS
