@@ -61,6 +61,14 @@
     type: number
     sql: ${TABLE}.TEST_FLAG
 
+  - dimension: language
+    type: string
+    sql: ${TABLE}.LANGUAGE
+    
+  - dimension: CATEGORIES
+    type: string
+    sql: ${TABLE}.CATEGORIES
+    
   - measure: count
     type: count
     drill_fields: detail*
