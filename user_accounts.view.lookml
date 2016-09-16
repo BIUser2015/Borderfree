@@ -65,9 +65,32 @@
     type: string
     sql: ${TABLE}.LANGUAGE
     
-  - dimension: CATEGORIES
+  - dimension: categories_list
     type: string
     sql: ${TABLE}.CATEGORIES
+  
+  - dimension: category
+    sql:
+      CASE
+        WHEN ${TABLE}.CATEGORIES LIKE '%Men''s Big & Tall% THEN 'Men''s Big & Tall'
+        WHEN ${TABLE}.CATEGORIES LIKE '%Women's Shoes% THEN 'Women''s Shoes'
+        WHEN ${TABLE}.CATEGORIES LIKE '%Activewear% THEN 'Activewear'
+        WHEN ${TABLE}.CATEGORIES LIKE '%Luggage & Travel Accessories% THEN 'Luggage & Travel Accessories'
+        WHEN ${TABLE}.CATEGORIES LIKE '%Women''s Apparel% THEN 'Women''s Apparel'
+        WHEN ${TABLE}.CATEGORIES LIKE '%Women''s Plus-size Clothing% THEN 'Women''s Plus-size Clothing'
+        WHEN ${TABLE}.CATEGORIES LIKE '%Maternity% THEN 'Maternity'
+        WHEN ${TABLE}.CATEGORIES LIKE '%Men''s Apparel & Shoes% THEN 'Men''s Apparel & Shoes'
+        WHEN ${TABLE}.CATEGORIES LIKE '%Baby & Kids% THEN 'Baby & Kids'
+        WHEN ${TABLE}.CATEGORIES LIKE '%Home% THEN 'Home'
+        WHEN ${TABLE}.CATEGORIES LIKE '%Intimates% THEN 'Intimates'
+        WHEN ${TABLE}.CATEGORIES LIKE '%Sports & Hobbies% THEN 'Sports & Hobbies'
+        WHEN ${TABLE}.CATEGORIES LIKE '%Teens% THEN 'Teens'
+        WHEN ${TABLE}.CATEGORIES LIKE '%Bridal% THEN 'Bridal'
+        WHEN ${TABLE}.CATEGORIES LIKE '%Handbags% THEN 'Handbags'
+        WHEN ${TABLE}.CATEGORIES LIKE '%Health & Beauty% THEN 'Health & Beauty'
+        WHEN ${TABLE}.CATEGORIES LIKE '%Jewelry & Accessories% THEN 'Jewelry & Accessories'
+        WHEN ${TABLE}.CATEGORIES LIKE '%Gifts & Holiday% THEN 'Gifts & Holiday'
+      END
     
   - measure: count
     type: count
