@@ -73,7 +73,7 @@
     sql:
       CASE
         WHEN ${TABLE}.CATEGORIES LIKE '%Men''s Big & Tall%' THEN 'Men''s Big & Tall'
-        WHEN ${TABLE}.CATEGORIES LIKE '%Women's Shoes%' THEN 'Women''s Shoes'
+        WHEN ${TABLE}.CATEGORIES LIKE '%Women''s Shoes%' THEN 'Women''s Shoes'
         WHEN ${TABLE}.CATEGORIES LIKE '%Activewear%' THEN 'Activewear'
         WHEN ${TABLE}.CATEGORIES LIKE '%Luggage & Travel Accessories%' THEN 'Luggage & Travel Accessories'
         WHEN ${TABLE}.CATEGORIES LIKE '%Women''s Apparel%' THEN 'Women''s Apparel'
