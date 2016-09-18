@@ -33,3 +33,8 @@
       type: left_outer
       relationship: many_to_one
       sql_on: ${user_accounts.account_country} = ${country_dim.country_code}
+      
+    - join: user_categories
+      type: left_outer
+      relationship: many_to_one
+      sql_on: ${user_accounts.user_accountid} = ${user_categories.user_accountid}  
