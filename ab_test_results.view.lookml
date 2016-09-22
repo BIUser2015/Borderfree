@@ -46,7 +46,7 @@
     sql: ${TABLE}.DEVICE_FORM_FACTOR
     
   - dimension: parcel_protection_enabled
-    label: 'Device Type'
+    label: 'Parcel Protection Enabled'
     type: yesno
     sql: ${TABLE}.PARCEL_PROTECTION_ENABLED = 1
 
