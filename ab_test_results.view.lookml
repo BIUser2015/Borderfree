@@ -29,7 +29,27 @@
     label: 'Test Variation'
     type: string
     sql: ${TABLE}.VARIATION
+
+  - dimension: is_mobile
+    label: 'Is Mobile'
+    type: yesno
+    sql: ${TABLE}.IS_MOBILE = 1
+
+  - dimension: device_name
+    label: 'Device Name'
+    type: string
+    sql: ${TABLE}.DEVICE_NAME
     
+  - dimension: device_form_factor
+    label: 'Device Type'
+    type: string
+    sql: ${TABLE}.DEVICE_FORM_FACTOR
+    
+  - dimension: parcel_protection_enabled
+    label: 'Device Type'
+    type: yesno
+    sql: ${TABLE}.PARCEL_PROTECTION_ENABLED = 1
+
   - measure: count_rows
     label: 'Count of Records'
     type: count 
