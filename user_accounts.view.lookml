@@ -68,6 +68,10 @@
   - dimension: categories_list
     type: string
     sql: ${TABLE}.CATEGORIES
+    
+  - dimension: gender
+    type: string
+    sql: ${TABLE}.GENDER
   
   # --- dimension: category
   # --  sql:
