@@ -53,9 +53,9 @@
     type: string
     sql: ${TABLE}."SOURCE"
 
-  - dimension: subscription_type
-    type: string
-    sql: ${TABLE}.SUBSCRIPTION_TYPE
+  # ---- dimension: subscription_type
+  # ---  type: string
+  # ---  sql: ${TABLE}.SUBSCRIPTION_TYPE
 
   - dimension: test_flag
     type: number

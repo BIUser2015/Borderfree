@@ -38,3 +38,8 @@
       type: left_outer
       relationship: many_to_one
       sql_on: ${user_accounts.user_accountid} = ${user_categories.user_accountid}  
+
+    - join: user_accounts_subs
+      type: left_outer
+      relationship: many_to_one
+      sql_on: ${user_accounts.user_accountid} = ${user_accounts_subs.user_accountid}  
