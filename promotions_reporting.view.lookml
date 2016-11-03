@@ -1,4 +1,4 @@
-- view: promotions_reporting
+- view: promotions
   sql_table_name: AGG.PROMOTIONS_REPORTING
   fields:
 
