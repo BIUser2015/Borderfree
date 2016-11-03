@@ -1,5 +1,6 @@
-- view: promotions
+- view: promotions_reporting
   sql_table_name: AGG.PROMOTIONS_REPORTING
+  
   fields:
 
   - dimension: coupon_type

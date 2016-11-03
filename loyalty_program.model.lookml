@@ -44,4 +44,8 @@
       relationship: many_to_one
       sql_on: ${user_accounts.user_accountid} = ${user_accounts_subs.user_accountid}  
       
- 
+    - join: promotions_reporting
+      type: left_outer
+      relationship: many_to_one
+      sql_on: ${order_fact_totals.oh_order_id} = ${promotions_reporting.order_id}
+              and (${promotions_reporting.vat_promotion_name} like '%Pass%' or ${promotions_reporting.product_promotion_name} like '%Pass%' or ${promotions_reporting.tariff_promotion_name} like '%Pass%' or ${promotions_reporting.sh_promotion_name} like '%Pass%' )
