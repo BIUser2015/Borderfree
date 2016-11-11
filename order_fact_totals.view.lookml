@@ -838,19 +838,21 @@
     type: sum
     description: 'Currently taking implied assumption' 
     sql: (CASE 
-        WHEN ${merchant_dim.merch_pricing_ccy} = 'GBP' THEN 1.4333 * mv
-        WHEN ${merchant_dim.merch_pricing_ccy} = 'EUR' THEN 1.0987 * mv
-        ELSE 1 * mv
+        WHEN ${merchant_dim.merch_pricing_ccy} = 'GBP' THEN 1.22777 * gmv
+        WHEN ${merchant_dim.merch_pricing_ccy} = 'EUR' THEN 1.09881 * gmv
+        WHEN ${merchant_dim.merch_pricing_ccy} = 'AUD' THEN 0.763357 * gmv
+        ELSE 1 * gmv
         END)    
-    value_format: '"$"#,###'   
+    value_format: '"$"#,###' 
   
   - measure: mv_usd_converted
     label: 'Mv (converted in $USD)'
     type: sum
     description: 'Currently taking implied assumption' 
     sql: (CASE 
-        WHEN ${merchant_dim.merch_pricing_ccy} = 'GBP' THEN 1.4333 * mv
-        WHEN ${merchant_dim.merch_pricing_ccy} = 'EUR' THEN 1.0987 * mv
+        WHEN ${merchant_dim.merch_pricing_ccy} = 'GBP' THEN 1.22777 * mv
+        WHEN ${merchant_dim.merch_pricing_ccy} = 'EUR' THEN 1.09881 * mv
+        WHEN ${merchant_dim.merch_pricing_ccy} = 'AUD' THEN 0.763357 * mv
         ELSE 1 * mv
         END)    
     value_format: '"$"#,###'

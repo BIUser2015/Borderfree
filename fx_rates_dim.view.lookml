@@ -27,12 +27,3 @@
     type: avg
     sql: ${TABLE}.RATE
     value_format: '#,##0.000000'
-
-  - dimension_group: rate
-    label: 'calendar date'
-    type: time
-    timeframes: [date, week, month]
-    convert_tz: false
-    sql: ${TABLE}.RATE_DATE
-    hidden: true
-
