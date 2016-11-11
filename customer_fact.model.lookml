@@ -35,7 +35,11 @@
       type: inner
       relationship: many_to_one
       sql_on: ${order_fact_totals.customer_key} = ${merchant_per_customer.customer_key} and ${calendar_dim.year_month_number} = ${merchant_per_customer.year_month_number} and ${merchant_dim.ignore} = 0 and ${merchant_dim.date_to} = '2199-12-31' and ${order_fact_totals.ignore} = 0
-
+      
+    - join: fx_rates_dim
+      type: inner
+      relationship: many_to_one
+      sql_on: ${order_fact_totals.merch_rate_key} = ${fx_rates_dim.fx_rate_key} and ${fx_rates_dim.base_ccy} = 'USD' and ${fx_rates_dim.conversion_type} = 'MERCHANT'
 
 
 - connection: verticaprod
