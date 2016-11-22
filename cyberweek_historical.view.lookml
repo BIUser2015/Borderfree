@@ -19,13 +19,13 @@
     type: yesno
     ##sql: case when extract(DAY from ${TABLE}.order_date_full) = extract(DAY from sysdate) then ${TABLE}.COMPARISON_DAY end 
     sql: (CASE 
-        WHEN EXTRACT (DAY FROM sysdate) = 25  THEN 1
-        WHEN EXTRACT (DAY FROM sysdate) = 26  THEN 2 
-        WHEN EXTRACT (DAY FROM sysdate) = 27  THEN 3 
-        WHEN EXTRACT (DAY FROM sysdate) = 28  THEN 4 
-        WHEN EXTRACT (DAY FROM sysdate) = 29  THEN 5 
-        WHEN EXTRACT (DAY FROM sysdate) = 30  THEN 6 
-        WHEN EXTRACT (DAY FROM sysdate) = 1  THEN 7 ELSE 0
+        WHEN EXTRACT (DAY FROM sysdate) = 23  THEN 1
+        WHEN EXTRACT (DAY FROM sysdate) = 24  THEN 2 
+        WHEN EXTRACT (DAY FROM sysdate) = 25  THEN 3 
+        WHEN EXTRACT (DAY FROM sysdate) = 26  THEN 4 
+        WHEN EXTRACT (DAY FROM sysdate) = 27  THEN 5 
+        WHEN EXTRACT (DAY FROM sysdate) = 28  THEN 6 
+        WHEN EXTRACT (DAY FROM sysdate) = 29  THEN 7 ELSE 0
         END ) = ${TABLE}.COMPARISON_DAY 
     
 
