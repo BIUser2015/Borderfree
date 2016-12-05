@@ -214,7 +214,10 @@
   - dimension: oh_ddu
     label: 'Duty Type'
     type: string
-    sql: ${TABLE}.OH_DDU
+    sql: (CASE 
+        WHEN ${TABLE}.OH_DDU = 'Y' THEN 'DDU' 
+        ELSE 'DDP'
+        END)  
 
   - dimension: oh_fiscal_created_date_key
     type: number
@@ -225,6 +228,7 @@
     label: 'Merchant ID'
     type: number
     sql: ${TABLE}.OH_MERCH_ID
+    hidden: true
 
   - dimension: oh_merch_order_id
     label: 'Merchant Order ID'
@@ -237,6 +241,10 @@
     primary_key: true
     sql: ${TABLE}.OH_ORDER_ID
 
+  - dimension: merch_rate_key
+    type: number
+    sql: ${TABLE}.MERCH_RATE_KEY
+    hidden: true
 
   - dimension: oq_buy_currency_key
     type: number
@@ -830,19 +838,21 @@
     type: sum
     description: 'Currently taking implied assumption' 
     sql: (CASE 
-        WHEN ${merchant_dim.merch_pricing_ccy} = 'GBP' THEN 1.4333 * gmv
-        WHEN ${merchant_dim.merch_pricing_ccy} = 'EUR' THEN 1.0987 * gmv
+        WHEN ${merchant_dim.merch_pricing_ccy} = 'GBP' THEN 1.22777 * gmv
+        WHEN ${merchant_dim.merch_pricing_ccy} = 'EUR' THEN 1.09881 * gmv
+        WHEN ${merchant_dim.merch_pricing_ccy} = 'AUD' THEN 0.763357 * gmv
         ELSE 1 * gmv
-        END) 
-    value_format: '"$"#,###'    
+        END)    
+    value_format: '"$"#,###' 
   
   - measure: mv_usd_converted
     label: 'Mv (converted in $USD)'
     type: sum
     description: 'Currently taking implied assumption' 
     sql: (CASE 
-        WHEN ${merchant_dim.merch_pricing_ccy} = 'GBP' THEN 1.4333 * mv
-        WHEN ${merchant_dim.merch_pricing_ccy} = 'EUR' THEN 1.0987 * mv
+        WHEN ${merchant_dim.merch_pricing_ccy} = 'GBP' THEN 1.22777 * mv
+        WHEN ${merchant_dim.merch_pricing_ccy} = 'EUR' THEN 1.09881 * mv
+        WHEN ${merchant_dim.merch_pricing_ccy} = 'AUD' THEN 0.763357 * mv
         ELSE 1 * mv
         END)    
     value_format: '"$"#,###'
