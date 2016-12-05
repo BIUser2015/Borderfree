@@ -102,7 +102,7 @@
   - measure: count_of_items_previous_year
     type: count
     filter: 
-     current_year: YES    
+     previous_year: YES    
     drill_fields: [product_name, financial_entity_name, merch_name]    
 
   - measure: total_mv
