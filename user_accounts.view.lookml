@@ -51,8 +51,17 @@
 
   - dimension: source
     type: string
-    sql: ${TABLE}."SOURCE"
-
+    sql: 
+    #--${TABLE}."SOURCE"
+       case when source like '%borderfree%' then 'BORDERFREE'
+       when source like '%iad%' then 'TEST'
+       else source END
+      CASE
+        WHEN ${TABLE}."SOURCE" LIKE '%borderfree%' THEN 'BORDERFREE'
+        WHEN ${TABLE}."SOURCE" LIKE '%iad%' THEN 'TEST'
+        WHEN ${TABLE}."SOURCE" LIKE 'file%' THEN 'TEST'
+        ELSE ${TABLE}."SOURCE"
+      END
   # ---- dimension: subscription_type
   # ---  type: string
   # ---  sql: ${TABLE}.SUBSCRIPTION_TYPE
@@ -72,7 +81,9 @@
   - dimension: gender
     type: string
     sql: ${TABLE}.GENDER
-  
+    
+
+    
   # --- dimension: category
   # --  sql:
   # --    CASE
