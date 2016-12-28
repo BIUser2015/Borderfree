@@ -14,7 +14,7 @@
   - dimension_group: account_created
     type: time
     timeframes: [time, date, week, month]
-    sql: ${TABLE}.ACCOUNT_CREATED_DATE
+    sql: ${TABLE}.ACCOUNT_CREATED_DATE::date
 
   - dimension: active_flag
     type: number
