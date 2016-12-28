@@ -9,7 +9,17 @@
 
   - dimension: subs_name
     type: string
-    sql: ${TABLE}.SUBS_NAME
+    sql: 
+    #--${TABLE}.SUBS_NAME
+      CASE
+        WHEN ${TABLE}.SUBS_NAME = 'LOYALTY' THEN 'BF_LOYALTY'
+        WHEN ${TABLE}.SUBS_NAME = 'bfLoyalty' THEN 'BF_LOYALTY'
+        ELSE ${TABLE}.SUBS_NAME
+      END
+      
+  - dimension: bfloyalty_account
+    type: yesno
+    sql:  ${user_accounts_subs.subs_name} = 'BF_LOYALTY'
 
   - dimension_group: subs_start
     type: time
