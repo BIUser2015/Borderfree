@@ -27,7 +27,10 @@
     type: string
     sql: ${country_dim.country_code} where ${country_dim.country_key} = ${TABLE}.BILLING_COUNTRY_KEY
     
-    
+  - dimension: shipping_country
+    type: string
+    sql: ${country_dim.country_code} where ${country_dim.country_key} = ${TABLE}.SHIPPING_COUNTRY_KEY
+
   - dimension: cancelled_order_yn
     label: 'Cancelled Order Yes / No'
     type: string
@@ -785,7 +788,7 @@
   - dimension: shipping_country_key
     type: number
     sql: ${TABLE}.SHIPPING_COUNTRY_KEY
-    #--hidden: true
+    hidden: true
 
   - dimension: started_order_yn
     label: 'Started Order Yes / No'
