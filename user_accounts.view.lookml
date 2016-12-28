@@ -53,9 +53,6 @@
     type: string
     sql: 
     #--${TABLE}."SOURCE"
-       case when source like '%borderfree%' then 'BORDERFREE'
-       when source like '%iad%' then 'TEST'
-       else source END
       CASE
         WHEN ${TABLE}."SOURCE" LIKE '%borderfree%' THEN 'BORDERFREE'
         WHEN ${TABLE}."SOURCE" LIKE '%iad%' THEN 'TEST'
