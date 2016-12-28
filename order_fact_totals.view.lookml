@@ -21,7 +21,7 @@
   - dimension: billing_country_key
     type: number
     sql: ${TABLE}.BILLING_COUNTRY_KEY
-    hidden: true
+    #--hidden: true
 
   - dimension: cancelled_order_yn
     label: 'Cancelled Order Yes / No'
@@ -780,7 +780,7 @@
   - dimension: shipping_country_key
     type: number
     sql: ${TABLE}.SHIPPING_COUNTRY_KEY
-    hidden: true
+    #--hidden: true
 
   - dimension: started_order_yn
     label: 'Started Order Yes / No'
