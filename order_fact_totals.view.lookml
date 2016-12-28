@@ -26,11 +26,13 @@
   - dimension: billing_country
     type: string
     sql: ${country_dim.country_code} where ${country_dim.country_key} = ${TABLE}.BILLING_COUNTRY_KEY
+    hidden: true
     
   - dimension: shipping_country
     type: string
     sql: ${country_dim.country_code} where ${country_dim.country_key} = ${TABLE}.SHIPPING_COUNTRY_KEY
-
+    hidden: true
+    
   - dimension: cancelled_order_yn
     label: 'Cancelled Order Yes / No'
     type: string
