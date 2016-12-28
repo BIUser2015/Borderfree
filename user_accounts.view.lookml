@@ -49,6 +49,11 @@
     type: number
     sql: ${TABLE}.SMS_OPTIN
 
+  - dimension: full_url_source
+    type: string
+    sql: ${TABLE}."SOURCE"
+    
+    
   - dimension: source
     type: string
     sql: 
